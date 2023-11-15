@@ -1,15 +1,21 @@
 import Image from 'next/image'
-import TypedText from '@/components/typed-text'
 
 const Hero = () => {
   return (
 
-    <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-start">          
-      <div className="flex flex-col justify-center rounded-lg overflow-hidden m-5">
-        <Image src="/hero.png" alt="Photo of woman in supermarket with concerned face" width={350} height={350} />
-      </div>
-      <div className="flex flex-col justify-center font-mono w-76 sm:w-96 pl-2 sm:pl-6 md:pl-12 pt-2 sm:pt-6">
-        <TypedText />
+    <div className="flex flex-col sm:flex-row sm:justify-between items-start">
+      <div className="w-full sm:w-1/2 flex flex-col items-center sm:justify-start sm:items-start p-10">
+        <h1 className='text-4xl'>
+          Getting cash back is as easy as pie
+        </h1>
+        <p className='mt-4'>
+          Stop wasting time and money — PayPal Honey helps you find coupon codes on 30,000+ sites.
+        </p>
+      </div>        
+      <div className="w-full sm:w-1/2 flex flex-col items-center">
+        <div className="rounded-lg overflow-hidden m-1">
+          <Image src="/hero.png" alt="Photo of woman in supermarket with concerned face" width={350} height={350} />
+        </div>
       </div>
     </div>
 
