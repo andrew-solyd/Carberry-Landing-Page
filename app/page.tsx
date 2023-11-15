@@ -8,7 +8,7 @@ export default function Home() {
       <div className="mt-5">
         <Header/>
       </div>
-      <div className="mt-5 px-10">
+      <div className="mt-2 sm:mt-5 px-10">
         <Hero/>
       </div>
     </main>
