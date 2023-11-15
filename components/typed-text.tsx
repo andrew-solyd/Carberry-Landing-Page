@@ -2,7 +2,7 @@
 
 import TypeIt from "typeit-react"
 
-export default () => {
+const TypedText = () => {
   return (
 
     <div style={{ fontSize: '18pt', lineHeight: '26pt' }}>
@@ -20,4 +20,8 @@ export default () => {
 
   )
 }
+
+TypedText.displayName = 'TypedText'
+
+export default TypedText
 

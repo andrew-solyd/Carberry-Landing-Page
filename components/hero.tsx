@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import TypedText from '@/components/typed-text'
 
-export default () => {
+const Hero = () => {
   return (
 
     <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-start">          
@@ -15,4 +15,7 @@ export default () => {
 
   )
 }
-  
+
+Hero.displayName = 'Hero'
+
+export default Hero

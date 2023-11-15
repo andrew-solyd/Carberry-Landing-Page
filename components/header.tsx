@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-export default () => {
+const Header = () => {
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="w-1/2">
@@ -16,3 +16,7 @@ export default () => {
     
   )
 }
+
+Header.displayName = 'Header'
+
+export default Header
