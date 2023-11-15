@@ -4,7 +4,7 @@ const Hero = () => {
   return (
 
     <div className="flex flex-col sm:flex-row sm:justify-between items-start">
-      <div className="w-full sm:w-1/2 flex flex-col items-center sm:justify-start sm:items-start p-10">
+      <div className="w-full w-80 sm:w-80 flex flex-col items-center sm:justify-start sm:items-start py-5 px-2 sm:p-10">
         <h1 className='text-4xl'>
           Getting cash back is as easy as pie
         </h1>
