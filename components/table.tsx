@@ -40,27 +40,27 @@ const CartTable: React.FC<CartTableProps> = ({ tableType }) => {
   }, 0)
 
   return (
-    <div className="table-responsive mt-5 text-sm w-[500px] mx-auto">
+    <div className="table-responsive mt-2 text-sm w-[420px] mx-auto">
       <table className="table-auto w-full text-left whitespace-no-wrap">
         <thead>
           <tr>
-            <th className="px-4 py-2 w-[325px] mx-auto">Item</th>
-            <th className="px-4 py-2">Quantity</th>
-            <th className="px-4 py-2">Cost</th>
+            <th className="px-1 py-2 w-[290px] mx-auto">Item</th>
+            <th className="px-1 py-2 text-right">Quantity</th>
+            <th className="px-1 py-2 text-right">Cost</th>
           </tr>
         </thead>
         <tbody>
           {itemsToDisplay.map((item, index) => (
             <tr key={index} className="border-b border-dotted">
-              <td className="px-4 py-1">{item.item}</td>
-              <td className="px-4 py-1">{item.quantity}</td>
-              <td className="px-4 py-1">{item.cost}</td>
+              <td className="px-1 py-1">{item.item}</td>
+              <td className="px-1 py-1 text-right">{item.quantity}</td>
+              <td className="px-1 py-1 text-right">{item.cost}</td>
             </tr>
           ))}
-          <tr className="border-t-2 border-double border-[rgb(0,0,23)]">
-            <td className="px-4 py-1"></td>
-            <td className="px-4 py-1 font-bold">Total</td>
-            <td className="px-4 py-1 font-bold">${totalCost.toFixed(2)}</td>
+          <tr className="border-t-2 border-[rgb(0,0,23)]">
+            <td className="px-1 py-2"></td>
+            <td className="px-1 py-2 font-bold text-right">Total</td>
+            <td className="px-1 py-2 font-bold text-right">${totalCost.toFixed(2)}</td>
           </tr>
         </tbody>
       </table>
