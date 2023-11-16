@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from 'react'
+import CartTable from '@/components/table'
 
 const Compare = () => {
 
@@ -22,6 +23,7 @@ const Compare = () => {
           41% saved with Cartberry
         </button>
       </div>
+      <CartTable tableType={activeTab}/>
     </div>
     
   )

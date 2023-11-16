@@ -12,8 +12,10 @@ export default function Home() {
       <div className="flex flex-col items-center mt-2 sm:mt-10 px-10 w-full">
         <Hero/>
       </div>
-      <div className="mt-10 w-full">
+      <div className="mt-10 pt-10 w-full">
         <Compare/>
+      </div>
+      <div className="mt-10 w-full mb-10">        
       </div>
     </main>
   )
