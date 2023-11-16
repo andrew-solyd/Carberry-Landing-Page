@@ -4,9 +4,9 @@ const Hero = () => {
   return (
 
     <div className="flex flex-col sm:flex-row sm:justify-between items-start">
-      <div className="w-full w-80 sm:w-80 flex flex-col items-center sm:justify-start sm:items-start py-5 px-2 sm:p-10">
+      <div className="w-full w-80 sm:w-80 flex flex-col items-center sm:justify-start sm:items-start py-5 px-2 sm:p-5">
         <h1 className='text-4xl'>
-          Getting cash back is as easy as pie
+          Feeding a family shouldn't be this expensive
         </h1>
         <p className='mt-4'>
           Stop wasting time and money — PayPal Honey helps you find coupon codes on 30,000+ sites.
