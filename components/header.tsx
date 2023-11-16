@@ -1,9 +1,9 @@
-
+import Image from 'next/image'
 
 const Header = () => {
   return (
     <div className="mx-5 flex flex-col items-start">
-      Cartberry
+      <Image src="/logo.svg" alt="Logo" width={100} height={50} />
     </div>
     
   )
