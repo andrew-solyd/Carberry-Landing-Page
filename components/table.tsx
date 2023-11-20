@@ -20,7 +20,7 @@ const CartTable: React.FC<CartTableProps> = ({ tableType }) => {
   ]
 
   const cartberryShopItems = [
-    { item: '365 Organic Lowfat Milk', quantity: '1/2 gal', cost: '$3.85' },
+    { item: '365 Organic Lowfat Milk', quantity: '1/2 gal', cost: '$4.99' },
     { item: 'Organic Valley, Pasture Raised Eggs', quantity: '18 ct', cost: '$6.74' },
     { item: '365 Organic Sprouted Bread', quantity: '22 oz', cost: '$4.79' },
     { item: 'Organic Whole Chicken', quantity: '3 lbs', cost: '$13.47' },
@@ -57,7 +57,7 @@ const CartTable: React.FC<CartTableProps> = ({ tableType }) => {
               <td className="px-1 py-1 text-right">{item.cost}</td>
             </tr>
           ))}
-          <tr className="border-t-2 border-[rgb(0,0,23)]">
+          <tr className="border-t border-[rgb(0,0,23)]">
             <td className="px-1 py-2"></td>
             <td className="px-1 py-2 font-bold text-right">Total</td>
             <td className="px-1 py-2 font-bold text-right">${totalCost.toFixed(2)}</td>
