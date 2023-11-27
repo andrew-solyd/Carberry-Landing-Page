@@ -25,7 +25,7 @@ const CartTable: React.FC<CartTableProps> = ({ tableType }) => {
   console.log(tableType)
 
   return (
-    <div className="mt-2 w-[303px] flex flex-col bg-white border border-[rgb(0,0,23)] rounded-lg py-2 px-2">
+    <div className="w-[303px] flex flex-col bg-white border border-[rgb(0,0,23)] rounded-lg py-2 px-2">
       <ProductCard 
         image={regularShopItems[0].image} 
         item={regularShopItems[0].item} 
