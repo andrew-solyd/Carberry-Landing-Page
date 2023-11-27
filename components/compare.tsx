@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react'
-import CartTable from '@/components/table'
+import CartTable from '@/components/Table_v2'
 
 const Compare = () => {
 
@@ -9,18 +9,21 @@ const Compare = () => {
 
   return (
     <div className="mx-5 flex flex-col items-center">
-      <div className="flex text-xs border border-[rgb(0,0,23)] rounded-lg py-2 px-3 space-x-1 w-[420px] mx-auto items-center justify-center">
+      <h1 className="text-3xl m-4 text-center">
+        {"Same nutrition, same quality, 20% less cost."}
+      </h1>
+      <div className="w-auto flex text-sm border border-[rgb(0,0,23)] rounded-lg py-2 px-2 space-x-1 items-center justify-center my-3 bg-white">
         <button 
           onClick={() => setActiveTab('regular')}
-          className={`w-[185px] mx-2 py-2 px-4 rounded ${activeTab === 'regular' ? 'bg-[rgb(0,0,23)] text-[rgb(235,245,255)]' : 'bg-[rgb(235,245,255)] text-[rgb(0,0,23)]'}`}
+          className={`w-[132px] mx-2 py-2 px-3 rounded ${activeTab === 'regular' ? 'bg-[rgb(0,0,23)] text-[rgb(235,245,255)]' : 'bg-white text-[rgb(0,0,23)]'}`}
         >
-          Your regular cart
+          Regular shop
         </button>
         <button 
           onClick={() => setActiveTab('cartberry')}
-          className={`w-[185px] mx-2 py-2 px-4 rounded ${activeTab === 'cartberry' ? 'bg-[rgb(0,0,23)] text-[rgb(235,245,255)]' : 'bg-[rgb(235,245,255)] text-[rgb(0,0,23)]'}`}
+          className={`w-[132px] mx-2 py-2 px-3 rounded ${activeTab === 'cartberry' ? 'bg-[rgb(0,0,23)] text-[rgb(235,245,255)]' : 'bg-white text-[rgb(0,0,23)]'}`}
         >
-          40% saved with Cartberry
+          Cartberry shop
         </button>
       </div>
       <CartTable tableType={activeTab}/>

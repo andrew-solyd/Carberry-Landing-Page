@@ -1,7 +1,7 @@
 
-import Header from '@/components/header'
-import Hero from '@/components/hero'
-import Compare from '@/components/compare'
+import Header from '@/components/Header'
+import Hero from '@/components/Hero'
+import Compare from '@/components/Compare'
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
       <div className="flex flex-col items-center mt-2 sm:mt-10 px-10 w-full">
         <Hero/>
       </div>
-      <div className="mt-10 pt-10 w-full">
+      <div className="mb-10 w-full">
         <Compare/>
       </div>
       <div className="mt-10 w-full mb-10">        
