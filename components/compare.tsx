@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react'
-import CartTable from '@/components/Table_v2'
+import CartTable from '@/components/table-v2'
 
 const Compare = () => {
 

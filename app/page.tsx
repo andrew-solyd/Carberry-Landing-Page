@@ -1,7 +1,7 @@
 
-import Header from '@/components/Header'
-import Hero from '@/components/Hero'
-import Compare from '@/components/Compare'
+import Header from '@/components/header'
+import Hero from '@/components/hero'
+import Compare from '@/components/compare'
 
 export default function Home() {
   return (
