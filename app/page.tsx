@@ -2,6 +2,7 @@
 import Header from '@/components/header'
 import Hero from '@/components/hero'
 import Compare from '@/components/compare'
+import PromptBar from '@/components/prompt-bar'
 
 export default function Home() {
   return (
@@ -15,7 +16,10 @@ export default function Home() {
       <div className="mb-10 w-full">
         <Compare/>
       </div>
-      <div className="mt-10 w-full mb-10">        
+      <div className="mb-10 w-full">
+        <PromptBar/>
+      </div>
+      <div className="mt-10 w-full mb-10">
       </div>
     </main>
   )
