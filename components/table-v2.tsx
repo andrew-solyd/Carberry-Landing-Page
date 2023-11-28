@@ -25,7 +25,7 @@ const CartTable: React.FC<CartTableProps> = ({ tableType }) => {
   console.log(tableType)
 
   return (
-    <div className="w-[302px] h-[fit-content] max-h-[calc(4*70px)] flex flex-col bg-white border border-[rgb(0,0,23)] rounded-lg py-2 px-2 overflow-y-auto">
+    <div className="w-[300px] h-[fit-content] max-h-[calc(4*70px)] flex flex-col bg-white border border-[rgb(0,0,23)] rounded-lg py-2 px-2 overflow-y-auto">
       {regularShopItems.map((item, index) => (
         <ProductCard 
           key={index}
