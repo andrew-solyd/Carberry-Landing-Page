@@ -16,8 +16,8 @@ const PromptBar = () => {
   const buttonLabels = ['Just the basics', 'Vegetarian meal plan', '$50 week', 'Kid dinner ideas'];
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} className="flex items-center p-2 bg-[rgb(0,0,23)] text-white rounded-lg text-xs mx-6 shadow-lg">
+    <div className="flex flex-col justify-center items-center">
+      <form onSubmit={handleSubmit} className="flex p-2 bg-[rgb(0,0,23)] text-white rounded-lg text-xs mx-6 shadow-lg w-full max-w-[320px] sm:max-w-[520px]">
         <input
           type="text"
           placeholder="A taco tuesday for five"
@@ -29,7 +29,7 @@ const PromptBar = () => {
           <FiCornerDownLeft size={14} />
         </button>
       </form>
-      <div className="flex justify-center items-center flex-wrap pt-2">
+      <div className="flex justify-center items-center flex-wrap pt-2 w-full max-w-[320px] sm:max-w-[530px]">
         {buttonLabels.map(label => (
           <button 
             key={label}
