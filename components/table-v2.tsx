@@ -44,16 +44,18 @@ const CartTable: React.FC<CartTableProps> = ({ tableType }) => {
     <div>
       <div className="w-[300px] h-[fit-content] max-h-[calc(4*70px)] flex flex-col bg-white border border-[rgb(0,0,23)] rounded-lg py-2 px-2 overflow-y-auto">
         {itemsToDisplay.map((item, index) => (
-          <ProductCard 
-            key={index}
-            image={item.image} 
-            item={item.item} 
-            quantity={item.quantity} 
-            cost={item.cost} 
-          />
-        ))}      
+          <React.Fragment key={index}>
+            <ProductCard 
+              image={item.image} 
+              item={item.item} 
+              quantity={item.quantity} 
+              cost={item.cost} 
+            />
+            {index < itemsToDisplay.length - 1 && <div className="border-t border-dashed border-gray-400 mx-6 my-1"></div>}
+        </React.Fragment>
+        ))}
       </div>
-      <div className="text-md font-medium text-right m-2">
+      <div className="text-md font-medium text-right my-2 mx-3">
         Total ${totalCost.toFixed(2)}
       </div>
     </div>
