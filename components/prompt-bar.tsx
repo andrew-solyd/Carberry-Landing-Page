@@ -17,6 +17,9 @@ const PromptBar = () => {
 
   return (
     <div className="flex flex-col justify-center items-center">
+      <h1 className="text-xl text-center mb-3">
+          Try it out
+      </h1>
       <form onSubmit={handleSubmit} className="flex p-2 bg-[rgb(0,0,23)] text-white rounded-lg text-xs mx-6 shadow-lg w-full max-w-[320px] sm:max-w-[520px]">
         <input
           type="text"

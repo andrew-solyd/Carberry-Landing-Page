@@ -3,6 +3,8 @@ import Header from '@/components/header'
 import Hero from '@/components/hero'
 import Compare from '@/components/compare'
 import PromptBar from '@/components/prompt-bar'
+import ValueProp from '@/components/value-prop'
+import Footer from '@/components/footer'
 
 export default function Home() {
   return (
@@ -13,13 +15,17 @@ export default function Home() {
       <div className="flex flex-col items-center mt-1 sm:mt-10 px-10 w-full">
         <Hero/>
       </div>
+      <div className="mt-10 mb-10 w-full">
+        <div className="sm:mt-10"><Compare/></div>
+      </div>
       <div className="mb-10 w-full">
-        <Compare/>
+        <div className="sm:mt-5 sm:mb-5"><ValueProp/></div>
       </div>
       <div className="mb-10 w-full">
         <PromptBar/>
       </div>
-      <div className="mt-10 w-full mb-10">
+      <div className="mt-10 w-full">
+        <Footer/>
       </div>
     </main>
   )

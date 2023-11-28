@@ -13,10 +13,10 @@ const Hero = () => {
     <div className="flex flex-col sm:flex-row">
       <div className="w-full flex justify-end sm:min-w-[475px] sm:max-w-[700px]">
         <div className="flex flex-col justify-center pb-5 px-2 sm:py-0 sm:pr-10 sm:w-4/5">
-          <h1 className="text-4xl">
-            {"Feeding a family shouldn't be this expensive"}
+          <h1 className="text-center sm:text-left text-4xl">
+            Feeding a family shouldn't be this expensive
           </h1>
-          <p className="mt-4">
+          <p className="mt-4 text-center sm:text-left">
             {subheader_v3}
           </p>
           <div className="hidden sm:flex mt-4 justify-end pr-2">
