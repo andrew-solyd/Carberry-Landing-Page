@@ -13,6 +13,8 @@ const PromptBar = () => {
     console.log(inputValue)
   }
 
+  const buttonLabels = ['Just the basics', 'Vegetarian meal plan', '$50 week', 'Kid dinner ideas'];
+
   return (
     <div>
       <form onSubmit={handleSubmit} className="flex items-center p-2 bg-[rgb(0,0,23)] text-white rounded-lg text-xs mx-6 shadow-lg">
@@ -27,19 +29,16 @@ const PromptBar = () => {
           <FiCornerDownLeft size={14} />
         </button>
       </form>
-      <div className="flex justify-center items-center flex-wrap pt-3">
-        <button className="my-1 mx-2 text-sm rounded-lg border border-[rgb(0,0,23,0.2)] p-1.5 text-xs flex flex-row space-x-2 whitespace-nowrap">
-          Just the basics <FiArrowUpRight size={14 }className="" />
-        </button>
-        <button className="my-1 mx-2 text-sm rounded-lg border border-[rgb(0,0,23,0.2)] p-1.5 text-xs flex flex-row space-x-2 whitespace-nowrap">
-          Vegetarian meal plan<FiArrowUpRight size={14 }className="" />
-        </button>
-        <button className="my-1 mx-2 text-sm rounded-lg border border-[rgb(0,0,23,0.2)] p-1.5 text-xs flex flex-row space-x-2 whitespace-nowrap">
-          $50 week<FiArrowUpRight size={14 }className="" />
-        </button>
-        <button className="my-1 mx-2 text-sm rounded-lg border border-[rgb(0,0,23,0.2)] p-1.5 text-xs flex flex-row space-x-2 whitespace-nowrap">
-          Kid dinner ideas <FiArrowUpRight size={14 }className="" />
-        </button>
+      <div className="flex justify-center items-center flex-wrap pt-2">
+        {buttonLabels.map(label => (
+          <button 
+            key={label}
+            onClick={() => setInputValue(label)}
+            className="my-1 mx-2 text-sm rounded-lg border border-[rgb(0,0,23,0.2)] p-1.5 text-xs flex flex-row space-x-2 whitespace-nowrap"
+          >
+            {label} <FiArrowUpRight size={14} className="" />
+          </button>
+        ))}
       </div>
     </div>
   )
