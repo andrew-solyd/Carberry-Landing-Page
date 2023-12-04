@@ -42,7 +42,7 @@ const CartTable: React.FC<CartTableProps> = ({ tableType }) => {
 
   return (
     <div className="justify-center">
-      <div className="w-[320px] h-[320px] flex flex-col bg-white border border-[rgb(0,0,23)] rounded-lg py-2 px-2 overflow-y-auto">
+      <div className="w-[300px] h-[fit-content] max-h-[calc(4*70px)] flex flex-col bg-white border border-[rgb(0,0,23)] rounded-lg py-2 px-2 overflow-y-auto">
         {itemsToDisplay.map((item, index) => (
           <React.Fragment key={index}>
             <ProductCard 
@@ -54,6 +54,9 @@ const CartTable: React.FC<CartTableProps> = ({ tableType }) => {
             {index < itemsToDisplay.length - 1 && <div className="border-t border-dashed border-gray-400 mx-6 my-1"></div>}
         </React.Fragment>
         ))}
+      </div>
+      <div className="text-md font-medium text-right my-2 mx-3">
+        Total ${totalCost.toFixed(2)}
       </div>
     </div>
   )
