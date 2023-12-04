@@ -32,7 +32,7 @@ const Hero = () => {
       </div>        
       <div className="w-full sm:min-w-[300px] flex flex-col items-center sm:items-start sm:pl-5">
         <div className="rounded-lg overflow-hidden m-1">
-          <Image src="/hero_2.png" alt="Photo of woman in supermarket with concerned face" width={350} height={350} priority/>
+          <Image src="/hero_2.png" alt="Photo of woman in supermarket" width={350} height={350} priority/>
         </div>
       </div>
     </div>
