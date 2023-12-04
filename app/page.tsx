@@ -16,10 +16,10 @@ export default function Home() {
         <Hero/>
       </div>
       <div className="mt-10 mb-10 w-full">
-        <div className="sm:mt-10"><Compare/></div>
+        <div className="sm:mt-5 sm:mb-5"><ValueProp/></div>        
       </div>
       <div className="mb-10 w-full">
-        <div className="sm:mt-5 sm:mb-5"><ValueProp/></div>
+        <div className="sm:mt-10"><Compare/></div>
       </div>
       <div className="mb-10 w-full">
         <PromptBar/>
