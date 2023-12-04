@@ -16,7 +16,7 @@ const ValueProp = () => {
           </div>
           <div className="mt-4 text-center mx-2 sm:mx-10 max-w-[220px] mb-3 sm:mb-0">
             <div className="flex justify-center mb-2"><MdLightbulbOutline size={40} /></div>
-            Quckly plan out what you're eating for the week
+            {"Quckly plan out what you're eating for the week"}
           </div>
           <div className="mt-4 text-center mx-2 sm:mx-10 max-w-[210px] mb-3 sm:mb-0">
             <div className="flex justify-center mb-2"><MdChecklistRtl size={40} /></div>
