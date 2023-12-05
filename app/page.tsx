@@ -19,8 +19,6 @@ export default function Home() {
     setIsCompleted(value);
   }
 
-  console.log(isCompleted)
-
   return (
     <main className="flex flex-col items-center">
       <div className="mt-5 px-7 w-full">
