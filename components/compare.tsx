@@ -1,11 +1,16 @@
 'use client'
 
+import React from 'react'
 import { useState } from 'react'
 import Image from 'next/image'
 import CountUp from 'react-countup'
 import CartTable from '@/components/table'
 
-const Compare = () => {
+interface CompareIsCompleted {
+  isCompleted: (value: boolean) => void;
+}
+
+const Compare:React.FC<CompareIsCompleted> = ({isCompleted}) => {
 
   const standard_price = 123.08
   const cartberry_price = 74.95
@@ -20,6 +25,7 @@ const Compare = () => {
       setViewState('after_regular')
     } else if (viewState === 'after_regular') {
       setViewState('after_cartberry')
+      isCompleted(true)
     } else {
       setViewState('before')
     }

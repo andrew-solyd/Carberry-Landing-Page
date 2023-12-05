@@ -1,3 +1,8 @@
+"use client"
+
+import React, { useState } from 'react'
+
+import { FaArrowAltCircleDown } from "react-icons/fa"
 
 import Header from '@/components/header'
 import Hero from '@/components/hero'
@@ -7,6 +12,15 @@ import ValueProp from '@/components/value-prop'
 import Footer from '@/components/footer'
 
 export default function Home() {
+
+  const [isCompleted, setIsCompleted] = useState(false);
+
+  const handleIsCompleted = (value : boolean) => {
+    setIsCompleted(value);
+  }
+
+  console.log(isCompleted)
+
   return (
     <main className="flex flex-col items-center">
       <div className="mt-5 px-7 w-full">
@@ -19,9 +33,14 @@ export default function Home() {
         <div className="sm:mt-10"><ValueProp/></div>        
       </div>
       <div className="mb-10 w-full">
-        <div className="sm:mt-10"><Compare/></div>
+        <div className="sm:mt-10"><Compare isCompleted={handleIsCompleted} /></div>
       </div>
-      <div className="hidden mb-10 w-full">
+      <div className={`mb-10 w-full transition-opacity delay-1000 duration-2000 items-center justify-center ${isCompleted ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
+        <div className="flex flex-row justify-center">
+          <FaArrowAltCircleDown size={35}/>
+        </div>
+      </div>
+      <div className={`mb-10 w-full transition-opacity delay-2000 duration-2000 ${isCompleted ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
         <PromptBar/>
       </div>
       <div className="mt-10 w-full">
