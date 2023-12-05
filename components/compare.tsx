@@ -7,7 +7,13 @@ import CartTable from '@/components/table'
 
 const Compare = () => {
 
+  const standard_price = 123.08
+  const cartberry_price = 74.95
+
+  const [activeTab, setActiveTab] = useState('cartberry')
+  const [buttonText, setButtonText] = useState('Shop without Cartberry')
   const [viewState, setViewState] = useState('before')
+  const [prices, setPrices]= useState([standard_price, cartberry_price])
 
   const handleClick = () => {
     if (viewState === 'before') {
@@ -18,9 +24,18 @@ const Compare = () => {
       setViewState('before')
     }
   }
-  
-  const standard_price = 123.08
-  const cartberry_price = 74.95
+
+  const handleToggle = () => {
+    if (activeTab === 'cartberry') {
+      setActiveTab('regular')
+      setButtonText('Shop with Cartberry')
+      setPrices([cartberry_price, standard_price])
+    } else {
+      setActiveTab('cartberry')
+      setButtonText('Shop without Cartberry')
+      setPrices([standard_price, cartberry_price])
+    }
+  }
 
   return (
     <div className="mx-5 flex flex-col items-center">
@@ -41,7 +56,7 @@ const Compare = () => {
       </h1>
       <h1 className={`text-xl text-center transition-opacity my-2 ${viewState == 'after_cartberry' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
         Total price: $
-        {viewState == 'after_cartberry' && <CountUp start={standard_price} end={cartberry_price} decimals={2} duration={1.5} />}
+        {viewState == 'after_cartberry' && <CountUp start={prices[0]} end={prices[1]} decimals={2} duration={1.5} />}
       </h1>
       <div className="flex flex-row">
         <div className="flex flex-col">
@@ -54,7 +69,7 @@ const Compare = () => {
             <CartTable tableType={'regular'}/>
           </div>
           <div id="after_cartberry" className={`flex flex-col items-center m-1 transition-opacity duration-1000 ${viewState == 'after_cartberry' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
-            <CartTable tableType={'cartberry'}/>
+            <CartTable tableType={activeTab}/>
           </div>
         </div>        
       </div>
@@ -63,6 +78,9 @@ const Compare = () => {
       </button>
       <button onClick={handleClick} className={`w-[320px] mt-2 bg-transparent hover:bg-zinc-900 hover:text-white text-s p-2 border border-zinc-900 hover:border-transparent rounded transition-opacity delay-2000 duration-1000 ${viewState == 'after_regular' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
         Shop with Cartberry
+      </button>
+      <button onClick={handleToggle} className={`w-[320px] mt-2 bg-transparent hover:bg-zinc-900 hover:text-white text-s p-2 border border-zinc-900 hover:border-transparent rounded transition-opacity delay-500 duration-500 ${viewState == 'after_cartberry' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
+        {buttonText}
       </button>
     </div>
     
