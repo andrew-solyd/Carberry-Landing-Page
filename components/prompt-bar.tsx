@@ -68,7 +68,7 @@ const PromptBar = () => {
             <>
               <div className="flex flex-col px-5 py-10 items-center">
                 <h1 className="text-lg mb-2">Coming soon</h1>
-                <p className="text-sm text-center px-5">We're working on this feature. Join our waitlist to be the first to know when it's ready!</p>
+                <p className="text-sm text-center px-5">{`We're working on this feature. Join our waitlist to be the first to know when it's ready!`}</p>
                 <div className="flex flex-row">
                   <form onSubmit={handleEmailSubmit} className="w-[200px] flex flex-col items-center justify-center mt-4 text-sm">
                     <input
