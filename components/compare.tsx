@@ -66,16 +66,16 @@ const Compare:React.FC<CompareIsCompleted> = ({isCompleted}) => {
       </h1>
       <span className={`text-xs w-[320px] text-center my-1 transition-opacity duration-2000 ${(viewState === 'after_regular' || viewState === 'after_cartberry') ? 'opacity-100' : 'opacity-0'}`}>Wholefoods Brooklyn, NY. Store prices 12/05/23.</span>
       <div className="flex flex-row">
-        <div className="flex flex-col">
-          <div id ="before" className={`w-full sm:min-w-[320px] flex flex-col items-center sm:items-start sm:pl-5 transition-opacity duration-1000 ${viewState == 'before' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
-            <div className="rounded-lg overflow-hidden m-1">
+        <div className="flex flex-col border border-[rgb(0,0,23)] rounded-lg ">
+          <div id ="before" className={`w-full w-[320px] flex flex-col items-center sm:items-start transition-opacity duration-1000 ${viewState == 'before' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
+            <div className="rounded-lg overflow-hidden">
               <Image src="/list.png" alt="Shopping list" width={320} height={320}/>
             </div>
           </div>
-          <div id="after_regular" className={`flex flex-col items-center m-1 transition-opacity duration-2000 ${viewState == 'after_regular' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
+          <div id="after_regular" className={`flex flex-col items-center transition-opacity duration-2000 ${viewState == 'after_regular' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
             <CartTable tableType={'regular'}/>
           </div>
-          <div id="after_cartberry" className={`flex flex-col items-center m-1 transition-opacity duration-1000 ${viewState == 'after_cartberry' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
+          <div id="after_cartberry" className={`flex flex-col items-center transition-opacity duration-1000 ${viewState == 'after_cartberry' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
             <CartTable tableType={activeTab}/>
           </div>
         </div>        

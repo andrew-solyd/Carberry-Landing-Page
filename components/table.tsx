@@ -42,7 +42,7 @@ const CartTable: React.FC<CartTableProps> = ({ tableType }) => {
 
   return (
     <div className="justify-center">
-      <div className="w-[320px] h-[320px] flex flex-col bg-white border border-[rgb(0,0,23)] rounded-lg py-2 px-2 overflow-y-auto">
+      <div className="w-[320px] h-[320px] flex flex-col bg-white rounded-lg overflow-y-auto p-2">
         {itemsToDisplay.map((item, index) => (
           <React.Fragment key={index}>
             <ProductCard 
