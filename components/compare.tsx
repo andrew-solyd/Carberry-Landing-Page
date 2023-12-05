@@ -80,15 +80,26 @@ const Compare:React.FC<CompareIsCompleted> = ({isCompleted}) => {
           </div>
         </div>        
       </div>
-      <button onClick={handleClick} className={`w-[320px] mt-2 bg-transparent hover:bg-zinc-900 hover:text-white text-s p-2 border border-zinc-900 hover:border-transparent rounded transition-opacity duration-750 ${viewState == 'before' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
+      <button onClick={handleClick} className={`w-[320px] mt-2 bg-transparent hover:bg-zinc-900 hover:text-white text-s py-3 px-2 border border-zinc-900 hover:border-transparent rounded-lg transition-opacity duration-750 ${viewState == 'before' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
         Shop this list
       </button>
-      <button onClick={handleClick} className={`w-[320px] mt-2 bg-transparent hover:bg-zinc-900 hover:text-white text-s p-2 border border-zinc-900 hover:border-transparent rounded transition-opacity delay-500 duration-1000 ${viewState == 'after_regular' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
+      <button onClick={handleClick} className={`w-[320px] mt-2 bg-transparent hover:bg-zinc-900 hover:text-white text-s py-3 px-2 border border-zinc-900 hover:border-transparent rounded-lg transition-opacity delay-500 duration-1000 ${viewState == 'after_regular' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
         Shop with Cartberry
       </button>
-      <button onClick={handleToggle} className={`w-[320px] mt-2 bg-transparent hover:bg-zinc-900 hover:text-white text-s p-2 border border-zinc-900 hover:border-transparent rounded transition-opacity duration-1000 ${viewState == 'after_cartberry' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
-        {buttonText}
-      </button>
+      <div className={`w-[320px] flex text-sm justify-center border border-zinc-900 bg-transparent space-x-4 rounded-lg py-2 px-2 my-2 transition-opacity duration-1000 ${viewState == 'after_cartberry' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
+          <button 
+            onClick={handleToggle}
+            className={`w-[125px] py-2 px-3 rounded-md ${activeTab === 'regular' ? 'bg-[rgb(0,0,23)] text-[rgb(235,245,255)]' : 'bg-transparent text-[rgb(0,0,23)]'}`}
+          >
+            Regular shop
+          </button>
+          <button 
+            onClick={handleToggle}
+            className={`w-[125px] py-2 px-3 rounded-md ${activeTab === 'cartberry' ? 'bg-[rgb(0,0,23)] text-[rgb(235,245,255)]' : 'bg-transparent text-[rgb(0,0,23)]'}`}
+          >
+            Cartberry shop
+          </button>
+        </div>
     </div>
     
   )
