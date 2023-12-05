@@ -58,6 +58,7 @@ const Compare = () => {
         Total price: $
         {viewState == 'after_cartberry' && <CountUp start={prices[0]} end={prices[1]} decimals={2} duration={1.5} />}
       </h1>
+      <span className={`text-xs w-[320px] text-center my-1 transition-opacity duration-2000 ${(viewState === 'after_regular' || viewState === 'after_cartberry') ? 'opacity-100' : 'opacity-0'}`}>Wholefoods Brooklyn, NY. Store prices 12/05/23.</span>
       <div className="flex flex-row">
         <div className="flex flex-col">
           <div id ="before" className={`w-full sm:min-w-[320px] flex flex-col items-center sm:items-start sm:pl-5 transition-opacity duration-1000 ${viewState == 'before' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
@@ -76,10 +77,10 @@ const Compare = () => {
       <button onClick={handleClick} className={`w-[320px] mt-2 bg-transparent hover:bg-zinc-900 hover:text-white text-s p-2 border border-zinc-900 hover:border-transparent rounded transition-opacity duration-750 ${viewState == 'before' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
         Shop this list
       </button>
-      <button onClick={handleClick} className={`w-[320px] mt-2 bg-transparent hover:bg-zinc-900 hover:text-white text-s p-2 border border-zinc-900 hover:border-transparent rounded transition-opacity delay-2000 duration-1000 ${viewState == 'after_regular' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
+      <button onClick={handleClick} className={`w-[320px] mt-2 bg-transparent hover:bg-zinc-900 hover:text-white text-s p-2 border border-zinc-900 hover:border-transparent rounded transition-opacity delay-500 duration-1000 ${viewState == 'after_regular' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
         Shop with Cartberry
       </button>
-      <button onClick={handleToggle} className={`w-[320px] mt-2 bg-transparent hover:bg-zinc-900 hover:text-white text-s p-2 border border-zinc-900 hover:border-transparent rounded transition-opacity delay-500 duration-500 ${viewState == 'after_cartberry' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
+      <button onClick={handleToggle} className={`w-[320px] mt-2 bg-transparent hover:bg-zinc-900 hover:text-white text-s p-2 border border-zinc-900 hover:border-transparent rounded transition-opacity duration-1000 ${viewState == 'after_cartberry' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
         {buttonText}
       </button>
     </div>
