@@ -32,6 +32,17 @@ const Compare = () => {
           Written, typed or texted. Going into the store with a shopping list is a good start. But checkout is still a surprise.
         </p>
       </div>
+      <h1 className={`text-xl text-center transition-opacity duration-500 my-2 ${viewState == 'before' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute' }`}>
+            Total price? Not sure.
+      </h1>
+      <h1 className={`text-xl text-center transition-opacity delay-500 duration-500 my-2 ${viewState == 'after_regular' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
+         Total price: $
+        {viewState == 'after_regular' && <CountUp end={standard_price} decimals={2} duration={2.5} />}
+      </h1>
+      <h1 className={`text-xl text-center transition-opacity my-2 ${viewState == 'after_cartberry' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
+        Total price: $
+        {viewState == 'after_cartberry' && <CountUp start={standard_price} end={cartberry_price} decimals={2} duration={1.5} />}
+      </h1>
       <div className="flex flex-row">
         <div className="flex flex-col">
           <div id ="before" className={`w-full sm:min-w-[320px] flex flex-col items-center sm:items-start sm:pl-5 transition-opacity duration-1000 ${viewState == 'before' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
@@ -46,25 +57,14 @@ const Compare = () => {
             <CartTable tableType={'cartberry'}/>
           </div>
         </div>        
-      </div>  
-      <h1 className={`text-xl text-center transition-opacity duration-500 my-2 ${viewState == 'before' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute' }`}>
-            Total price? Not sure.
-      </h1>
-      <h1 className={`text-xl text-center transition-opacity delay-500 duration-500 my-2 ${viewState == 'after_regular' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
-         Total price: $
-        {viewState == 'after_regular' && <CountUp end={standard_price} decimals={2} duration={3} />}
-      </h1>
-      <h1 className={`text-xl text-center transition-opacity my-2 ${viewState == 'after_cartberry' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
-        Total price: $
-        {viewState == 'after_cartberry' && <CountUp start={standard_price} end={cartberry_price} decimals={2} duration={3} />}
-      </h1>
+      </div>
       <button onClick={handleClick} className={`w-[320px] mt-2 bg-transparent hover:bg-zinc-900 hover:text-white text-s p-2 border border-zinc-900 hover:border-transparent rounded transition-opacity duration-750 ${viewState == 'before' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
         Shop this list
       </button>
       <button onClick={handleClick} className={`w-[320px] mt-2 bg-transparent hover:bg-zinc-900 hover:text-white text-s p-2 border border-zinc-900 hover:border-transparent rounded transition-opacity delay-2000 duration-1000 ${viewState == 'after_regular' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
         Optimize this cart
       </button>
-      <button onClick={handleClick} className={`w-[320px] mt-2 bg-transparent hover:bg-zinc-900 hover:text-white text-s p-2 border border-zinc-900 hover:border-transparent rounded transition-opacity delay-1000 duration-750 ${viewState == 'after_cartberry' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'} `}>
+      <button onClick={handleClick} className={`w-[320px] mt-2 bg-transparent hover:bg-zinc-900 hover:text-white text-s p-2 border border-zinc-900 hover:border-transparent rounded transition-opacity delay-750 duration-1000 ${viewState == 'after_cartberry' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'} `}>
         Start over
       </button>
     </div>
