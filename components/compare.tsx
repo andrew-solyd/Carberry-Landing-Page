@@ -24,16 +24,16 @@ const Compare = () => {
 
   return (
     <div className="mx-5 flex flex-col items-center">
-      <div className={`max-w-[550px]`}>
+      <div className={`max-w-[420px]`}>
         <h1 className="text-3xl text-center">
           See the difference
         </h1>
-        <p className="mt-4 text-center mb-10 mx-5 sm:mx-10">
-          Written, typed or texted. Going into the store with a shopping list is a good start. But checkout is still a surprise.
+        <p className="mt-4 text-center mb-5 mx-5 sm:mx-10">
+          Milk, eggs, bread. We usually sort of know how much it will cost. But even with a small shop, the savings are there. Try it out! 
         </p>
       </div>
       <h1 className={`text-xl text-center transition-opacity duration-500 my-2 ${viewState == 'before' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute' }`}>
-            Total price? Not sure.
+            Ready for checkout?
       </h1>
       <h1 className={`text-xl text-center transition-opacity delay-500 duration-500 my-2 ${viewState == 'after_regular' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
          Total price: $
@@ -62,10 +62,7 @@ const Compare = () => {
         Shop this list
       </button>
       <button onClick={handleClick} className={`w-[320px] mt-2 bg-transparent hover:bg-zinc-900 hover:text-white text-s p-2 border border-zinc-900 hover:border-transparent rounded transition-opacity delay-2000 duration-1000 ${viewState == 'after_regular' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
-        Optimize this cart
-      </button>
-      <button onClick={handleClick} className={`w-[320px] mt-2 bg-transparent hover:bg-zinc-900 hover:text-white text-s p-2 border border-zinc-900 hover:border-transparent rounded transition-opacity delay-750 duration-1000 ${viewState == 'after_cartberry' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'} `}>
-        Start over
+        Shop with Cartberry
       </button>
     </div>
     
