@@ -12,7 +12,7 @@ const ValueProp = () => {
         <div className="flex flex-col items-center sm:items-start sm:flex-row">
           <div className="mt-4 text-center mx-2 sm:mx-10 max-w-[210px] mb-3 sm:mb-0">
             <div className="flex justify-center mb-2"><MdOutlineQuestionAnswer size={40} /></div>
-            Share a recent receipt and start the conversation
+            Link your loyalty account and let our AI do its magic
           </div>
           <div className="mt-4 text-center mx-2 sm:mx-10 max-w-[220px] mb-3 sm:mb-0">
             <div className="flex justify-center mb-2"><MdLightbulbOutline size={40} /></div>
