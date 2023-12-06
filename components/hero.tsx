@@ -24,7 +24,13 @@ const Hero = () => {
             {subheader_v3}
           </p>
           <div className="hidden sm:flex mt-4 justify-end pr-2">
-            <button className="bg-transparent hover:bg-zinc-900 hover:text-white text-xs p-2 border border-zinc-900 hover:border-transparent rounded">
+            <button 
+              className="bg-transparent hover:bg-zinc-900 hover:text-white text-xs p-2 border border-zinc-900 hover:border-transparent rounded"
+              onClick={() => {
+                const element = document.getElementById('see-difference');
+                if (element) element.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               See the difference
             </button>
           </div>

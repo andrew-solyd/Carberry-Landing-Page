@@ -31,7 +31,7 @@ export default function Home() {
         <div className="sm:mt-10"><ValueProp/></div>        
       </div>
       <div className="mb-10 w-full">
-        <div className="sm:mt-10"><Compare isCompleted={handleIsCompleted} /></div>
+        <div id="see-difference" className="sm:mt-10"><Compare isCompleted={handleIsCompleted} /></div>
       </div>
       <div className={`mb-10 w-full transition-opacity delay-1000 duration-2000 items-center justify-center ${isCompleted ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
         <div className="flex flex-row justify-center">
