@@ -50,7 +50,7 @@ const Compare:React.FC<CompareIsCompleted> = ({isCompleted}) => {
           See the difference
         </h1>
         <p className="mt-4 text-center mb-5 mx-5 sm:mx-10">
-          Milk, eggs, bread. We usually sort of know how much it will cost. But even with a small shop, the savings are there. Try it out! 
+          Milk, eggs, bread. We usually sort of know how much it will cost. But even with a small shop, the savings are there. See for yourself! 
         </p>
       </div>
       <h1 className={`text-xl text-center transition-opacity duration-500 my-2 ${viewState == 'before' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute' }`}>
@@ -84,7 +84,7 @@ const Compare:React.FC<CompareIsCompleted> = ({isCompleted}) => {
         Shop this list
       </button>
       <button onClick={handleClick} className={`w-[320px] mt-2 bg-transparent hover:bg-zinc-900 hover:text-white text-s py-3 px-2 border border-zinc-900 hover:border-transparent rounded-lg transition-opacity delay-500 duration-1000 ${viewState == 'after_regular' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
-        Shop with Cartberry
+        Find savings
       </button>
       <div className={`w-[320px] flex text-sm justify-center border border-zinc-900 bg-transparent space-x-4 rounded-lg py-2 px-2 my-2 transition-opacity duration-1000 ${viewState == 'after_cartberry' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
           <button 
