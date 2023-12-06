@@ -10,7 +10,7 @@ const Hero = () => {
 
   const subheader_v2 = "Find the best organic deals in seconds. Get instant cash savings every time you shop. Cartberry — your key to affordable, healthy eating."
 
-  const subheader_v3 = "Find the best organic deals in seconds. Get instant cash savings every time you shop. Cartberry — your AI co-pilot for savvy grocery shopping."
+  const subheader_v3 = "Get your perfect shopping cart in seconds. Save at least 20% every time you check out. Cartberry — your AI co-pilot for savvy grocery shopping."
 
   return (
 
