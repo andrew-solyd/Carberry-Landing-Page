@@ -6,6 +6,8 @@ const Hero = () => {
 
   const header_v2 = "Stop overpaying for groceries"
 
+  const header_v3 = `You've been looking for this`
+
   const subheader_v1 = "Save time and money on every shop — Cartberry finds you the best deals for healthy, organic foods at your go-to stores."
 
   const subheader_v2 = "Find the best organic deals in seconds. Get instant cash savings every time you shop. Cartberry — your key to affordable, healthy eating."
@@ -18,7 +20,7 @@ const Hero = () => {
       <div className="w-full flex justify-end sm:min-w-[475px] sm:max-w-[700px]">
         <div className="flex flex-col justify-center pb-5 px-2 sm:py-0 sm:pr-10 sm:w-4/5">
           <h1 className="text-center sm:text-left text-4xl">
-            {header_v2}
+            {header_v3}
           </h1>
           <p className="mt-4 text-center sm:text-left">
             {subheader_v3}
