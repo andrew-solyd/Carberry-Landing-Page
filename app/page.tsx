@@ -6,9 +6,10 @@ import { FaArrowAltCircleDown } from "react-icons/fa"
 
 import Header from '@/components/header'
 import Hero from '@/components/hero'
+import ValueProp from '@/components/value-prop'
+import StoreLogos from '@/components/stores'
 import Compare from '@/components/compare'
 import PromptBar from '@/components/prompt-bar'
-import ValueProp from '@/components/value-prop'
 import Footer from '@/components/footer'
 
 export default function Home() {
@@ -29,6 +30,9 @@ export default function Home() {
       </div>
       <div className="mt-10 mb-10 w-full">
         <div className="sm:mt-10"><ValueProp/></div>        
+      </div>
+      <div className="mb-10 w-full">
+        <div className="sm:mt-10"><StoreLogos/></div>        
       </div>
       <div className="mb-10 w-full">
         <div id="see-difference" className="sm:mt-10"><Compare isCompleted={handleIsCompleted} /></div>

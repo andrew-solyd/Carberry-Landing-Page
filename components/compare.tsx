@@ -50,7 +50,7 @@ const Compare:React.FC<CompareIsCompleted> = ({isCompleted}) => {
           See the difference
         </h1>
         <p className="mt-4 text-center mb-5 mx-5 sm:mx-10">
-          Milk, eggs, bread. We usually sort of know how much it will cost. But even with a small shop, the savings are there. See for yourself! 
+          Milk, eggs, bread. We usually sort of know how much it will cost. But even for a small shop, the savings are there. See for yourself! 
         </p>
       </div>
       <h1 className={`text-xl text-center transition-opacity duration-500 my-2 ${viewState == 'before' ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute' }`}>
