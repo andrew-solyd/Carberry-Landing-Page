@@ -1,50 +1,57 @@
+// components/hero.tsx
+
 import Image from 'next/image'
+import {useDisclosure} from "@nextui-org/modal"
+
+import EmailModal from './email-modal'
 
 const Hero = () => {
 
+  const {isOpen, onOpen, onOpenChange} = useDisclosure()
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
+    onOpen()
+  }
+
   const header_v1 = "Feeding a family shouldn't be this expensive"
-
   const header_v2 = "Stop overpaying for groceries"
-
   const header_v3 = `You've been looking for this`
 
   const subheader_v1 = "Save time and money on every shop — Cartberry finds you the best deals for healthy, organic foods at your go-to stores."
-
   const subheader_v2 = "Find the best organic deals in seconds. Get instant cash savings every time you shop. Cartberry — your key to affordable, healthy eating."
-
   const subheader_v3 = ["Get your perfect shopping cart in seconds. Save at least 20% every time you check out. ", "Cartberry — your AI co-pilot for savvy grocery shopping."];
 
   return (
-
-    <div className="flex flex-col sm:flex-row">
-      <div className="w-full flex justify-end sm:min-w-[475px] sm:max-w-[700px]">
-        <div className="flex flex-col justify-center pb-5 px-2 sm:py-0 sm:pr-10 sm:w-4/5">
-          <h1 className="text-center sm:text-left text-4xl font-semibold">
-            {header_v3}
-          </h1>
-          <p className="mt-5 text-center sm:text-left">
-            {subheader_v3[0]}
-            <span className="font-semibold">{subheader_v3[1]}</span>
-          </p>
-          <div className="hidden sm:flex mt-4 justify-end pr-2">
-            <button 
-              className="bg-transparent hover:bg-zinc-900 hover:text-white text-xs p-2 border border-zinc-900 hover:border-transparent rounded font-semibold"
-              onClick={() => {
-                const element = document.getElementById('see-difference');
-                if (element) element.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              See the difference
-            </button>
+    <>
+      <div className="flex flex-col sm:flex-row">
+        <div className="w-full flex justify-end sm:min-w-[475px] sm:max-w-[700px]">
+          <div className="flex flex-col justify-center pb-5 px-2 sm:py-0 sm:pr-10 sm:w-4/5">
+            <h1 className="text-center sm:text-left text-4xl font-semibold">
+              {header_v3}
+            </h1>
+            <p className="mt-5 text-center sm:text-left">
+              {subheader_v3[0]}
+              <span className="font-semibold">{subheader_v3[1]}</span>
+            </p>
+            <div className="hidden sm:flex mt-4 justify-end pr-2">
+              <button 
+                className="bg-transparent hover:bg-zinc-900 hover:text-white text-xs p-2 border border-zinc-900 hover:border-transparent rounded font-semibold"
+                onClick={handleClick}
+              >
+                Be our early adopter
+              </button>
+            </div>
+          </div>
+        </div>        
+        <div className="w-full sm:min-w-[300px] flex flex-col items-center sm:items-start sm:pl-5">
+          <div className="rounded-lg overflow-hidden m-1">
+            <Image src="/hero_2.png" alt="Photo of woman in supermarket" width={350} height={350} priority/>
           </div>
         </div>
-      </div>        
-      <div className="w-full sm:min-w-[300px] flex flex-col items-center sm:items-start sm:pl-5">
-        <div className="rounded-lg overflow-hidden m-1">
-          <Image src="/hero_2.png" alt="Photo of woman in supermarket" width={350} height={350} priority/>
-        </div>
       </div>
-    </div>
+      <EmailModal isOpen={isOpen} onOpenChange={onOpenChange} />
+    </>
 
   )
 }

@@ -1,14 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-import { FiCornerDownLeft } from 'react-icons/fi'
-import { FiArrowUpRight } from 'react-icons/fi'
+import { useDisclosure } from "@nextui-org/modal"
 
-import {
-  Modal, 
-  ModalContent,
-  useDisclosure
-} from "@nextui-org/modal"
+import { FiCornerDownLeft, FiArrowUpRight } from 'react-icons/fi'
+
+import EmailModal from './email-modal'
 
 const PromptBar = () => {
 
@@ -22,15 +19,7 @@ const PromptBar = () => {
     onOpen()
   }
 
-  const handleEmailSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    // Handle email submission here
-    console.log(email)
-  }
-
   const buttonLabels = ['Just the basics', 'Vegetarian meal plan', '$50 week', 'Kid dinner ideas']
-
-  
 
   return (
     <>
@@ -62,32 +51,7 @@ const PromptBar = () => {
           ))}
         </div>
       </div>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="center" className="mx-5 mb-20 bg-black text-white">
-        <ModalContent>
-          {(onClose) => (
-            <>
-              <div className="flex flex-col px-5 py-10 items-center">
-                <h1 className="text-lg mb-2">Coming soon</h1>
-                <p className="text-sm text-center px-5">{`We're working on this feature. Join our waitlist to be the first to know when it's ready!`}</p>
-                <div className="flex flex-row">
-                  <form onSubmit={handleEmailSubmit} className="w-[200px] flex flex-col items-center justify-center mt-4 text-sm">
-                    <input
-                      type="email"
-                      placeholder="Your email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="mt-3 w-full bg-[rgb(0,0,23)] border border-white rounded-lg px-2 py-1"
-                    />
-                    <button type="submit" className="w-[150px] mt-4 bg-[rgb(156,163,175)] text-[rgb(0,0,23)] rounded-lg p-1">
-                      Submit
-                    </button>
-                  </form>
-                </div> 
-              </div>
-            </>
-          )}
-        </ModalContent>
-      </Modal>
+      <EmailModal isOpen={isOpen} onOpenChange={onOpenChange} />
     </>
   )
 }

@@ -1,24 +1,15 @@
+// page.tsx
+
 "use client"
-
-import React, { useState } from 'react'
-
-import { FaArrowAltCircleDown } from "react-icons/fa"
 
 import Header from '@/components/header'
 import Hero from '@/components/hero'
 import ValueProp from '@/components/value-prop'
 import StoreLogos from '@/components/stores'
-import Compare from '@/components/compare'
-import PromptBar from '@/components/prompt-bar'
+import WaitlistCTA from '@/components/waitlist-cta'
 import Footer from '@/components/footer'
 
-export default function Home() {
-
-  const [isCompleted, setIsCompleted] = useState(false);
-
-  const handleIsCompleted = (value : boolean) => {
-    setIsCompleted(value);
-  }
+export default function Home() {  
 
   return (
     <main className="flex flex-col items-center">
@@ -34,19 +25,9 @@ export default function Home() {
       <div className="mb-10 w-full">
         <div className="sm:mt-10"><StoreLogos/></div>        
       </div>
-      {/* 
       <div className="mb-10 w-full">
-        <div id="see-difference" className="sm:mt-10"><Compare isCompleted={handleIsCompleted} /></div>
+        <div className="sm:mt-10"><WaitlistCTA/></div>        
       </div>
-      <div className={`mb-10 w-full transition-opacity delay-1000 duration-2000 items-center justify-center ${isCompleted ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
-        <div className="flex flex-row justify-center">
-          <FaArrowAltCircleDown size={35}/>
-        </div>
-      </div>
-      <div className={`mb-10 w-full transition-opacity delay-2000 duration-2000 ${isCompleted ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
-        <PromptBar/>
-      </div>
-      */}
       <div className="mt-10 w-full">
         <Footer/>
       </div>
