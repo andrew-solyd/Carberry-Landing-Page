@@ -45,8 +45,8 @@ const Hero = () => {
           </div>
         </div>        
         <div className="w-full sm:min-w-[300px] flex flex-col items-center sm:items-start sm:pl-5">
-          <div className="rounded-lg overflow-hidden m-1">
-            <Image src="/hero_2.png" alt="Photo of woman in supermarket" width={350} height={350} priority/>
+          <div className="rounded-lg overflow-hidden m-1" style={container}>
+            <Image src="/hero_4.png" alt="Photo of woman in supermarket" width={350} height={350} priority/>
           </div>
         </div>
       </div>
@@ -59,3 +59,12 @@ const Hero = () => {
 Hero.displayName = 'Hero'
 
 export default Hero
+
+const container = {
+  borderWidth: "0px",
+  borderColor: "rgba(0,173,238,0.5)",
+  borderRadius: "1.5rem",
+  background: "linear-gradient(#fff, rgb(0 0 0 / 0.02))",
+  boxShadow: "0px 0px 0px 1px var(--shadow-color), 0px 1px 1px -0.5px var(--shadow-color), 0px 3px 3px -1.5px var(--shadow-color), 0px 6px 6px -3px var(--shadow-color), 0px 12px 12px -6px var(--shadow-color), 0px 24px 24px -12px var(--shadow-color)",
+  "--shadow-color": "rgb(0 0 0 / 0.06)"
+}
