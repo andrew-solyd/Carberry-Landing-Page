@@ -16,7 +16,7 @@ import * as React from 'react'
 export const CartberryWelcomeEmail = () => (
   <Html>
     <Head />
-    <Preview>You're now on our wait list.</Preview>
+    <Preview>{`You're now on our wait list.`}</Preview>
     <Tailwind>
       <Body className="flex flex-row items-center font-sans" style={main}>
         <Container className="my-[40px] mx-auto p-[20px]" style={container}>
