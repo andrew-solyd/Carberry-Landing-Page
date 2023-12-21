@@ -12,22 +12,23 @@ const Hero = () => {
 
   const subheader_v2 = "Find the best organic deals in seconds. Get instant cash savings every time you shop. Cartberry — your key to affordable, healthy eating."
 
-  const subheader_v3 = "Get your perfect shopping cart in seconds. Save at least 20% every time you check out. Cartberry — your AI co-pilot for savvy grocery shopping."
+  const subheader_v3 = ["Get your perfect shopping cart in seconds. Save at least 20% every time you check out. ", "Cartberry — your AI co-pilot for savvy grocery shopping."];
 
   return (
 
     <div className="flex flex-col sm:flex-row">
       <div className="w-full flex justify-end sm:min-w-[475px] sm:max-w-[700px]">
         <div className="flex flex-col justify-center pb-5 px-2 sm:py-0 sm:pr-10 sm:w-4/5">
-          <h1 className="text-center sm:text-left text-4xl">
+          <h1 className="text-center sm:text-left text-4xl font-semibold">
             {header_v3}
           </h1>
-          <p className="mt-4 text-center sm:text-left">
-            {subheader_v3}
+          <p className="mt-5 text-center sm:text-left">
+            {subheader_v3[0]}
+            <span className="font-semibold">{subheader_v3[1]}</span>
           </p>
           <div className="hidden sm:flex mt-4 justify-end pr-2">
             <button 
-              className="bg-transparent hover:bg-zinc-900 hover:text-white text-xs p-2 border border-zinc-900 hover:border-transparent rounded"
+              className="bg-transparent hover:bg-zinc-900 hover:text-white text-xs p-2 border border-zinc-900 hover:border-transparent rounded font-semibold"
               onClick={() => {
                 const element = document.getElementById('see-difference');
                 if (element) element.scrollIntoView({ behavior: 'smooth' });

@@ -34,6 +34,7 @@ export default function Home() {
       <div className="mb-10 w-full">
         <div className="sm:mt-10"><StoreLogos/></div>        
       </div>
+      {/* 
       <div className="mb-10 w-full">
         <div id="see-difference" className="sm:mt-10"><Compare isCompleted={handleIsCompleted} /></div>
       </div>
@@ -45,6 +46,7 @@ export default function Home() {
       <div className={`mb-10 w-full transition-opacity delay-2000 duration-2000 ${isCompleted ? 'opacity-100 scale-100' : 'opacity-0 scale-0 absolute'}`}>
         <PromptBar/>
       </div>
+      */}
       <div className="mt-10 w-full">
         <Footer/>
       </div>

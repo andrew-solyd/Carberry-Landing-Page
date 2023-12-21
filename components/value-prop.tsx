@@ -6,7 +6,7 @@ const ValueProp = () => {
   return (
     <div className="mx-5 flex flex-col items-center ">
       <div className="max-w-[650px] sm:w-[700px]">
-        <h1 className="text-3xl text-center mb-2">
+        <h1 className="text-3xl text-center mb-4 font-semibold">
           How it works
         </h1>
         <div className="flex flex-col items-center sm:items-start sm:flex-row">
