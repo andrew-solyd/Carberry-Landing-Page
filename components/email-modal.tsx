@@ -13,9 +13,13 @@ interface EmailModalProps {
 const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange }) => {
   const [email, setEmail] = useState('')
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   const handleEmailSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    setIsLoading(true)
+    setError(null)
     try {
       const addEmailToAirtableResult = await addEmailToAirtable(email)
       const sendWelcomeEmailResult = await sendWelcomeEmail(email)
@@ -23,15 +27,17 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange }) => {
       if (addEmailToAirtableResult.success && sendWelcomeEmailResult.success) {
         setIsSubmitted(true)
       }
-
-    } catch (error) {
-      console.error(error)
+    } catch (error: any) {
+      setError(error.message)
+    } finally {
+      setIsLoading(false)
     }
   }
 
   const handleClose = () => {
     onOpenChange(false)
     setIsSubmitted(false) // Reset the state for the next time the modal is opened
+    setError(null)
   }
 
   return (
@@ -41,7 +47,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange }) => {
           <div className="flex flex-col px-5 py-10 items-center">
             {isSubmitted ? (
                 <>
-                  <p>Thank you for your submission!</p>
+                  <p>Thank you for your support!</p>
                   <button onClick={handleClose} className="w-[150px] mt-4 bg-[rgb(156,163,175)] text-[rgb(0,0,23)] rounded-lg p-1">
                     Close
                   </button>
@@ -63,10 +69,11 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange }) => {
                         onChange={(e) => setEmail(e.target.value)}
                         className="mt-3 w-full bg-[rgb(0,0,23)] border border-white rounded-lg px-2 py-1"
                       />
-                      <button type="submit" className="w-[150px] mt-4 bg-[rgb(156,163,175)] text-[rgb(0,0,23)] rounded-lg p-1">
-                        Submit
+                      <button type="submit" disabled={isLoading} className="w-[150px] mt-4 bg-[rgb(156,163,175)] text-[rgb(0,0,23)] rounded-lg p-1">
+                        {isLoading ? 'Adding email to list...' : 'Add me to list'}
                       </button>
                     </form>
+                    {error && <p className="mt-2 text-red-500">{error}</p>}
                   </div>
                 </>
               )}
