@@ -22,7 +22,7 @@ export const CartberryWelcomeEmail = () => (
         <Container className="my-[40px] mx-auto p-[20px]" style={container}>
           <Section className="mt-[32px]">
             <Img
-              src={`https://www.cartberry.co/logo.svg`}
+              src={`https://www.cartberry.co/logo.png`}
               width="100"
               alt="Cartberry"
               className="my-0 mx-auto"
