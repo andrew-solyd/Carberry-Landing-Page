@@ -14,7 +14,7 @@ export default function Home() {
   
   return (
     <main className="flex flex-col items-center">
-      <div className="ml-10 px-7 w-full">
+      <div className="px-7 mt-2 w-full">
         <Header/>
       </div>
       <div className="flex flex-col items-center mt-5 mb-5 px-10 w-full">
