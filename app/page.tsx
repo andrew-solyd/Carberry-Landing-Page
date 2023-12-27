@@ -21,7 +21,7 @@ export default function Home() {
         <Hero/>
       </div>
       <div className="mt-10 mb-10 w-full">
-        <div className="mt-10 mb-10"><StoreLogos/></div>        
+        <div className="sm:mt-10 sm:mb-10"><StoreLogos/></div>        
       </div>
       <div className="mb-10 w-full">
         <div className=""><ValueProp/></div>        
