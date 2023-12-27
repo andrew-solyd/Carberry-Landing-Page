@@ -5,16 +5,29 @@ const StoreLogos = () => {
   const containerRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
-  if (containerRef.current) {
+    if (containerRef.current) {
     // containerRef.current.scrollLeft = 3400;
-    containerRef.current.scrollLeft = window.innerWidth * 4.1
-  }
-}, [])
+      containerRef.current.scrollLeft = window.innerWidth * .7// Set the starting position
+
+      
+      const scrollAmount = 1; // Change this to control the speed of the scroll
+      const scrollInterval = setInterval(() => {
+        if (containerRef.current) {
+          containerRef.current.scrollLeft += scrollAmount // Change += to -= to scroll to the left
+        }
+      }, 50) // Change this to control the frequency of the scroll
+
+      // Clean up function to clear the interval when the component unmounts
+      return () => clearInterval(scrollInterval)
+      
+      
+    }
+  }, [])
 
   return (
     <>
       <div className="relative w-3/4 mx-auto">
-        <div className="absolute top-0 bottom-0 z-10" style={{background: 'linear-gradient(to right, rgb(var(--background-rgb)), transparent)' , width: '100px', marginLeft:'-1px'}} />
+        <div className="absolute top-0 bottom-0 z-10 w-5 sm:w-20" style={{background: 'linear-gradient(to right, rgb(var(--background-rgb)), transparent)', marginLeft:'-1px'}} />
         <div ref={containerRef} className="overflow-auto flex px-10 scrollbar-hide relative z-0 items-center justify-center">
           {Array.from({ length: 8 }).flatMap((_, i) =>
             [3, 1, 2, 7, 5 ].map(num => (
@@ -31,7 +44,7 @@ const StoreLogos = () => {
             )))
           )}
         </div>
-         <div className="absolute top-0 bottom-0 right-0 z-10" style={{background: 'linear-gradient(to left, rgb(var(--background-rgb)), transparent)', width: '100px'}} />
+         <div className="absolute top-0 bottom-0 right-0 z-10 w-5 sm:w-20" style={{background: 'linear-gradient(to left, rgb(var(--background-rgb)), transparent)'}} />
       </div>
     </>
   );
