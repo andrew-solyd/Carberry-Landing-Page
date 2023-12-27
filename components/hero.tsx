@@ -34,9 +34,9 @@ const Hero = () => {
               {subheader_v3[0]}
               <span className="font-semibold">{subheader_v3[1]}</span>
             </p>
-            <div className="hidden sm:flex mt-4 justify-end pr-2">
+            <div className="hidden sm:flex mt-6 justify-end pr-2">
               <button 
-                className="bg-transparent hover:bg-zinc-900 hover:text-white text-xs p-2 border border-zinc-900 hover:border-transparent rounded font-semibold"
+                className="hover:bg-transparent bg-zinc-900 hover:text-zinc-900 text-white text-xs p-2 border border-zinc-900 rounded font-medium px-5"
                 onClick={handleClick}
               >
                 Be our early adopter

@@ -55,22 +55,26 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange }) => {
               ) : (
                 <>
                   <h1 className="text-lg mb-2">
-                    Coming soon
+                    Coming Soon
                   </h1>
                   <p className="text-sm text-center px-5">
-                    Join our waitlist to be the first to know when Cartberry launches.
+                    Join our waitlist to be notified when we launch
                   </p>
-                  <div className="flex flex-row">              
-                    <form onSubmit={handleEmailSubmit} className="w-[200px] flex flex-col items-center justify-center mt-4 text-sm">
+                  <div className="flex flex-row mb-3">              
+                    <form onSubmit={handleEmailSubmit} className="w-[300px] flex flex-col items-center justify-center mt-4 text-sm">
                       <input
                         type="email"
-                        placeholder="Your email"
+                        placeholder="Enter your email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="mt-3 w-full bg-[rgb(0,0,23)] border border-white rounded-lg px-2 py-1"
+                        className="mt-3 w-full bg-[rgb(0,0,23)] border border-[rgb(156,163,175)] rounded-lg px-2 py-1"
                       />
-                      <button type="submit" disabled={isLoading} className="w-[150px] mt-4 bg-[rgb(156,163,175)] text-[rgb(0,0,23)] rounded-lg p-1">
-                        {isLoading ? 'Adding email to list...' : 'Add me to list'}
+                      <button 
+                        type="submit" 
+                        disabled={isLoading} 
+                        className="w-[200px] mt-5 bg-white text-[rgb(0,0,23)] rounded-lg p-1 hover:bg-[rgb(156,163,175)]"
+                      >
+                        {isLoading ? 'Adding email to list...' : 'Add to list'}
                       </button>
                     </form>
                     {error && <p className="mt-2 text-red-500">{error}</p>}
