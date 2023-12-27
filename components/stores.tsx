@@ -1,22 +1,38 @@
+import React, { useEffect, useRef } from 'react'
 import Image from 'next/image'
 
 const StoreLogos = () => {
+  const containerRef = useRef<HTMLDivElement | null>(null)
+
+  useEffect(() => {
+  if (containerRef.current) {
+    containerRef.current.scrollLeft = 3400;
+  }
+}, [])
+
   return (
-    <div className="mx-5 flex flex-col items-center mb-3 sm:mb-0">
-      <div className="items-center w-[350px] sm:w-[375px]">
-        <h1 className="text-3xl text-center mb-5 sm:mb-4 font-semibold">
-          Where it works
-        </h1>        
-        <div className="h-[155px] sm:h-[175px] relative" style={{ opacity: 0.8 }}>
-          <Image src="/store_logos.png" alt="Logos of stores" className="object-contain" width={500} height={300}/>
+    <>
+      <div className="relative w-3/4 mx-auto">
+        <div className="absolute top-0 bottom-0 z-10" style={{background: 'linear-gradient(to right, rgb(var(--background-rgb)), transparent)' , width: '100px', marginLeft:'-1px'}} />
+        <div ref={containerRef} className="overflow-auto flex px-10 scrollbar-hide relative z-0 items-center justify-center">
+          {Array.from({ length: 8 }).flatMap((_, i) =>
+            [3, 1, 2, 7, 5 ].map(num => (
+              <div key={`${num}-${i}`} className="mx-10 flex-shrink-0" style={{ minWidth: '150px', maxHeight: '90px' }}>
+                <Image src={`/store_logo_${num}.png`} alt={`Store Logo ${num}`} width={150} height={90}/>
+              </div>
+            )).concat(
+            [4, 6 ].map(num => (
+              <div key={`${num}-${i}`} className="mx-10 flex-shrink-0" style={{ minWidth: '80px', maxHeight: '70px' }}>
+                <Image src={`/store_logo_${num}.png`} alt={`Store Logo ${num}`} width={60} height={60}/>
+              </div>
+            )))
+          )}
         </div>
-        <div className="flex flex-row items-center justify-center">
-          <span className="text-xs text-center mt-5">More stores coming soon</span>
-        </div>
+         <div className="absolute top-0 bottom-0 right-0 z-10" style={{background: 'linear-gradient(to left, rgb(var(--background-rgb)), transparent)', width: '100px'}} />
       </div>
-    </div>
-  )
-}
+    </>
+  );
+};
 
 StoreLogos.displayName = 'StoreLogos'
 

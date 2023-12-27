@@ -11,20 +11,21 @@ import Footer from '@/components/footer'
 
 export default function Home() {  
 
+  
   return (
     <main className="flex flex-col items-center">
-      <div className="mt-5 px-7 w-full">
+      <div className="ml-10 px-7 w-full">
         <Header/>
       </div>
-      <div className="flex flex-col items-center mt-5 sm:mt-10 px-10 w-full">
+      <div className="flex flex-col items-center mt-5 mb-5 px-10 w-full">
         <Hero/>
       </div>
       <div className="mt-10 mb-10 w-full">
-        <div className="sm:mt-10"><ValueProp/></div>        
+        <div className="mt-10 mb-10"><StoreLogos/></div>        
       </div>
       <div className="mb-10 w-full">
-        <div className="sm:mt-10"><StoreLogos/></div>        
-      </div>
+        <div className=""><ValueProp/></div>        
+      </div>      
       <div className="mb-10 w-full">
         <div className="sm:mt-10"><WaitlistCTA/></div>        
       </div>

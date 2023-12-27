@@ -15,7 +15,7 @@ const WaitlistCTA = () => {
     <>
       <div className="mx-5 flex flex-col items-center ">
           <button 
-            className="bg-transparent hover:bg-zinc-900 hover:text-white text-xs p-2 border border-zinc-900 hover:border-transparent rounded font-semibold"
+            className="bg-transparent hover:bg-zinc-900 hover:text-white text-m px-10 py-2 border border-zinc-900 hover:border-transparent rounded font-semibold"
             onClick={handleClick}
           >
             Join our waitlist
