@@ -1,6 +1,6 @@
-import { MdOutlineQuestionAnswer } from "react-icons/md"
-import { MdLightbulbOutline } from "react-icons/md"
-import { MdChecklistRtl } from "react-icons/md"
+import { 
+  MdOutlineAccountTree, MdChecklistRtl } from "react-icons/md"
+import { AiOutlineFileSearch } from "react-icons/ai"
 
 const ValueProp = () => {
   return (
@@ -11,11 +11,11 @@ const ValueProp = () => {
         </h1>
         <div className="flex flex-col items-center sm:items-start sm:flex-row">
           <div className="text-center mx-2 sm:mx-10 max-w-[220px] mb-10 sm:mb-0">
-            <div className="flex justify-center mb-5"><MdOutlineQuestionAnswer size={50} /></div>
+            <div className="flex justify-center mb-5"><MdOutlineAccountTree size={50} /></div>
             Link your loyalty account and let the magic begin
           </div>
           <div className="text-center mx-2 sm:mx-10 max-w-[220px] mb-10 sm:mb-0">
-            <div className="flex justify-center mb-5"><MdLightbulbOutline size={50} /></div>
+            <div className="flex justify-center mb-5"><AiOutlineFileSearch size={50} /></div>
             Our AI scans all prices, sales and coupons available
           </div>
           <div className="text-center mx-2 sm:mx-10 max-w-[220px] mb-6 sm:mb-0">
