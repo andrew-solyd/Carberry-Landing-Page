@@ -39,11 +39,11 @@ export default function Demo() {
 
   return (
         <div className="flex flex-col min-h-screen justify-between">
+
           <main className="flex flex-col items-center">
             <div className="px-7 mt-2 w-full">
               <Header/>
             </div>
-      
             <div className="flex flex-col justify-between px-7 py-4 border border-slate-300 rounded-md" style={{ width: '590px', height: '490px', ...container}}>
               <div id="topRow" className="flex flex-row mb-3 space-x-3 justify-between mb-4">
                 <div id="leftCol">
@@ -79,7 +79,7 @@ export default function Demo() {
                 </div>
               </div>
             </div>
-          </main>
+          </main>        
           <div className="mt-10 w-full">
             <Footer/>
           </div>
