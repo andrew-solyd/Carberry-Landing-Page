@@ -14,7 +14,7 @@ import Footer from '@/components/footer'
 import CartTable from '@/components/table'
 
 const Suggestion = ({ text }: { text: string }) => (
-  <div className="text-slate-800 min-h-16 mt-2 p-2 text-sm rounded-md border border-slate-800 hover:bg-slate-800 hover:text-gray-300" style={{ width: '200px'}}>
+  <div className="bg-slate-800 bg-opacity-10 text-slate-800 min-h-16 mt-2 p-2 text-sm rounded-md hover:bg-slate-800 hover:bg-opacity-90 hover:text-gray-300" style={{ width: '200px'}}>
     <span className="text-sm font-light" >{text}</span>
   </div>
 );
@@ -72,7 +72,7 @@ export default function Demo() {
                   </div>
                 </div>
               </div>
-              <div id="bottomRow" className="bg-slate-800 p-4 w-full h-full rounded-md flex justify-between mb-2">
+              <div id="bottomRow" className="bg-slate-800 bg-opacity-90 p-4 w-full h-full rounded-md flex justify-between mb-2">
                 <span className="text-gray-300 text-sm font-light">My prompt input in here</span>
                 <div className="flex items-end">
                   <span className="text-gray-300 text-2xl"><PiKeyReturnFill /></span>
@@ -91,7 +91,7 @@ const container = {
   borderWidth: "0px",
   borderColor: "rgba(0,173,238,0.5)",
   borderRadius: "1.5rem",
-  background: "linear-gradient(#fff, rgb(0 0 0 / 0.02))",
+  background: "linear-gradient(#fff, rgb(235, 245, 255/ 0.02))",
   boxShadow: "0px 0px 0px 1px var(--shadow-color), 0px 1px 1px -0.5px var(--shadow-color), 0px 3px 3px -1.5px var(--shadow-color), 0px 6px 6px -3px var(--shadow-color), 0px 12px 12px -6px var(--shadow-color), 0px 24px 24px -12px var(--shadow-color)",
   "--shadow-color": "rgb(0 0 0 / 0.06)"
 }
