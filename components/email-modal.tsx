@@ -52,7 +52,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange, utm }) =>
   }
 
   return (
-    <Modal isOpen={isOpen} onOpenChange={onOpenChange} onClose={handleClose} placement="center" className="mx-5 mb-20 bg-black text-white">
+    <Modal isOpen={isOpen} onOpenChange={onOpenChange} onClose={handleClose} placement="center" className="mx-5 mb-20 bg-zinc-900 text-white">
       <ModalContent>
         {() => (
           <div className="flex flex-col px-5 py-10 items-center">
@@ -65,7 +65,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange, utm }) =>
                 </>
               ) : (
                 <>
-                  <h1 className="text-lg mb-2">
+                  <h1 className="text-xl mb-2">
                     Coming Soon
                   </h1>
                   <p className="text-sm text-center px-5">
@@ -78,13 +78,13 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange, utm }) =>
                         placeholder="Enter your email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="mt-3 w-full bg-[rgb(0,0,23)] border border-[rgb(156,163,175)] rounded-lg px-2 py-1"
+                        className="mt-3 w-full bg-zinc-900 border border-[rgb(156,163,175)] rounded-lg px-2 py-2"
                       />
                       {error && <p className="mt-2 text-sm text-red-500">{error}</p>}
                       <button 
                         type="submit" 
                         disabled={isLoading} 
-                        className="w-[200px] mt-5 bg-white text-[rgb(0,0,23)] rounded-lg p-1 hover:bg-[rgb(156,163,175)]"
+                        className="w-[200px] mt-5 bg-white text-[rgb(0,0,23)] rounded-lg p-2 hover:bg-[rgb(156,163,175)]"
                       >
                         {isLoading ? 'Adding email to list...' : 'Add to list'}
                       </button>

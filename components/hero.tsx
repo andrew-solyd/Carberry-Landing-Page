@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import {useDisclosure} from "@nextui-org/modal"
 
-import EmailModal from './email-modal'
+import EmailModal from '@/components/email-modal'
 
 interface UTMProps {
   utm?: string | undefined | null
