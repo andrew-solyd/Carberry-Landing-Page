@@ -14,7 +14,7 @@ import Footer from '@/components/footer'
 import CartTable from '@/components/table'
 
 const Suggestion = ({ text }: { text: string }) => (
-  <div className="bg-slate-800 bg-opacity-10 text-slate-800 min-h-16 mt-2 p-2 text-sm rounded-xl hover:bg-slate-800 hover:bg-opacity-90 hover:text-gray-300" style={{ width: '200px'}}>
+  <div className="hover:bg-slate-800 hover:bg-opacity-10 hover:text-slate-800 min-h-16 mt-2 p-3 text-sm rounded-xl bg-slate-800 bg-opacity-90 text-gray-300" style={{ width: '200px'}}>
     <span className="text-sm font-light" >{text}</span>
   </div>
 );
