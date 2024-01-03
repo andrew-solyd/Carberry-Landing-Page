@@ -1,6 +1,6 @@
 const Loader = () => (
-  <div className="loader">
-    <svg width="200" height="200" viewBox="0 0 100 100">
+  <div style={loader}>
+    <svg width="200" height="200" viewBox="0 0 78 100">
       <defs>
         <clipPath id="maskShape" transform="scale(2.5)">
           
@@ -9,12 +9,12 @@ const Loader = () => (
         </clipPath>
       </defs>
 
-      <rect x="0" y="0" width="100" height="0" clipPath="url(#maskShape" >
+      <rect x="0" y="0" width="100" height="0" clipPath="url(#maskShape" fill="rgb(255, 255, 255, 0.1)">
         <animate 
           attributeName="height" 
           from="0" 
           to="100" 
-          dur="3s" 
+          dur="4s" 
           fill="freeze"
           repeatCount="indefinite"
         />
@@ -22,11 +22,12 @@ const Loader = () => (
           attributeName="y" 
           from="100" 
           to="0" 
-          dur="3s" 
+          dur="4s" 
           fill="freeze"
           repeatCount="indefinite"
         />
-      </rect>        
+      </rect>   
+
     </svg>
   </div>
 )
@@ -34,3 +35,10 @@ const Loader = () => (
 Loader.displayName = 'Loader'
 
 export default Loader
+
+const loader = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "100%" /* Full viewport height */
+}

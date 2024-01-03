@@ -20,9 +20,3 @@
   transition: opacity 500ms, transform 500ms;
 }
 
-.loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Full viewport height */
-}

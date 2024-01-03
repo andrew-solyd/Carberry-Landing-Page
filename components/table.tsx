@@ -1,11 +1,13 @@
 import React from 'react'
 import ProductCard from '@/components/product-card'
+import Loader from '@/components/loader'
 
 interface CartTableProps {
-  tableType: string;
+  tableType: string
+  loading: boolean
 }
 
-const CartTable: React.FC<CartTableProps> = ({ tableType }) => {
+const CartTable: React.FC<CartTableProps> = ({ tableType, loading }) => {
 
   const regularShopItems = [
     { image: '/regular_shop/milk.jpg', item: 'Organic Valley 2% Milk', quantity: '1 gallon', cost: '$7.69' },
@@ -35,26 +37,26 @@ const CartTable: React.FC<CartTableProps> = ({ tableType }) => {
 
   const itemsToDisplay = tableType === 'regular' ? regularShopItems : cartberryShopItems
 
-  const totalCost = itemsToDisplay.reduce((total, item) => {
-    const cost = parseFloat(item.cost.replace('$', ''))
-    return total + cost;
-  }, 0)
-
   return (
     <div className="justify-center">
-      <div className="w-[320px] h-[330px] flex flex-col bg-white rounded-md overflow-y-auto px-3 pt-3 border border-slate-300">
-        {itemsToDisplay.map((item, index) => (
-          <React.Fragment key={index}>
-            <ProductCard 
-              image={item.image} 
-              item={item.item} 
-              quantity={item.quantity} 
-              cost={item.cost} 
-            />
-            {index < itemsToDisplay.length - 1 && <div className="border-t border-dashed border-gray-200 mx-2 my-1"></div>}
-        </React.Fragment>
+      <div className="relative w-[320px] h-[330px] flex flex-col bg-white rounded-xl overflow-y-auto px-3 pt-3 border border-slate-300">
+        {!loading && itemsToDisplay.map((item, index) => (
+            <React.Fragment key={index}>
+              <ProductCard 
+                image={item.image} 
+                item={item.item} 
+                quantity={item.quantity} 
+                cost={item.cost} 
+              />
+              {index < itemsToDisplay.length - 1 && <div className="border-t border-dashed border-gray-200 mx-2 my-1"></div>}
+          </React.Fragment>
         ))}
-      </div>
+        {loading && (
+          <div className="absolute inset-0 bg-slate-800 bg-opacity-90">
+            <Loader />
+          </div>
+        )}
+      </div>      
     </div>
   )
 };
