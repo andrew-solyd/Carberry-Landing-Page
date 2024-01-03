@@ -35,7 +35,7 @@ export default function Home() {
         <div className=""><ValueProp utm = {utm} /></div>        
       </div>      
       <div className="mb-10 w-full">
-        <div className="sm:mt-10"><WaitlistCTA/></div>        
+        <div className="sm:mt-10"><WaitlistCTA utm = {utm}/></div>        
       </div>
       <div className="mt-10 w-full">
         <Footer/>

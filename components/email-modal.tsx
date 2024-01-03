@@ -1,27 +1,38 @@
 // components/email-modal.tsx
 
 import { useState } from 'react'
-import { Modal, ModalContent } from "@nextui-org/modal"
+import { Modal, ModalContent } from '@nextui-org/modal'
 import { addEmailToAirtable } from '../services/airtable'
 import { sendWelcomeEmail } from '@/services/email'
 
 interface EmailModalProps {
-  isOpen: boolean;
-  onOpenChange: (open: boolean) => void;
+  isOpen: boolean
+  onOpenChange: (open: boolean) => void
+  utm?: string | undefined | null
 }
 
-const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange }) => {
+const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange, utm }) => {
   const [email, setEmail] = useState('')
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
+  const validateEmail = (email: string) => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    return re.test(String(email).toLowerCase())
+  }
+
   const handleEmailSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     setIsLoading(true)
     setError(null)
+    if (!validateEmail(email)) {
+      setError('Invalid email address')
+      setIsLoading(false)
+      return
+    }
     try {
-      const addEmailToAirtableResult = await addEmailToAirtable(email)
+      const addEmailToAirtableResult = await addEmailToAirtable(email, utm || '')
       const sendWelcomeEmailResult = await sendWelcomeEmail(email)
       
       if (addEmailToAirtableResult.success && sendWelcomeEmailResult.success) {
@@ -41,9 +52,9 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange }) => {
   }
 
   return (
-    <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="center" className="mx-5 mb-20 bg-black text-white">
+    <Modal isOpen={isOpen} onOpenChange={onOpenChange} onClose={handleClose} placement="center" className="mx-5 mb-20 bg-black text-white">
       <ModalContent>
-        {(onClose) => (
+        {() => (
           <div className="flex flex-col px-5 py-10 items-center">
             {isSubmitted ? (
                 <>
@@ -60,7 +71,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange }) => {
                   <p className="text-sm text-center px-5">
                     Join our waitlist to be notified when we launch
                   </p>
-                  <div className="flex flex-row mb-3">              
+                  <div className="flex flex-col items-center  mb-3">              
                     <form onSubmit={handleEmailSubmit} className="w-[300px] flex flex-col items-center justify-center mt-4 text-sm">
                       <input
                         type="email"
@@ -69,6 +80,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange }) => {
                         onChange={(e) => setEmail(e.target.value)}
                         className="mt-3 w-full bg-[rgb(0,0,23)] border border-[rgb(156,163,175)] rounded-lg px-2 py-1"
                       />
+                      {error && <p className="mt-2 text-sm text-red-500">{error}</p>}
                       <button 
                         type="submit" 
                         disabled={isLoading} 
@@ -77,7 +89,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange }) => {
                         {isLoading ? 'Adding email to list...' : 'Add to list'}
                       </button>
                     </form>
-                    {error && <p className="mt-2 text-red-500">{error}</p>}
+                    
                   </div>
                 </>
               )}

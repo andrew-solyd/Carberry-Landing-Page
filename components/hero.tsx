@@ -65,7 +65,7 @@ const Hero: React.FC<UTMProps> = ({ utm }) => {
           </div>
         </div>
       </div>
-      <EmailModal isOpen={isOpen} onOpenChange={onOpenChange} />
+      <EmailModal isOpen={isOpen} onOpenChange={onOpenChange} utm={utm}/>
     </>
 
   )

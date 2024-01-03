@@ -6,9 +6,10 @@ import Airtable from 'airtable'
 
 const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(process.env.AIRTABLE_BASE as string)
 
-export const addEmailToAirtable = async (email: string) => {
+export const addEmailToAirtable = async (email: string, utm: string) => {
   try {
     await base('Waitlist').create({
+      "utm": utm,
       "email": email,
       "timestamp": new Date().toISOString()
     })

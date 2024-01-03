@@ -3,7 +3,11 @@
 import {useDisclosure} from "@nextui-org/modal"
 import EmailModal from './email-modal'
 
-const WaitlistCTA = () => {
+interface UTMProps {
+  utm?: string | undefined | null
+}
+
+const WaitlistCTA: React.FC<UTMProps> = ({ utm }) => {
   const {isOpen, onOpen, onOpenChange} = useDisclosure()
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -22,7 +26,7 @@ const WaitlistCTA = () => {
           </button>
         
       </div>  
-      <EmailModal isOpen={isOpen} onOpenChange={onOpenChange} />
+      <EmailModal isOpen={isOpen} onOpenChange={onOpenChange} utm={utm} />
     </>
   )
 }
