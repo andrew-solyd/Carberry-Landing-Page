@@ -50,7 +50,7 @@ export default function Demo() {
 
   const [loadedSuggestions, setLoadedSuggestions] = useState<string[]>([])
   const [loading, setLoading] = useState(false)
-  const [responseVisible, setResponseVisible] = useState(true)
+  const [responseVisible, setResponseVisible] = useState(false)
   const {isOpen, onOpen, onOpenChange} = useDisclosure()
 
   useEffect(() => {

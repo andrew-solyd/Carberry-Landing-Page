@@ -32,7 +32,7 @@ const Hero: React.FC<UTMProps> = ({ utm }) => {
 
   if (utm === "1") {
     header = `Less stress, more time with family`
-    subheader = [`Easily plan meals and get a shopping list optimized for value. `, `Cartberry - your AI co-pilot for nutritious and healthy meals on any budget.`]
+    subheader = [`Easily plan meals and get shopping lists optimized for value. `, `Cartberry — your AI co-pilot for nutritious and healthy meals on any budget.`]
     image = `/hero_1.png`
     cta = `Coming soon  —  join waitlist`
   } 

@@ -15,7 +15,7 @@ const ValueProp: React.FC<UTMProps> = ({ utm }) => {
   if (utm === "1") {
 
     prop_a = `You link your loyalty accounts and we work our magic`
-    prop_b = `Get suggested meals for the week, choose and modify`
+    prop_b = `Get suggested meals for the week, tweak as needed`
     prop_c = `We scan prices and sales, building list with max savings`
 
   }
