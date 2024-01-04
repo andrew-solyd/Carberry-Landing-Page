@@ -20,6 +20,7 @@ const Suggestion = ({ text }: { text: string }) => (
     <span className="text-sm font-light" >{text}</span>
   </div>
 )
+
 const suggestions = [
   "This is suggestion 1", 
   "This is suggestion 2",
@@ -49,6 +50,7 @@ export default function Demo() {
 
   const [loadedSuggestions, setLoadedSuggestions] = useState<string[]>([])
   const [loading, setLoading] = useState(false)
+  const [responseVisible, setResponseVisible] = useState(true)
   const {isOpen, onOpen, onOpenChange} = useDisclosure()
 
   useEffect(() => {
@@ -64,6 +66,7 @@ export default function Demo() {
     onOpen()
   }
 
+
   return (
     <>
       <div className="flex flex-col min-h-screen justify-between">
@@ -78,7 +81,7 @@ export default function Demo() {
                   <span className="text-slate-800 text-lg font-semibold">Shopping List</span>
                   <span className="text-slate-400 text-xs font-extralight">{itemsCount} items</span>
                 </div>
-                <CartTable data= {regularShopItems} loading={loading}/>
+                <CartTable data= {regularShopItems} loading={loading} responseVisible={responseVisible} setResponseVisible={setResponseVisible} />
               </div>
               <div id="rightCol" className="flex flex-col justify-between">
                 
@@ -106,17 +109,14 @@ export default function Demo() {
             </div>
           </div>
           <div className="flex flex-row space-x-5">
-            <button 
-              className="mt-5 rounded text-sm font-light"
-              onClick={() => setLoading(!loading)}
-            >
+            <button className="mt-5 rounded text-sm font-light" onClick={() => {setLoading(!loading); setResponseVisible(false)}}>
               Load Cart
             </button>
-            <button 
-              className="mt-5 rounded text-sm font-light"
-              onClick={handleExpandClick}
-            >
+            <button className="mt-5 rounded text-sm font-light" onClick={handleExpandClick}>
               Expand
+            </button>
+            <button className="mt-5 rounded text-sm font-light" onClick={() => {setResponseVisible(!responseVisible); setLoading(false)}}>
+              Response
             </button>
           </div>
         </main>        
