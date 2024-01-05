@@ -13,9 +13,9 @@ Breads, Rolls & Bakery` },
   ]
 
 export const suggestions = [
-  `This is suggestion 1`, 
-  `This is suggestion 2`,
-  `This is a third suggestion`
+  `Cheese plate for 5 guests`, 
+  `All domestic cheeses`,
+  `Less pricey`
 ]
 
-export const AssistantResponseText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.`
+export const AssistantResponseText = `Hi, I'm the Cartberry Cheesemonger here to help you make the most of your cheese shopping at Brooklyn Wholefoods today. I took the liberty of preparing a small selection of our finest cheeses today that have the best value. Let's get started making your perfect Cheese Shopping List.`

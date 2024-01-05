@@ -8,7 +8,7 @@ interface ShoppingListProps {
 const ShoppingList: React.FC<ShoppingListProps> = ({ data }) => {
 
   return (
-    <div className="relative w-[320px] h-[330px] flex flex-col bg-white rounded-xl overflow-y-auto px-3 pt-3 border border-slate-300">
+    <>
       {data.map((item, index) => (
           <React.Fragment key={index}>
             <ProductCard 
@@ -20,7 +20,7 @@ const ShoppingList: React.FC<ShoppingListProps> = ({ data }) => {
             {index < data.length - 1 && <div className="border-t border-dashed border-gray-200 mx-2 my-1"></div>}
         </React.Fragment>
       ))}
-    </div>      
+    </>      
   )
 };
 

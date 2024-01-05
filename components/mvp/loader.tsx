@@ -1,5 +1,4 @@
 const Loader = () => (
-  <div className="relative w-[320px] h-[330px] flex flex-col bg-white rounded-xl overflow-y-auto px-3 pt-3 border border-slate-300">
     <div className="absolute inset-0 bg-slate-800 bg-opacity-90">
       <div style={loader}>
         <svg width="200" height="200" viewBox="0 0 78 100">
@@ -33,7 +32,6 @@ const Loader = () => (
         </svg>
       </div>
     </div>
-  </div>
 )
 
 Loader.displayName = 'Loader'
