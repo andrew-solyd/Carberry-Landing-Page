@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Modal, ModalContent } from '@nextui-org/modal'
-import ProductCard from '@/components/product-card'
+import ProductCard from '@/components/mvp/list-item'
 
 interface ShoppingListModalProps {
   isOpen: boolean
@@ -39,5 +39,7 @@ const ShoppingListModal: React.FC<ShoppingListModalProps> = ({ isOpen, onOpenCha
     </Modal>
   )
 }
+
+ProductCard.displayName = 'ShoppingListModal'
 
 export default ShoppingListModal

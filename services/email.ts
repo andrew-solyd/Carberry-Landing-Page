@@ -3,7 +3,7 @@
 "use server"
 
 import { Resend } from 'resend'
-import { CartberryWelcomeEmail } from '../components/email-template'
+import { CartberryWelcomeEmail } from '@/components/email/email-template'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 

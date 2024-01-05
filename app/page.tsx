@@ -4,12 +4,12 @@
 
 import { useSearchParams } from 'next/navigation'
 
-import Header from '@/components/header'
-import Hero from '@/components/hero'
-import ValueProp from '@/components/value-prop'
-import StoreLogos from '@/components/stores'
-import WaitlistCTA from '@/components/waitlist-cta'
-import Footer from '@/components/footer'
+import Header from '@/components/universal/header'
+import Hero from '@/components/landing/hero'
+import ValueProp from '@/components/landing/value-prop'
+import StoreLogos from '@/components/landing/stores'
+import WaitlistCTA from '@/components/landing/waitlist-cta'
+import Footer from '@/components/universal/footer'
 
 export default function Home() {  
 

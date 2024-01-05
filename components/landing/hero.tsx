@@ -3,7 +3,8 @@
 import Image from 'next/image'
 import {useDisclosure} from "@nextui-org/modal"
 
-import EmailModal from '@/components/email-modal'
+import EmailModal from '@/components/landing/email-modal'
+import getVariations from '@/components/landing/variations'
 
 interface UTMProps {
   utm?: string | undefined | null
@@ -18,24 +19,7 @@ const Hero: React.FC<UTMProps> = ({ utm }) => {
     onOpen()
   }
 
-   /*
-  const header_v1 = "Feeding a family shouldn't be this expensive"
-  const header_v2 = "Stop overpaying for groceries"
-  const subheader_v1 = "Save time and money on every shop — Cartberry finds you the best deals for healthy, organic foods at your go-to stores."
-  const subheader_v2 = "Find the best organic deals in seconds. Get instant cash savings every time you shop. Cartberry — your key to affordable, healthy eating."
-  */
-
-  let header = `You've been looking for this`
-  let subheader = [`Get your perfect shopping cart in seconds. Save at least 20% every time you check out. `, `Cartberry — your AI co-pilot for savvy grocery shopping.`]
-  let image = `/hero.png`
-  let cta = `Be our early adopter`
-
-  if (utm === "1") {
-    header = `Less stress, more time with family`
-    subheader = [`Easily plan meals and get shopping lists optimized for value. `, `Cartberry — your AI co-pilot for nutritious and healthy meals on any budget.`]
-    image = `/hero_1.png`
-    cta = `Coming soon  —  join waitlist`
-  } 
+  const { header, subheader, image, cta } = getVariations({ utm })
 
   return (
     <>

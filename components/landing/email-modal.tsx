@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Modal, ModalContent } from '@nextui-org/modal'
-import { addEmailToAirtable } from '../services/airtable'
+import { addEmailToAirtable } from '@/services/airtable'
 import { sendWelcomeEmail } from '@/services/email'
 
 interface EmailModalProps {
