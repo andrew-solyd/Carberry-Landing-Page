@@ -7,7 +7,7 @@ import ShoppingList from '@/components/mvp/list'
 interface ShoppingListModalProps {
   isOpen: boolean
   onOpenChange: (open: boolean) => void
-  data: { image: string; item: string; quantity: string; cost: string; }[]
+  data: { image: string; item: string; quantity: string; cost: string; category: string;}[]
 }
 
 const ShoppingListModal: React.FC<ShoppingListModalProps> = ({ isOpen, onOpenChange, data }) => {
