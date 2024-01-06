@@ -47,12 +47,19 @@ export default function Demo() {
           <div className="w-auto container flex flex-col px-7 py-4 bg-blue-50">
             <div id="topRow" className="flex flex-row mb-3 space-x-5 justify-center">
               <div id="leftCol">
-                <div className="flex flex-row justify-between items-center mb-1">
+                <div className="flex flex-row justify-between items-center">
                   <span className="text-slate-600 text-lg font-semibold ml-1">Shopping List</span>
-                  <button className="text-slate-600 text-xl font-medium mr-1" onClick={handleExpandClick}><IoShareOutline /></button>
+                  
+                </div>
+                <div className="flex justify-between items-start mb-1">
+                  <span className="text-slate-400 text-xs font-extralight ml-1">{itemsCount} items</span>
+                  <div className="flex items-end">
+                    <span className="text-slate-600 text-md font-medium mr-2">Total: ${total.toFixed(2)}</span>
+                    <button className="text-slate-600 text-xl mr-1 mb-1 hover:text-slate-900" onClick={handleExpandClick}><IoShareOutline /></button>
+                  </div>
                 </div>
                 <div className="justify-center">
-                  <div className="relative w-[320px] h-[415px] flex flex-col bg-white rounded-xl overflow-y-auto px-3 pt-3 border border-slate-300">
+                  <div className="relative w-[320px] h-[400px] flex flex-col bg-white rounded-xl overflow-y-auto px-3 pt-1 border border-slate-300">
                     {!loading && !responseVisible &&  (
                       <ShoppingList data={regularShopItems} />
                     )}
@@ -64,12 +71,8 @@ export default function Demo() {
                     )}
                   </div>
                 </div>
-                <div className="flex justify-between mt-2 items-center">
-                  <span className="text-slate-400 text-xs font-extralight ml-1">{itemsCount} items</span>
-                  <span className="text-slate-600 text-md font-medium mr-1">Total: ${total.toFixed(2)}</span>
-                </div>
               </div>
-              <div id="rightCol" className="w-[220px] flex flex-col justify-between">                
+              <div id="rightCol" className="w-[220px] flex flex-col">                
                 <Prompts />                                      
               </div>
             </div>

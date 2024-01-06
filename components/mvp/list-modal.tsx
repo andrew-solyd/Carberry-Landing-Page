@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Modal, ModalContent } from '@nextui-org/modal'
-import ProductCard from '@/components/mvp/list-item'
+import ShoppingList from '@/components/mvp/list'
 
 interface ShoppingListModalProps {
   isOpen: boolean
@@ -21,17 +21,7 @@ const ShoppingListModal: React.FC<ShoppingListModalProps> = ({ isOpen, onOpenCha
         {() => (
           <div className="flex flex-col pt-5 items-center justify-start overflow-y-auto">
             <div className="flex flex-col bg-white px-3 pt-3">
-              {data.map((item, index) => (
-                  <React.Fragment key={index}>
-                    <ProductCard 
-                      image={item.image} 
-                      item={item.item} 
-                      quantity={item.quantity} 
-                      cost={item.cost} 
-                    />
-                    {index < data.length - 1 && <div className="border-t border-dashed border-gray-200 mx-2 my-1"></div>}
-                </React.Fragment>
-              ))}
+              <ShoppingList data ={data} />
             </div>
           </div>
         )}
@@ -40,6 +30,6 @@ const ShoppingListModal: React.FC<ShoppingListModalProps> = ({ isOpen, onOpenCha
   )
 }
 
-ProductCard.displayName = 'ShoppingListModal'
+ShoppingListModal.displayName = 'ShoppingListModal'
 
 export default ShoppingListModal
