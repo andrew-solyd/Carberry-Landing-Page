@@ -14,7 +14,7 @@ interface VariationResult {
 
 const getVariations = ({ utm }: VariationProps): VariationResult  => {
   let header = `Meaningfully reduce your grocery expenses`
-  let subheader = [`Get your perfect shopping cart in seconds. Save at least 20% every time you check out. `, `Introducing Cartberry, your AI co-pilot for savvy grocery shopping.`]
+  let subheader = [`Get your perfect shopping list in seconds. Save at least 20% every time you check out. `, `Introducing Cartberry, your AI co-pilot for savvy grocery shopping.`]
   let image = `/hero.png`
   let cta = `Be our early adopter`
   let props = [`Link your store loyalty account and let the magic begin`, `Our AI scans all prices, sales and coupons available`, `You get a personal shopping list with max store savings`]
