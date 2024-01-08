@@ -30,7 +30,7 @@ const StoreLogos = () => {
         <div className="absolute top-0 bottom-0 z-10 w-5 sm:w-20" style={{background: 'linear-gradient(to right, rgb(var(--background-rgb)), transparent)', marginLeft:'-1px'}} />
         <div ref={containerRef} className="overflow-auto flex px-10 scrollbar-hide relative z-0 items-center justify-center">
           {Array.from({ length: 8 }).flatMap((_, i) =>
-            [3, 1, 2, 7, 5 ].map(num => (
+            [3, 1, 2, 8, 7, 5 ].map(num => (
               <div key={`${num}-${i}`} className="mx-5 sm:mx-10 flex-shrink-0" style={{ minWidth: '150px', maxHeight: '90px' }}>
                 <Image src={`/store_logo_${num}.png`} alt={`Store Logo ${num}`} width={150} height={90}/>
                 <div className="absolute inset-0 z-10" />

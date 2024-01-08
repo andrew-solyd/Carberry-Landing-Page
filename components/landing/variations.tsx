@@ -16,7 +16,7 @@ const getVariations = ({ utm }: VariationProps): VariationResult  => {
   let header = `Meaningfully reduce your grocery expenses`
   let subheader = [`Create your perfect shopping list in seconds. Save 20% or more at checkout without coupons. `, `Introducing Cartberry, your AI co-pilot for savvy grocery shopping.`]
   let image = `/hero.png`
-  let cta = `Be our early adopter`
+  let cta = `Sign up for early access`
   let props = [`Link your store loyalty account and let the magic begin`, `Our AI scans all prices, sales and deals available`, `You get a personal shopping list with max store savings`]
 
   if (utm === "1") {

@@ -69,7 +69,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange, utm }) =>
                     Coming Soon
                   </h1>
                   <p className="text-sm text-center px-5">
-                    Join our waitlist to be notified when we launch
+                    Secure your spot for exclusive launch-day deals.
                   </p>
                   <div className="flex flex-col items-center  mb-3">              
                     <form onSubmit={handleEmailSubmit} className="w-[300px] flex flex-col items-center justify-center mt-4 text-sm">
@@ -80,14 +80,15 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange, utm }) =>
                         onChange={(e) => setEmail(e.target.value)}
                         className="mt-3 w-full bg-zinc-900 border border-[rgb(156,163,175)] rounded-lg px-2 py-2"
                       />
-                      {error && <p className="mt-2 text-sm text-red-500">{error}</p>}
+                      {error && <p className="mt-2 text-xs text-red-500">{error}</p>}
                       <button 
                         type="submit" 
                         disabled={isLoading} 
                         className="w-[200px] mt-5 bg-white text-[rgb(0,0,23)] rounded-lg p-2 hover:bg-[rgb(156,163,175)]"
                       >
-                        {isLoading ? 'Adding email to list...' : 'Add to list'}
+                        {isLoading ? 'Adding email...' : `I'm in, keep me posted!`}
                       </button>
+                      {! error && <p className="w-[200px] mt-2 text-xs text-zinc-600 text-center ">Your privacy is paramount. We keep all data personal and confidential.</p>}
                     </form>
                     
                   </div>
