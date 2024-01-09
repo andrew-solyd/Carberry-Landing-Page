@@ -35,7 +35,7 @@ const Hero: React.FC<UTMProps> = ({ utm }) => {
             </p>
             <div className="hidden sm:flex mt-6 justify-end pr-2">
               <button 
-                className="hover:bg-transparent bg-zinc-900 hover:text-zinc-900 text-white text-sm p-2 border border-zinc-900 rounded font-medium px-5"
+                className="hover:bg-orange-400 bg-orange-600 text-white text-sm p-2 b  rounded font-medium px-5"
                 onClick={handleClick}
               >
                 {cta}

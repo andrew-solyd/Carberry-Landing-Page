@@ -32,7 +32,7 @@ export const PromptBar = ({ onClick }: { onClick: () => void }) => {
   }, [inputValue])
 
   return (
-    <div className={`bg-slate-800 bg-opacity-90 p-3 rounded-xl flex flex-col justify-between ${isFocused ? 'h-[440px]' : ''} transition-opacity duration-200 ease-in-out`} style={{opacity: opacity}}>
+    <div className={`bg-slate-800 bg-opacity-90 p-3 rounded-xl flex flex-col justify-between ${isFocused ? 'h-[440px]' : 'hover:bg-opacity-85'} transition-opacity duration-200 ease-in-out`} style={{opacity: opacity}}>
       <textarea 
         ref={textareaRef}
         value={inputValue} 
@@ -42,8 +42,8 @@ export const PromptBar = ({ onClick }: { onClick: () => void }) => {
         placeholder={placeholder}
       />
       <div className="flex flex-row justify-end">
-        <button className="">
-          <span className="text-gray-300 text-2xl hover:text-gray-100"><PiKeyReturnFill /></span>
+        <button disabled={!isFocused} className="">
+          <span className={`text-gray-300 text-2xl ${isFocused ? 'hover:text-gray-100' : ''} `}  ><PiKeyReturnFill /></span>
         </button>
       </div>
     </div>

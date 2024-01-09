@@ -6,7 +6,7 @@ import { suggestions } from '@/components/mvp/data'
 import PromptBar from '@/components/mvp/prompt-bar'
 
 const Suggestion = ({ text }: { text: string }) => (
-    <div className="cursor-pointer w-full hover:text-gray-100 min-h-16 w-full mb-4 p-3 text-sm rounded-xl bg-slate-800 bg-opacity-90 text-gray-300">
+    <div className="cursor-pointer w-full hover:text-gray-100 hover:bg-opacity-85 min-h-16 w-full mb-4 p-3 text-sm rounded-xl bg-slate-800 bg-opacity-90 text-gray-300">
       <span className="text-sm font-light" >{text}</span>
     </div>
 )
