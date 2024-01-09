@@ -2,7 +2,7 @@
 
 "use client"
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useSearchParams } from 'next/navigation'
 
 import Header from '@/components/universal/header'
@@ -18,15 +18,14 @@ export default function Home() {
 
   const searchParams = useSearchParams() 
   const [variation, setVariation] = useState<VariationResult | null>(null)
-
-  let utm: number | undefined;
+  const utmRef = useRef<number | undefined>()
 
   useEffect(() => {
     const fetchVariations = async () => {
       if (!searchParams) return
       const utmParam = searchParams.get('utm')
-      utm = utmParam ? Number(utmParam) : undefined
-      const variations = await getVariations({ utm })
+      utmRef.current = utmParam ? Number(utmParam) : undefined // Use useRef to persist value
+      const variations = await getVariations({ utm: utmRef.current })
       setVariation(variations)
     };
     fetchVariations();
@@ -42,7 +41,7 @@ export default function Home() {
         <Header  />
       </div>
       <div className="flex flex-col items-center sm:mt-5 mb-5 px-10 w-full">
-        <Hero header={variation.header} subheader={variation.subheader} image={variation.image} cta={variation.cta} utm={utm}/>
+        <Hero header={variation.header} subheader={variation.subheader} image={variation.image} cta={variation.cta} utm={utmRef.current}/>
       </div>
       <div className="sm:mt-10 mb-10 w-full">
         <div className="sm:mt-10 sm:mb-10"><StoreLogos/></div>        
