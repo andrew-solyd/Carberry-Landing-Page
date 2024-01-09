@@ -2,6 +2,7 @@
 
 "use client"
 
+import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 
 import Header from '@/components/universal/header'
@@ -11,31 +12,46 @@ import StoreLogos from '@/components/landing/stores'
 import WaitlistCTA from '@/components/landing/waitlist-cta'
 import Footer from '@/components/universal/footer'
 
+import getVariations, { VariationResult }  from '@/components/landing/variations'
+
 export default function Home() {  
 
   const searchParams = useSearchParams() 
-  let utm: string | undefined | null = undefined
-  
-  if (searchParams) {
-    utm = searchParams.get('utm')
+  const [variation, setVariation] = useState<VariationResult | null>(null)
+
+  let utm: number | undefined;
+
+  useEffect(() => {
+    const fetchVariations = async () => {
+      if (!searchParams) return
+      const utmParam = searchParams.get('utm')
+      utm = utmParam ? Number(utmParam) : undefined
+      const variations = await getVariations({ utm })
+      setVariation(variations)
+    };
+    fetchVariations();
+  }, [searchParams]);
+
+  if (!variation) {
+    return <div>Loading...</div>; // Or some other loading state
   }
   
   return (
     <main className="flex flex-col items-center">
       <div className="px-7 mt-2 w-full">
-        <Header/>
+        <Header  />
       </div>
       <div className="flex flex-col items-center sm:mt-5 mb-5 px-10 w-full">
-        <Hero utm = {utm} />
+        <Hero header={variation.header} subheader={variation.subheader} image={variation.image} cta={variation.cta} utm={utm}/>
       </div>
       <div className="sm:mt-10 mb-10 w-full">
         <div className="sm:mt-10 sm:mb-10"><StoreLogos/></div>        
       </div>
       <div className="mb-10 w-full">
-        <div className=""><ValueProp utm = {utm} /></div>        
+        <div className=""><ValueProp props={variation.props} /></div>        
       </div>      
       <div className="mb-10 w-full">
-        <div className="sm:mt-10"><WaitlistCTA utm = {utm}/></div>        
+        <div className="sm:mt-10"><WaitlistCTA /></div>        
       </div>
       <div className="mt-10 w-full">
         <Footer/>

@@ -8,7 +8,7 @@ import { sendWelcomeEmail } from '@/services/email'
 interface EmailModalProps {
   isOpen: boolean
   onOpenChange: (open: boolean) => void
-  utm?: string | undefined | null
+  utm?: number | undefined | null
 }
 
 const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange, utm }) => {
@@ -32,7 +32,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange, utm }) =>
       return
     }
     try {
-      const addEmailToAirtableResult = await addEmailToAirtable(email, utm || '')
+      const addEmailToAirtableResult = await addEmailToAirtable(email, utm || 0)
       const sendWelcomeEmailResult = await sendWelcomeEmail(email)
       
       if (addEmailToAirtableResult.success && sendWelcomeEmailResult.success) {

@@ -4,13 +4,16 @@ import Image from 'next/image'
 import {useDisclosure} from "@nextui-org/modal"
 
 import EmailModal from '@/components/landing/email-modal'
-import getVariations from '@/components/landing/variations'
 
-interface UTMProps {
-  utm?: string | undefined | null
+interface HeroProps {
+  header: string
+  subheader: string[]
+  image: string
+  cta: string
+  utm: number | undefined | null
 }
 
-const Hero: React.FC<UTMProps> = ({ utm }) => {
+const Hero: React.FC<HeroProps> = ({ header, subheader, image, cta, utm  }) => {
 
   const {isOpen, onOpen, onOpenChange} = useDisclosure()
 
@@ -18,8 +21,6 @@ const Hero: React.FC<UTMProps> = ({ utm }) => {
     event.preventDefault()
     onOpen()
   }
-
-  const { header, subheader, image, cta } = getVariations({ utm })
 
   return (
     <>
@@ -31,7 +32,7 @@ const Hero: React.FC<UTMProps> = ({ utm }) => {
             </h1>
             <p className="mt-5 text-center sm:text-left">
               {subheader[0]}
-              <span className="font-semibold">{subheader[1]}</span>
+              <span className="font-semibold"> {subheader[1]}</span>
             </p>
             <div className="hidden sm:flex mt-6 justify-end pr-2">
               <button 

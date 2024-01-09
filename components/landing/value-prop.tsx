@@ -2,15 +2,11 @@ import { MdOutlineEmojiNature } from "react-icons/md"
 import { TbShoppingBagSearch } from "react-icons/tb"
 import { RiFileList3Line } from "react-icons/ri"
 
-import getVariations from "@/components/landing/variations"
-
-interface UTMProps {
-  utm?: string | undefined | null
+interface ValuePropProps {
+  props: string[]
 }
 
-const ValueProp: React.FC<UTMProps> = ({ utm }) => {
-
-  const { props } = getVariations({ utm })
+const ValueProp: React.FC<ValuePropProps> =  ({ props }) => {
 
   return (
     <div className="mx-5 flex flex-col items-center">
