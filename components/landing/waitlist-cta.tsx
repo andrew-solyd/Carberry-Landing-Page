@@ -4,7 +4,7 @@ import {useDisclosure} from "@nextui-org/modal"
 import EmailModal from './email-modal'
 
 interface UTMProps {
-  utm?: string | undefined | null
+  utm?: number | undefined | null
 }
 
 const WaitlistCTA: React.FC<UTMProps> = ({ utm }) => {
