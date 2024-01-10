@@ -10,7 +10,7 @@ interface HeroProps {
   subheader: string[]
   image: string
   cta: string
-  utm: number | undefined | null
+  utm?: number | undefined | null
 }
 
 const Hero: React.FC<HeroProps> = ({ header, subheader, image, cta, utm  }) => {

@@ -27,22 +27,24 @@ export interface VariationResult {
   image: string
   cta: string
   props: string[]
+  bottomParagraph: string
 }
 
 const getVariations = async ({ utm }: UTM): Promise<VariationResult> => {
   const landingPages = await client.fetch(`*[_type == "landingPage"]`);
-  let header = landingPages[0].header
-  let subheader = [ landingPages[0].subheader[0], landingPages[0].subheader[1] ]
+  let header = landingPages[0].header ?? ''
+  let subheader = [ landingPages[0].subheader[0], landingPages[0].subheader[1] ] ?? ''
   let image = `/hero.png`
-  let cta = landingPages[0].cta
-  let props = landingPages[0].props
+  let cta = landingPages[0].cta ?? ''
+  let props = landingPages[0].props ?? ''
+  let bottomParagraph = landingPages[0].bottomParagraph ?? ''
   if (utm) {
-    header = landingPages[utm].header
-    subheader = [ landingPages[utm].subheader[0], landingPages[utm].subheader[1] ]
-    image = urlFor(landingPages[utm].image).url()
-    cta = landingPages[utm].cta
-    props = landingPages[utm].props
-
+    header = landingPages[utm].header ?? ''
+    subheader = [ landingPages[utm].subheader[0], landingPages[utm].subheader[1] ] ?? ''
+    image = urlFor(landingPages[utm].image).url() ?? ''
+    cta = landingPages[utm].cta ?? ''
+    props = landingPages[utm].props ?? ''
+    bottomParagraph = landingPages[utm].bottomParagraph ?? ''
   }
 
 
@@ -50,7 +52,7 @@ const getVariations = async ({ utm }: UTM): Promise<VariationResult> => {
     // 
   } 
 
-  return { header, subheader, image, cta, props }
+  return { header, subheader, image, cta, props, bottomParagraph }
 }
 
 export default getVariations

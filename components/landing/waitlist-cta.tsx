@@ -3,11 +3,12 @@
 import {useDisclosure} from "@nextui-org/modal"
 import EmailModal from './email-modal'
 
-interface UTMProps {
+interface CTAProps {
   utm?: number | undefined | null
+  bottomParagraph: string
 }
 
-const WaitlistCTA: React.FC<UTMProps> = ({ utm }) => {
+const WaitlistCTA: React.FC<CTAProps> = ({ utm, bottomParagraph }) => {
   const {isOpen, onOpen, onOpenChange} = useDisclosure()
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -18,8 +19,8 @@ const WaitlistCTA: React.FC<UTMProps> = ({ utm }) => {
   return (
     <>
       <div className="mx-10 flex flex-col items-center ">
-        <p className="text-lg w-full sm:w-3/5 text-center font-semibold mb-10">
-          {`Join the Cartberry community, where smart savings bloom naturally. Our intuitive AI gathers the freshest deals, then shapes your shopping around your family's wellness, dietary journeys, and nourishment needs.`}
+        <p className="text-lg w-full sm:w-3/5 text-center font-medium mb-10">
+          { bottomParagraph }
         </p>
         <button 
           className="hover:bg-orange-400 bg-orange-600 text-white px-10 py-2 rounded font-semibold"

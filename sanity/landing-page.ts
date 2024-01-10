@@ -35,5 +35,10 @@ export default {
       type: 'array',
       of: [{ type: 'string' }],
     },
+    {
+      name: 'bottomParagraph',
+      title: 'Bottom Paragraph',
+      type: 'string'
+    }
   ],
 }

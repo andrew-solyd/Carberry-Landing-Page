@@ -16,15 +16,15 @@ const ValueProp: React.FC<ValuePropProps> =  ({ props }) => {
         </h1>
         <div className="flex flex-col sm:flex-row items-center">
           <div className="text-center mx-2 sm:mx-10 max-w-[240px] mb-10 sm:mb-0">
-            <div className="flex justify-center mb-5"><MdOutlineEmojiNature size={50} /></div>
+            <div className="flex justify-center mb-5"><MdOutlineEmojiNature size={70} /></div>
             {props[0]}
           </div>
           <div className="text-center mx-2 sm:mx-10 max-w-[240px] mb-10 sm:mb-0">
-            <div className="flex justify-center mb-5"><TbShoppingBagSearch size={50} /></div>
+            <div className="flex justify-center mb-5"><TbShoppingBagSearch size={70} /></div>
             {props[1]}
           </div>
           <div className="text-center mx-2 sm:mx-10 max-w-[240px] mb-6 sm:mb-0">
-            <div className="flex justify-center mb-5"><RiFileList3Line size={50} /></div>
+            <div className="flex justify-center mb-5"><RiFileList3Line size={70} /></div>
             {props[2]}
           </div>
         </div>
