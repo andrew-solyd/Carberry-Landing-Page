@@ -4,15 +4,16 @@ import { RiFileList3Line } from "react-icons/ri"
 
 interface ValuePropProps {
   props: string[]
+  propsHeader: string
 }
 
-const ValueProp: React.FC<ValuePropProps> =  ({ props }) => {
+const ValueProp: React.FC<ValuePropProps> =  ({ props, propsHeader }) => {
 
   return (
     <div className="mx-5 flex flex-col items-center">
       <div className="max-w-[720px] sm:w-[720px]">
         <h1 className="text-3xl text-center mb-10 mx-5 font-semibold">
-          Stress-free savings for busy moms
+          { propsHeader }
         </h1>
         <div className="flex flex-col sm:flex-row items-center">
           <div className="text-center mx-2 sm:mx-10 max-w-[240px] mb-10 sm:mb-0">

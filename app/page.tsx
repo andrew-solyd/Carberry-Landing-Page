@@ -47,7 +47,7 @@ export default function Home() {
         <div className="sm:mt-10 sm:mb-10"><StoreLogos/></div>        
       </div>
       <div className="mb-10 w-full">
-        <div className=""><ValueProp props={variation.props} /></div>        
+        <div className=""><ValueProp propsHeader={variation.propsHeader} props={variation.props} /></div>        
       </div>      
       <div className="mb-10 w-full">
         <div className="sm:mt-10"><WaitlistCTA bottomParagraph={variation.bottomParagraph}/></div>        

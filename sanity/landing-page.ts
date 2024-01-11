@@ -10,34 +10,39 @@ export default {
     },
     {
       name: 'header',
-      title: 'Header',
+      title: 'Hero header',
       type: 'string',
     },
     {
       name: 'subheader',
-      title: 'Subheader',
+      title: 'Hero subheader',
       type: 'array',
       of: [{ type: 'string' }],
     },
     {
       name: 'image',
-      title: 'Image',
+      title: 'Hero image',
       type: 'image',
     },
     {
       name: 'cta',
-      title: 'Call To Action',
+      title: 'Hero call-to-action',
+      type: 'string',
+    },
+    {
+      name: 'propsHeader',
+      title: 'How it works header',
       type: 'string',
     },
     {
       name: 'props',
-      title: 'Properties',
+      title: 'How it works steps',
       type: 'array',
       of: [{ type: 'string' }],
     },
     {
       name: 'bottomParagraph',
-      title: 'Bottom Paragraph',
+      title: 'Last paragraph',
       type: 'string'
     }
   ],
