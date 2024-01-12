@@ -5,7 +5,7 @@ export default {
   fields: [
     {
       name: 'utm',
-      title: 'UTM (don not change)',
+      title: 'UTM (0 is default page)',
       type: 'string',
     },
     {

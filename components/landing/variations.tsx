@@ -33,27 +33,19 @@ export interface VariationResult {
 
 const getVariations = async ({ utm }: UTM): Promise<VariationResult> => {
   const landingPages = await client.fetch(`*[_type == "landingPage"]`);
-  let header = landingPages[0].header ?? ''
-  let subheader = [ landingPages[0].subheader[0], landingPages[0].subheader[1] ] ?? ''
-  let image = `/hero.png`
-  let cta = landingPages[0].cta ?? ''
-  let props = landingPages[0].props ?? ''
-  let propsHeader = landingPages[0].propsHeader ?? ''
-  let bottomParagraph = landingPages[0].bottomParagraph ?? ''
-  if (utm) {
-    header = landingPages[utm].header ?? ''
-    subheader = [ landingPages[utm].subheader[0], landingPages[utm].subheader[1] ] ?? ''
-    image = urlFor(landingPages[utm].image).url() ?? ''
-    cta = landingPages[utm].cta ?? ''
-    propsHeader = landingPages[utm].propsHeader ?? ''
-    props = landingPages[utm].props ?? ''
-    bottomParagraph = landingPages[utm].bottomParagraph ?? ''
-  }
+  
+  // Default to UTM 0 if no UTM is provided
+  const utmValue = utm === undefined ? '0' : utm.toString();
 
+  let matchedPage = landingPages.find(page => page.utm === utmValue) || landingPages.find(page => page.utm === '0');
 
-  if (utm === 1) {
-    // 
-  } 
+  let header = matchedPage.header ?? ''
+  let subheader = matchedPage.subheader ?? []
+  let image = utmValue === '0' ? '/hero.png' : urlFor(matchedPage.image).url() ?? '/hero.png'
+  let cta = matchedPage.cta ?? ''
+  let props = matchedPage.props ?? ''
+  let propsHeader = matchedPage.propsHeader ?? ''
+  let bottomParagraph = matchedPage.bottomParagraph ?? ''
 
   return { header, subheader, image, cta, propsHeader, props, bottomParagraph }
 }
