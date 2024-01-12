@@ -31,13 +31,29 @@ export interface VariationResult {
   bottomParagraph: string
 }
 
+interface LandingPage {
+  utm: string
+  header: string
+  subheader: string[]
+  image: string
+  cta: string
+  propsHeader: string
+  props: string[]
+  bottomParagraph: string
+  // ... include other properties as needed
+}
+
 const getVariations = async ({ utm }: UTM): Promise<VariationResult> => {
-  const landingPages = await client.fetch(`*[_type == "landingPage"]`);
+  const landingPages: LandingPage[] = await client.fetch(`*[_type == "landingPage"]`)
   
   // Default to UTM 0 if no UTM is provided
-  const utmValue = utm === undefined ? '0' : utm.toString();
+  const utmValue = utm === undefined || utm === null ? '0' : utm.toString()
 
-  let matchedPage = landingPages.find(page => page.utm === utmValue) || landingPages.find(page => page.utm === '0');
+  let matchedPage = landingPages.find((page: LandingPage) => page.utm === utmValue) || landingPages.find((page: LandingPage) => page.utm === '0')
+
+    if (!matchedPage) {
+    throw new Error('No matching page found');
+  }
 
   let header = matchedPage.header ?? ''
   let subheader = matchedPage.subheader ?? []

@@ -9,7 +9,7 @@ const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(process
 export const addEmailToAirtable = async (email: string, utm: number) => {
   try {
     await base('Waitlist').create({
-      "utm": toString(utm),
+      "utm": utm.toString(),
       "email": email,
       "timestamp": new Date().toISOString()
     })
