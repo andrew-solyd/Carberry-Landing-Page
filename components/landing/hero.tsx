@@ -26,14 +26,16 @@ const Hero: React.FC<HeroProps> = ({ header, subheader, image, cta, utm  }) => {
     <>
       <div className="flex flex-col sm:flex-row">
         <div className="w-full flex justify-end sm:min-w-[475px] sm:max-w-[700px]">
-          <div className="flex flex-col justify-center pb-5 px-2 sm:py-0 sm:pr-10 sm:w-4/5">
-            <h1 className="text-center sm:text-left text-4xl font-semibold">
+          <div className="flex flex-col justify-center pb-5 px-2 sm:py-0 sm:pr-10 sm:w-4/5">          
+            <h1 className="text-balance text-center sm:text-left text-4xl font-semibold">
               {header}
             </h1>
-            <p className="mt-5 text-center sm:text-left">
-              {subheader[0]}
-              <span className="font-semibold"> {subheader[1]}</span>
-            </p>
+            <div className="text-balance mt-5 mb-5 sm:mb-0 text-center sm:text-left">
+              <p>
+                {subheader[0]}
+                <span className="font-semibold"> {subheader[1]}</span>
+              </p>
+            </div>
             <div className="hidden sm:flex mt-6 justify-end pr-2">
               <button 
                 className="hover:bg-orange-400 bg-orange-600 text-white text-sm p-2 b  rounded font-medium px-5"

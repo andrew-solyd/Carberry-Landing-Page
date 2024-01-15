@@ -18,8 +18,8 @@ const WaitlistCTA: React.FC<CTAProps> = ({ utm, bottomParagraph }) => {
 
   return (
     <>
-      <div className="mx-10 flex flex-col items-center ">
-        <p className="text-lg w-full sm:w-3/5 text-center font-medium mb-10">
+      <div className="mx-8 flex flex-col items-center ">
+        <p className="text-lg sm:w-[500px] text-center font-medium mb-10">
           { bottomParagraph }
         </p>
         <button 

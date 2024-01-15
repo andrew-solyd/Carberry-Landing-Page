@@ -40,7 +40,7 @@ export default function Home() {
       <div className="px-7 mt-2 w-full">
         <Header  />
       </div>
-      <div className="flex flex-col items-center sm:mt-5 mb-5 px-10 w-full">
+      <div className="flex flex-col items-center mt-5 mb-5 px-10 w-full">
         <Hero header={variation.header} subheader={variation.subheader} image={variation.image} cta={variation.cta} utm={utmRef.current}/>
       </div>
       <div className="sm:mt-10 mb-10 w-full">
