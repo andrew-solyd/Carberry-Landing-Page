@@ -44,7 +44,7 @@ export default function Home() {
         <Hero header={variation.header} subheader={variation.subheader} image={variation.image} cta={variation.cta} utm={utmRef.current}/>
       </div>
       <div className="sm:mt-10 mb-10 w-full">
-        <div className="sm:mt-10 sm:mb-10"><StoreLogos/></div>        
+        <div className="sm:mb-10"><StoreLogos/></div>        
       </div>
       <div className="mb-10 w-full">
         <div className=""><ValueProp propsHeader={variation.propsHeader} props={variation.props} /></div>        
