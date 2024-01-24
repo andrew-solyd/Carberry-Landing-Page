@@ -38,7 +38,7 @@ const Hero: React.FC<HeroProps> = ({ header, subheader, image, cta, utm  }) => {
               </p>
             </div>
             <div className="flex justify-center sm:justify-end sm:mt-6 sm:pr-2">
-              <button className="flex flex-row items-center hover:bg-orange-400 bg-orange-600 text-white py-2 px-6 rounded font-bold sm:font-semibold" onClick={handleClick}>
+              <button className="flex flex-row items-center hover:bg-orange-400 bg-orange-600 text-white py-2 px-6 rounded-lg font-bold sm:font-semibold" onClick={handleClick}>
                 {cta} <FaArrowRight className="ml-2"/>
               </button>
             </div>
