@@ -58,21 +58,21 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange, utm }) =>
           <div className="flex flex-col px-5 py-10 items-center">
             {isSubmitted ? (
                 <>
-                  <p>Thank you for your support!</p>
+                  <p>Thank you for signing up!</p>
                   <button onClick={handleClose} className="w-[150px] mt-4 bg-[rgb(156,163,175)] text-[rgb(0,0,23)] rounded-lg p-1">
                     Close
                   </button>
                 </>
               ) : (
                 <>
-                  <h1 className="text-xl mb-2">
-                    Coming Soon
+                  <h1 className="sm:w-[300px] text-xl text-center mb-2">
+                    Every cook needs a provisioner, welcome to Cartberry!
                   </h1>
                   <p className="text-sm text-center px-5">
-                    Secure your spot for exclusive launch-day deals.
+                     Save money, shop smart.
                   </p>
-                  <div className="flex flex-col items-center  mb-3">              
-                    <form onSubmit={handleEmailSubmit} className="w-[300px] flex flex-col items-center justify-center mt-4 text-sm">
+                  <div className="flex flex-col items-center mb-3 mx-1">              
+                    <form onSubmit={handleEmailSubmit} className="sm:w-[300px] flex flex-col items-center justify-center mt-4 text-sm">
                       <input
                         type="email"
                         placeholder="Enter your email"
@@ -86,7 +86,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange, utm }) =>
                         disabled={isLoading} 
                         className="w-[200px] mt-5 bg-white text-[rgb(0,0,23)] rounded-lg p-2 hover:bg-[rgb(156,163,175)]"
                       >
-                        {isLoading ? 'Adding email...' : `I'm in, keep me posted!`}
+                        {isLoading ? 'Adding email...' : `Join the Cartberry beta`}
                       </button>
                       {! error && <p className="w-[200px] mt-2 text-xs text-zinc-600 text-center ">Your privacy is paramount. We keep all data personal and confidential.</p>}
                     </form>

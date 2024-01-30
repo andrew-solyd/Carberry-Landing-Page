@@ -21,29 +21,22 @@ interface UTM {
   utm?: number | undefined | null
 }
 
-export interface VariationResult {
+export interface LandingPage {
+  utm?: string
   header: string
   subheader: string[]
   image: string
   cta: string
   propsHeader: string
+	propsImages: string[]
   props: string[]
+	bottomHeader: string
   bottomParagraph: string
-}
-
-interface LandingPage {
-  utm: string
-  header: string
-  subheader: string[]
-  image: string
-  cta: string
-  propsHeader: string
-  props: string[]
-  bottomParagraph: string
+	bottomCTA:string
   // ... include other properties as needed
 }
 
-const getVariations = async ({ utm }: UTM): Promise<VariationResult> => {
+const getVariations = async ({ utm }: UTM): Promise<LandingPage> => {
   const landingPages: LandingPage[] = await client.fetch(`*[_type == "landingPage"]`)
   
   // Default to UTM 0 if no UTM is provided
@@ -57,13 +50,16 @@ const getVariations = async ({ utm }: UTM): Promise<VariationResult> => {
 
   let header = matchedPage.header ?? ''
   let subheader = matchedPage.subheader ?? []
-  let image = utmValue === '0' ? '/hero.png' : urlFor(matchedPage.image).url() ?? '/hero.png'
+  let image = urlFor(matchedPage.image).url() ?? '/hero.png'
   let cta = matchedPage.cta ?? ''
   let props = matchedPage.props ?? ''
+	let propsImages = matchedPage.propsImages ? matchedPage.propsImages.map(img => urlFor(img).url()) : []
   let propsHeader = matchedPage.propsHeader ?? ''
+	let bottomHeader = matchedPage.bottomHeader ?? ''
   let bottomParagraph = matchedPage.bottomParagraph ?? ''
+	let bottomCTA = matchedPage.bottomCTA ?? ''
 
-  return { header, subheader, image, cta, propsHeader, props, bottomParagraph }
+  return { header, subheader, image, cta, propsHeader, propsImages, props, bottomHeader, bottomParagraph, bottomCTA }
 }
 
 export default getVariations

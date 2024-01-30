@@ -23,6 +23,8 @@ const Hero: React.FC<HeroProps> = ({ header, subheader, image, cta, utm  }) => {
     onOpen()
   }
 
+	console.log()
+
   return (
     <>
       <div className="flex flex-col sm:flex-row">

@@ -12,12 +12,12 @@ import StoreLogos from '@/components/landing/stores'
 import WaitlistCTA from '@/components/landing/waitlist-cta'
 import Footer from '@/components/universal/footer'
 
-import getVariations, { VariationResult }  from '@/components/landing/variations'
+import getVariations, { LandingPage }  from '@/components/landing/variations'
 
 export default function Home() {  
 
   const searchParams = useSearchParams() 
-  const [variation, setVariation] = useState<VariationResult | null>(null)
+  const [variation, setVariation] = useState<LandingPage | null>(null)
   const utmRef = useRef<number | undefined>()
 
   useEffect(() => {
@@ -47,10 +47,10 @@ export default function Home() {
         <div className="sm:mb-10"><StoreLogos/></div>        
       </div>
       <div className="mb-10 w-full">
-        <div className=""><ValueProp propsHeader={variation.propsHeader} props={variation.props} /></div>        
+        <div className=""><ValueProp propsHeader={variation.propsHeader} props={variation.props} propsImages={variation.propsImages}/></div>        
       </div>      
       <div className="mb-10 w-full">
-        <div className="sm:mt-10"><WaitlistCTA bottomParagraph={variation.bottomParagraph}/></div>        
+        <div className="sm:mt-10"><WaitlistCTA bottomHeader= {variation.bottomHeader} bottomParagraph={variation.bottomParagraph} bottomCTA= {variation.bottomCTA} /></div>        
       </div>
       <div className="mt-10 w-full">
         <Footer/>

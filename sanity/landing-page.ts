@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 export default {
   name: 'landingPage',
   title: 'Landing Page',
@@ -40,9 +41,25 @@ export default {
       type: 'array',
       of: [{ type: 'string' }],
     },
+		{
+      name: 'propsImages',
+      title: 'How it works images',
+      type: 'array',
+      of: [{ type: 'image' }],
+    },
+		{
+      name: 'bottomHeader',
+      title: 'Last section header',
+      type: 'string'
+    },
     {
       name: 'bottomParagraph',
-      title: 'Last paragraph',
+      title: 'Last section paragraph',
+      type: 'string'
+    },
+		{
+      name: 'bottomCTA',
+      title: 'Last call-to-action',
       type: 'string'
     }
   ],
