@@ -41,16 +41,16 @@ export default function Home() {
         <Header  />
       </div>
       <div className="flex flex-col items-center mt-5 mb-5 px-3 w-full">
-        <Hero header={variation.header} subheader={variation.subheader} image={variation.image} cta={variation.cta} utm={utmRef.current}/>
+        <Hero variation={variation} />
       </div>
       <div className="sm:mt-10 mb-10 w-full">
         <div className="sm:mb-10"><StoreLogos/></div>        
       </div>
       <div className="mb-10 w-full">
-        <div className=""><ValueProp propsHeader={variation.propsHeader} props={variation.props} propsImages={variation.propsImages}/></div>        
+        <div className=""><ValueProp variation={variation} /></div>        
       </div>      
       <div className="mb-10 w-full">
-        <div className="sm:mt-10"><WaitlistCTA bottomHeader= {variation.bottomHeader} bottomParagraph={variation.bottomParagraph} bottomCTA= {variation.bottomCTA} /></div>        
+        <div className="sm:mt-10"><WaitlistCTA variation={variation}  /></div>        
       </div>
       <div className="mt-10 w-full">
         <Footer/>

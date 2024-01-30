@@ -32,7 +32,10 @@ export interface LandingPage {
   props: string[]
 	bottomHeader: string
   bottomParagraph: string
-	bottomCTA:string
+	bottomCTA: string
+	emailModalHeader: string
+	emailModalText: string
+	emailModalButton: string
   // ... include other properties as needed
 }
 
@@ -48,18 +51,25 @@ const getVariations = async ({ utm }: UTM): Promise<LandingPage> => {
     throw new Error('No matching page found');
   }
 
-  let header = matchedPage.header ?? ''
-  let subheader = matchedPage.subheader ?? []
-  let image = urlFor(matchedPage.image).url() ?? '/hero.png'
-  let cta = matchedPage.cta ?? ''
-  let props = matchedPage.props ?? ''
-	let propsImages = matchedPage.propsImages ? matchedPage.propsImages.map(img => urlFor(img).url()) : []
-  let propsHeader = matchedPage.propsHeader ?? ''
-	let bottomHeader = matchedPage.bottomHeader ?? ''
-  let bottomParagraph = matchedPage.bottomParagraph ?? ''
-	let bottomCTA = matchedPage.bottomCTA ?? ''
+  // Constructing the variation object directly
+  const variation = {
+		utm: utmValue ?? 0,
+    header: matchedPage.header ?? '',
+    subheader: matchedPage.subheader ?? [],
+    image: urlFor(matchedPage.image).url() ?? '/hero.png',
+    cta: matchedPage.cta ?? '',
+    propsHeader: matchedPage.propsHeader ?? '',
+    propsImages: matchedPage.propsImages ? matchedPage.propsImages.map(img => urlFor(img).url()) : [],
+    props: matchedPage.props ?? [],
+    bottomHeader: matchedPage.bottomHeader ?? '',
+    bottomParagraph: matchedPage.bottomParagraph ?? '',
+    bottomCTA: matchedPage.bottomCTA ?? '',
+		emailModalHeader: matchedPage.emailModalHeader ?? '',
+		emailModalText: matchedPage.emailModalText ?? '',
+		emailModalButton: matchedPage.emailModalButton ?? '',
+  };
 
-  return { header, subheader, image, cta, propsHeader, propsImages, props, bottomHeader, bottomParagraph, bottomCTA }
+  return variation;
 }
 
 export default getVariations

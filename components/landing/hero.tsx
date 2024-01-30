@@ -4,18 +4,16 @@ import Image from 'next/image'
 import {useDisclosure} from "@nextui-org/modal"
 import { FaArrowRight } from "react-icons/fa6"
 
+import { LandingPage }  from '@/components/landing/variations'
 import EmailModal from '@/components/landing/email-modal'
 
 interface HeroProps {
-  header: string
-  subheader: string[]
-  image: string
-  cta: string
-  utm?: number | undefined | null
+  variation: LandingPage;
 }
 
-const Hero: React.FC<HeroProps> = ({ header, subheader, image, cta, utm  }) => {
+const Hero: React.FC<HeroProps> = ({ variation  }) => {
 
+	const { header, subheader, image, cta } = variation;
   const {isOpen, onOpen, onOpenChange} = useDisclosure()
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -52,7 +50,7 @@ const Hero: React.FC<HeroProps> = ({ header, subheader, image, cta, utm  }) => {
           </div>
         </div>
       </div>
-      <EmailModal isOpen={isOpen} onOpenChange={onOpenChange} utm={utm}/>
+      <EmailModal isOpen={isOpen} onOpenChange={onOpenChange} variation={variation}/>
     </>
 
   )

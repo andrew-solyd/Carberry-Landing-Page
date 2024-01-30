@@ -61,6 +61,21 @@ export default {
       name: 'bottomCTA',
       title: 'Last call-to-action',
       type: 'string'
+    },
+		{
+      name: 'emailModalHeader',
+      title: 'Email modal header',
+      type: 'string'
+    },
+		{
+      name: 'emailModalText',
+      title: 'Email modal text',
+      type: 'string'
+    },
+		{
+      name: 'emailModalButton',
+      title: 'Email modal button text',
+      type: 'string'
     }
   ],
 }

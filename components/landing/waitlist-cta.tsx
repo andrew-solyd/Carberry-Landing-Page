@@ -2,16 +2,17 @@
 
 import {useDisclosure} from "@nextui-org/modal"
 import EmailModal from './email-modal'
+import { LandingPage }  from '@/components/landing/variations'
+
 
 interface CTAProps {
-  utm?: number | undefined | null
-	bottomHeader: string
-  bottomParagraph: string
-	bottomCTA: string
+  variation: LandingPage
 }
 
-const WaitlistCTA: React.FC<CTAProps> = ({ utm, bottomHeader, bottomParagraph, bottomCTA }) => {
-  const {isOpen, onOpen, onOpenChange} = useDisclosure()
+const WaitlistCTA: React.FC<CTAProps> = ({ variation }) => {
+
+  const { utm, bottomHeader, bottomParagraph, bottomCTA } = variation;
+	const {isOpen, onOpen, onOpenChange} = useDisclosure()
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault()
@@ -34,7 +35,7 @@ const WaitlistCTA: React.FC<CTAProps> = ({ utm, bottomHeader, bottomParagraph, b
 					{bottomCTA}
 				</button>        
 			</div>  
-			<EmailModal isOpen={isOpen} onOpenChange={onOpenChange} utm={utm} />
+			<EmailModal isOpen={isOpen} onOpenChange={onOpenChange} variation={variation} />
     </>
   )
 }

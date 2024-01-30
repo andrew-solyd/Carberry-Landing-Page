@@ -4,14 +4,16 @@ import { useState } from 'react'
 import { Modal, ModalContent } from '@nextui-org/modal'
 import { addEmailToAirtable } from '@/services/airtable'
 import { sendWelcomeEmail } from '@/services/email'
+import { LandingPage }  from '@/components/landing/variations'
 
 interface EmailModalProps {
   isOpen: boolean
   onOpenChange: (open: boolean) => void
-  utm?: number | undefined | null
+  variation: LandingPage
 }
 
-const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange, utm }) => {
+const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange, variation }) => {
+	const { utm, emailModalHeader, emailModalText, emailModalButton } = variation;
   const [email, setEmail] = useState('')
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
@@ -32,7 +34,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange, utm }) =>
       return
     }
     try {
-      const addEmailToAirtableResult = await addEmailToAirtable(email, utm || 0)
+      const addEmailToAirtableResult = await addEmailToAirtable(email, utm ? parseInt(utm, 10) : 0)
       const sendWelcomeEmailResult = await sendWelcomeEmail(email)
       
       if (addEmailToAirtableResult.success && sendWelcomeEmailResult.success) {
@@ -66,10 +68,10 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange, utm }) =>
               ) : (
                 <>
                   <h1 className="sm:w-[300px] text-xl text-center mb-2">
-                    Every cook needs a provisioner, welcome to Cartberry!
+                    {emailModalHeader}
                   </h1>
                   <p className="text-sm text-center px-5">
-                     Save money, shop smart.
+                     {emailModalText}
                   </p>
                   <div className="flex flex-col items-center mb-3 mx-1">              
                     <form onSubmit={handleEmailSubmit} className="sm:w-[300px] flex flex-col items-center justify-center mt-4 text-sm">
@@ -86,11 +88,10 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange, utm }) =>
                         disabled={isLoading} 
                         className="w-[200px] mt-5 bg-white text-[rgb(0,0,23)] rounded-lg p-2 hover:bg-[rgb(156,163,175)]"
                       >
-                        {isLoading ? 'Adding email...' : `Join the Cartberry beta`}
+                        {isLoading ? 'Adding email...' : emailModalButton}
                       </button>
-                      {! error && <p className="w-[200px] mt-2 text-xs text-zinc-600 text-center ">Your privacy is paramount. We keep all data personal and confidential.</p>}
+                      {!error && <p className="w-[200px] mt-2 text-xs text-zinc-600 text-center">Your privacy is paramount. We keep all data personal and confidential.</p>}
                     </form>
-                    
                   </div>
                 </>
               )}

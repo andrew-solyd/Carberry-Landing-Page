@@ -1,14 +1,12 @@
 import Image from 'next/image'
+import { LandingPage }  from '@/components/landing/variations'
 
 interface ValuePropProps {
-  props: string[]
-  propsHeader: string
-	propsImages: string[]
+  variation: LandingPage;
 }
 
-const ValueProp: React.FC<ValuePropProps> =  ({ props, propsHeader, propsImages }) => {
-
-	console.log(propsImages[0])
+const ValueProp: React.FC<ValuePropProps> =  ({ variation }) => {
+	const { props, propsHeader, propsImages } = variation;
 
   return (
     <div className="mx-5 flex flex-col items-center">
