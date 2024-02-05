@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Hello, CartBerry!',
-  description: 'Welcome to your perfect shopping cart.',
+  description: 'Welcome savings-based meal planning',
 }
 
 export default function RootLayout({
