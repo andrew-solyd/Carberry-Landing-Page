@@ -51,11 +51,14 @@ const PostComponent: React.FC<{ post: Post }> = ({ post }) => (
 
 // Blog component for rendering the list of posts
 const Blog: React.FC<BlogProps> = ({ posts }) => (
-  <div className="space-y-4">
-    {posts.map((post) => (
-      <PostComponent key={post._id} post={post} />
-    ))}
-  </div>
+	<div>
+		<h1>Cartberry Blog</h1>
+		<div className="space-y-4">
+			{posts.map((post) => (
+				<PostComponent key={post._id} post={post} />
+			))}
+		</div>
+	</div>
 );
 
 export default Blog;
