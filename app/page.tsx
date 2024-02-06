@@ -3,7 +3,7 @@
 "use client"
 
 import { useEffect, useState, useRef } from 'react'
-import { useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/router'
 
 import Header from '@/components/universal/header'
 import Hero from '@/components/landing/hero'
@@ -16,20 +16,22 @@ import getVariations, { LandingPage }  from '@/components/landing/variations'
 
 export default function Home() {  
 
-  const searchParams = useSearchParams() 
+  const router = useRouter()
   const [variation, setVariation] = useState<LandingPage | null>(null)
   const utmRef = useRef<number | undefined>()
 
   useEffect(() => {
+    // You can directly access the query parameters from the router object
+    const utmParam = router.query.utm
+    utmRef.current = utmParam ? Number(utmParam) : undefined
     const fetchVariations = async () => {
-      if (!searchParams) return
-      const utmParam = searchParams.get('utm')
-      utmRef.current = utmParam ? Number(utmParam) : undefined // Use useRef to persist value
       const variations = await getVariations({ utm: utmRef.current })
       setVariation(variations)
     };
-    fetchVariations();
-  }, [searchParams]);
+    if (router.isReady) {
+      fetchVariations();
+    }
+  }, [router.isReady, router.query.utm]); 
 
   if (!variation) {
     return <div>Loading...</div>; // Or some other loading state
@@ -58,3 +60,4 @@ export default function Home() {
     </main>
   )
 }
+
