@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Cartberry | Spend less on groceries, make fantastic meals',
-  description: 'Cartberry finds the best deals at your go-to stores and creates delicious recipes to maximize savings. Stop breaking your food budget. Get an organized grocery list / meal plan that saves you time and money.',
+  description: 'Cartberry finds the best deals at your go-to stores and creates delicious recipes to maximize savings. Stop breaking your food budget. Get organized.',
 }
 
 export default function RootLayout({
