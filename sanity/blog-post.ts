@@ -1,3 +1,5 @@
+import { title } from "process";
+
 /* eslint-disable import/no-anonymous-default-export */
 export default {
   name: 'blogPost',
@@ -36,6 +38,11 @@ export default {
 			title: 'Publish Date',
 			name: 'date',
 			type: 'date'
+		},
+		{
+			title: 'Image',
+			name: 'image',
+			type: 'image'
 		},
 		{
 			title: 'Content', 
