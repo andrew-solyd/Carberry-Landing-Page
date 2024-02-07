@@ -36,6 +36,9 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange, variation
     try {
       const addEmailToAirtableResult = await addEmailToAirtable(email, utm ? parseInt(utm, 10) : 0)
       const sendWelcomeEmailResult = await sendWelcomeEmail(email)
+
+			console.log('airtable', addEmailToAirtableResult)
+			console.log('resend', sendWelcomeEmailResult)
       
       if (addEmailToAirtableResult.success && sendWelcomeEmailResult.success) {
         setIsSubmitted(true)

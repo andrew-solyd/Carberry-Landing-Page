@@ -136,7 +136,6 @@ const myPortableTextComponents: PortableTextReactComponents = {
 }
 
 const Post: React.FC<{ post: PostType }> = ({ post }) => {
-	console.log(post.title)
   return (
 		<>
 			<Head>
