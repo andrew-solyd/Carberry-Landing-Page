@@ -16,7 +16,6 @@ export const sendWelcomeEmail = async (email: string) => {
       text: 'You\'re now on our wait list.',      
       react: CartberryWelcomeEmail(),
     })
-		console.log(result)
     return { success: true } 
   } catch (error) {
     console.error(error)

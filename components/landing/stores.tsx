@@ -31,13 +31,13 @@ const StoreLogos = () => {
         <div ref={containerRef} className="overflow-auto flex px-10 scrollbar-hide relative z-0 items-center justify-center">
           {Array.from({ length: 8 }).flatMap((_, i) =>
             [3, 1, 2, 8, 7, 5 ].map(num => (
-              <div key={`${num}-${i}`} className="mx-5 sm:mx-10 flex-shrink-0" style={{ minWidth: '150px', maxHeight: '90px' }}>
+              <div key={`large-${num}-${i}`} className="mx-5 sm:mx-10 flex-shrink-0" style={{ minWidth: '150px', maxHeight: '90px' }}>
                 <Image src={`/store_logo_${num}.png`} alt={`Store Logo ${num}`} width={150} height={90}/>
                 <div className="absolute inset-0 z-10" />
               </div>
             )).concat(
             [4, 6 ].map(num => (
-              <div key={`${num}-${i}`} className="mx-5 sm:mx-10 flex-shrink-0" style={{ minWidth: '80px', maxHeight: '70px' }}>
+              <div key={`small-${num}-${i}`} className="mx-5 sm:mx-10 flex-shrink-0" style={{ minWidth: '80px', maxHeight: '70px' }}>
                 <Image src={`/store_logo_${num}.png`} alt={`Store Logo ${num}`} width={60} height={60}/>
                 <div className="absolute inset-0 z-10" />
               </div>
