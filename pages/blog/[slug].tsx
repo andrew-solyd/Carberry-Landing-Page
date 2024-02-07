@@ -118,10 +118,10 @@ const myPortableTextComponents: PortableTextReactComponents = {
   },
   listItem: {
     bullet: ({children}: PortableTextComponentProps<ReactPortableTextListItem>) => (
-      <li className="pl-4 mb-3 list-disc">{children}</li>
+      <li className="pl-1 ml-5 mb-3 list-disc">{children}</li>
     ),
 		number: ({children}: PortableTextComponentProps<ReactPortableTextListItem>) => (
-      <li className="pl-4 mb-3 list-decimal">{children}</li>
+      <li className="pl-1 ml-5 mb-3 list-decimal">{children}</li>
     ),
 	},
 	// Minimal implementations for required missing properties
