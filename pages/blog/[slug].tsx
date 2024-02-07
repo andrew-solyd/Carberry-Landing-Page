@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { createClient } from 'next-sanity';
 import imageUrlBuilder from '@sanity/image-url';
 import { ParsedUrlQuery } from 'querystring';
-import { PortableText } from '@portabletext/react';
+import { PortableText, PortableTextReactComponents, PortableTextMarkComponentProps, PortableTextComponentProps, ReactPortableTextList, ReactPortableTextListItem } from '@portabletext/react';
 import { BlogPosting, WithContext } from 'schema-dts';
 import Header from '@/components/universal/header'; // Adjust the import path as necessary
 import Footer from '@/components/universal/footer'; // Adjust the import path as necessary
@@ -91,26 +91,12 @@ const StructuredData: React.FC<DataProps> = ({ data }) => {
 			/>
 	);
 }
-interface BlockProps {
-  node: {
-    style: string;
-  };
-  children: React.ReactNode;
-}
 
-interface LinkMarkProps {
-  children: React.ReactNode;
-  value?: { href: string };
-}
-
-interface BlockProps {
-  children: React.ReactNode;
-}
 // Define your custom serializers
-const myPortableTextComponents = {
+const myPortableTextComponents: PortableTextReactComponents = {
 
   marks: {
-    link: ({children, value}: LinkMarkProps) => {
+    link: ({children, value}: PortableTextMarkComponentProps) => {
       const rel = value?.href && !value.href.startsWith('/') ? 'noreferrer noopener' : undefined
   		return (
     		<a href={value?.href} rel={rel}>
@@ -120,10 +106,32 @@ const myPortableTextComponents = {
     },
   },
 	block: {
-  	h3: ({children}: BlockProps)  => <h3 className="text-xl font-semibold my-4">{children}</h3>,
+  	h3: ({children}: PortableTextComponentProps<{}>) => (
+      <h3 className="text-xl font-semibold my-4">{children}</h3>
+    ),
 	},
-	list: ({children}: BlockProps) => <ul className="mt-4 list-inside">{children}</ul>, // Use <ul> or <ol> as preferred, with common styling
-  listItem: ({children}: BlockProps) => <li className="pl-4 mb-3 list-disc">{children}</li>, // Apply common styling for all list items
+	list: {
+    bullet: ({children}: PortableTextComponentProps<ReactPortableTextList>) => (
+      <ul className="mt-4 list-inside">{children}</ul>
+    ),
+    // Define other list types if needed
+  },
+  listItem: {
+    bullet: ({children}: PortableTextComponentProps<ReactPortableTextListItem>) => (
+      <li className="pl-4 mb-3 list-disc">{children}</li>
+    ),
+		number: ({children}: PortableTextComponentProps<ReactPortableTextListItem>) => (
+      <li className="pl-4 mb-3 list-decimal">{children}</li>
+    ),
+	},
+	// Minimal implementations for required missing properties
+  types: {}, // Assuming no custom types; adjust as necessary
+  hardBreak: () => <br />, // Default behavior for hard breaks
+  unknownMark: ({children}) => <span>{children}</span>, // Fallback for unknown marks
+  unknownType: ({children}) => <div>{children}</div>, // Fallback for unknown types
+  unknownBlockStyle: ({children}) => <div>{children}</div>, // Fallback for unknown block styles
+  unknownList: ({children}) => <ul>{children}</ul>, // Fallback for unknown lists
+  unknownListItem: ({children}) => <li>{children}</li>, 
 }
 
 const Post: React.FC<{ post: PostType }> = ({ post }) => {
@@ -146,7 +154,14 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
         </article>
 				{post.image && (
 					<div className="hidden md:block md:pl-4 md:w-96 relative h-96">
-						<Image src={urlFor(post.image).url()} alt={post.title} layout='fill' objectFit='cover' className="rounded-lg shadow-lg mt-5" unoptimized={true}/>
+						<Image 
+							src={urlFor(post.image).url()} 
+							alt={post.title} 
+							fill 
+							style={{ objectFit: 'cover' }} 
+							className="rounded-lg shadow-lg mt-5" 
+							unoptimized={true}
+						/>
 					</div>
 				)}
       </main>
