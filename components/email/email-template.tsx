@@ -36,7 +36,7 @@ export const CartberryWelcomeEmail = (memberNumber: number) => (
           <Text className="text-base mx-5">
             We cooked up Cartberry so that preparing healthy, delicious meals can be easy, fun, and economical. <b>Here&apos;s how it works:</b>
           </Text>
-          <ul className="flex flex-col space-y-3 text-base font-semibold">
+          <ul className="text-base font-semibold">
             <li>You choose your favorite grocery store</li>
             <li>Cartberry finds the best deals</li>
             <li>Cartberry generates recipes and comes up with ideas based on your preferences</li>
