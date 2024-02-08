@@ -100,7 +100,7 @@ const myPortableTextComponents: PortableTextReactComponents = {
     link: ({children, value}: PortableTextMarkComponentProps) => {
       const rel = value?.href && !value.href.startsWith('/') ? 'noreferrer noopener' : undefined
   		return (
-    		<a href={value?.href} rel={rel}>
+    		<a href={value?.href} rel={rel} className="underline">
           {children}
         </a>
       )
