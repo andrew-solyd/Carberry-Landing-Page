@@ -30,7 +30,7 @@ export const CartberryWelcomeEmail = (memberNumber: number) => (
               />
             </a>
           </Section>
-          <Heading className="text-xl text-center p-0 my-[30px] mx-0">
+          <Heading className="text-xl text-center p-0 my-[30px] mx-5">
             You&apos;re member #{memberNumber} and you&apos;re in free for life.
           </Heading>
           <Text className="text-base mx-5">
