@@ -110,6 +110,10 @@ const myPortableTextComponents: PortableTextReactComponents = {
   	h3: ({children}: PortableTextComponentProps<{}>) => (
       <h3 className="text-xl font-semibold my-4">{children}</h3>
     ),
+		h2: ({children}: PortableTextComponentProps<{}>) => (
+      <h2 className="text-xl font-semibold my-4">{children}</h2>
+    ),
+		
 	},
 	list: {
     bullet: ({children}: PortableTextComponentProps<ReactPortableTextList>) => (
@@ -139,7 +143,7 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
   return (
 		<>
 			<Head>
-        <title>post.title</title>
+        <title>{post.title}</title>
         <meta name="description" content={post.summary} />
       </Head>
 			<div className="flex flex-col min-h-screen justify-between">

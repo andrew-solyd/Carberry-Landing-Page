@@ -23,7 +23,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Format the list
   return urlList.map((url) => ({
-    url: 'https://cartberry.co' + url,
+    url: 'https://www.cartberry.co' + url,
     lastModified: new Date(),
   }))
 }

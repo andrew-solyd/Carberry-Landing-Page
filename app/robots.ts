@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://cartberry.co/sitemap.xml',
+    sitemap: 'https://www.cartberry.co/sitemap.xml',
   };
 }

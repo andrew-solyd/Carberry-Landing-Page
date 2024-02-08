@@ -1,5 +1,3 @@
-import { title } from "process";
-
 /* eslint-disable import/no-anonymous-default-export */
 export default {
   name: 'blogPost',
@@ -25,7 +23,8 @@ export default {
 				maxLength: 200, // will be ignored if slugify is set
 				slugify: (input: string) => input
 														.toLowerCase()
-														.replace(/\s+/g, '-')
+														.replace(/[^a-z0-9]/g, '-')
+														.replace(/-+/g, '-')
 														.slice(0, 200)
 			}
 		},
