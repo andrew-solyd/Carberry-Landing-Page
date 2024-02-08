@@ -108,10 +108,13 @@ const myPortableTextComponents: PortableTextReactComponents = {
   },
 	block: {
   	h3: ({children}: PortableTextComponentProps<{}>) => (
-      <h3 className="text-xl font-semibold my-4">{children}</h3>
+      <h3 className="text-xl font-semibold mt-6">{children}</h3>
     ),
 		h2: ({children}: PortableTextComponentProps<{}>) => (
-      <h2 className="text-xl font-semibold my-4">{children}</h2>
+      <h2 className="text-xl font-semibold mt-6">{children}</h2>
+    ),
+		normal: ({children}: PortableTextComponentProps<{}>) => (
+      <p className="my-2 text-base">{children}</p>
     ),
 		
 	},
