@@ -7,14 +7,14 @@ import { CartberryWelcomeEmail } from '@/components/email/email-template'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
-export const sendWelcomeEmail = async (email: string) => {
+export const sendWelcomeEmail = async (email: string, memberNumber: number) => {
   try {
     const result = await resend.emails.send({
       from: 'Cartberry <welcome@cartberry.co>',
       to: [email],
-      subject: 'Hello world.',
-      text: 'You\'re now on our wait list.',      
-      react: CartberryWelcomeEmail(),
+      subject: 'Welcome to Cartberry, the new way to save money and cook delicious food.',
+      text: 'Thank you for signing up. We\'re putting on the finishing touches and excited to have you try Cartberry soon!',      
+      react: CartberryWelcomeEmail(memberNumber),
     })
     return { success: true } 
   } catch (error) {
