@@ -36,7 +36,7 @@ export async function getInitialPosts() {
 }
 
 // Fetch more posts for endless scrolling
-export async function fetchMorePosts(startIndex: number, limit: number = 2) {
+export async function fetchMorePosts(startIndex: number, limit: number = 3) {
   const morePosts = await sanityClient.fetch(`*[_type == "blogPost"] | order(_createdAt desc)[${startIndex}...${startIndex + limit}]`);
   return morePosts;
 }

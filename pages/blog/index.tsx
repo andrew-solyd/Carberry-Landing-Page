@@ -16,19 +16,19 @@ interface BlogProps {
 const Blog: React.FC<BlogProps> = ({ posts: initialPosts }) => {
   const [posts, setPosts] = useState<Post[]>(initialPosts)
 	const [hasMore, setHasMore] = useState(true)
-  const [startIndex, setStartIndex] = useState(2)
+  const [startIndex, setStartIndex] = useState(5)
 	const [isLoading, setIsLoading] = useState(false)
 
   const handleScroll = useCallback(async () => {
 		// Check if the user has scrolled to the bottom, if there are more posts to load, and if it's not currently loading
-		if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight || !hasMore || isLoading) return;
-		setIsLoading(true);
-		const morePosts = await fetchMorePosts(startIndex, 2); // Ensure you're fetching two posts at a time
-		setPosts((prevPosts) => [...prevPosts, ...morePosts]);
-		setStartIndex(prevIndex => prevIndex + 2); // Increment startIndex by 2 to fetch the next set of posts
-		if (morePosts.length < 2) setHasMore(false); // If fewer than 2 posts are returned, assume there are no more posts to fetch
-		setIsLoading(false); // Reset loading state
-	}, [startIndex, hasMore, isLoading]);
+		if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight || !hasMore || isLoading) return
+		setIsLoading(true)
+		const morePosts = await fetchMorePosts(startIndex, 3) // Ensure you're fetching two posts at a time
+		setPosts((prevPosts) => [...prevPosts, ...morePosts])
+		setStartIndex(prevIndex => prevIndex + 3) // Increment startIndex by 2 to fetch the next set of posts
+		if (morePosts.length < 2) setHasMore(false) // If fewer than 2 posts are returned, assume there are no more posts to fetch
+		setIsLoading(false) // Reset loading state
+	}, [startIndex, hasMore, isLoading])
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
@@ -60,10 +60,10 @@ const Blog: React.FC<BlogProps> = ({ posts: initialPosts }) => {
 
 // Use getInitialPosts instead of getStaticProps for initial data fetching
 export const getStaticProps = async () => {
-  const { props } = await getInitialPosts();
+  const { props } = await getInitialPosts()
   return {
     props,
-  };
-};
+  }
+}
 
 export default Blog
