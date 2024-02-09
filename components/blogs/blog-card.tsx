@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { urlFor } from '@/services/sanity'
-import {type Post} from '@/pages/blog/types'
+import {type Post} from '@/types/blog-types'
 
 type BlogCardProps = {
   post: Post

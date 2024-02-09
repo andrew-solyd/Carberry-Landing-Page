@@ -8,7 +8,7 @@ import { BlogPosting, WithContext } from 'schema-dts'
 import Header from '@/components/universal/header' 
 import Footer from '@/components/universal/footer' 
 import '@/app/globals.css' // Global styles
-import { type Post } from './types'
+import { type Post } from '@/types/blog-types'
 import RandomBlogCard  from '@/components/blogs/random-blog'
 import { sanityClient, urlFor } from '@/services/sanity'
 

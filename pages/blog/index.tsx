@@ -2,7 +2,7 @@
 import React from 'react'
 import { useState, useEffect, useCallback } from 'react'
 import Head from 'next/head'
-import { type Post} from './types'
+import { type Post} from '@/types/blog-types'
 import BlogCard from '@/components/blogs/blog-card' 
 import '@/app/globals.css' // Global styles
 import { getInitialPosts, fetchMorePosts } from '@/services/sanity'

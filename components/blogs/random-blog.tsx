@@ -2,14 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { parseStringPromise } from 'xml2js'
 import { createClient } from 'next-sanity'
 import BlogCard from './blog-card'
-import { Post } from '@/pages/blog/types'
-
-const sanityClient = createClient({
-          projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-          dataset: "production",
-          apiVersion: "2022-03-25",
-          useCdn: false,
-        })
+import { Post } from '@/types/blog-types'
+import { sanityClient } from '@/services/sanity'
 
 type RandomBlogCardProps = {
   currentSlug: string;
