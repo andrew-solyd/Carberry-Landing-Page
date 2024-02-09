@@ -1,64 +1,69 @@
-import { createClient } from "next-sanity";
-import Link from 'next/link';
-import React from "react";
 
-// Define the Sanity client configuration outside of the component for better performance
-const sanityClient = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-  dataset: "production",
-  apiVersion: "2022-03-25",
-  useCdn: false,
-});
-
-// TypeScript interfaces for type safety
-interface Post {
-  _id: string;
-  title: string;
-  summary: string;
-	slug: {
-    current: string;
-  };
-}
+import React from 'react'
+import { useState, useEffect, useCallback } from 'react'
+import Head from 'next/head'
+import { type Post} from './types'
+import BlogCard from '@/components/blogs/blog-card' 
+import '@/app/globals.css' // Global styles
+import { getInitialPosts, fetchMorePosts } from '@/services/sanity'
+import Header from '@/components/universal/header' 
+import Footer from '@/components/universal/footer' 
 
 interface BlogProps {
-  posts: Post[];
+  posts: Post[]
 }
 
-// Fetch posts at build time
-export async function getStaticProps() {
-  const posts = await sanityClient.fetch(`*[_type == "blogPost"]`);
+const Blog: React.FC<BlogProps> = ({ posts: initialPosts }) => {
+  const [posts, setPosts] = useState<Post[]>(initialPosts)
+	const [hasMore, setHasMore] = useState(true)
+  const [startIndex, setStartIndex] = useState(2)
+	const [isLoading, setIsLoading] = useState(false)
+
+  const handleScroll = useCallback(async () => {
+		// Check if the user has scrolled to the bottom, if there are more posts to load, and if it's not currently loading
+		if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight || !hasMore || isLoading) return;
+		setIsLoading(true);
+		const morePosts = await fetchMorePosts(startIndex, 2); // Ensure you're fetching two posts at a time
+		setPosts((prevPosts) => [...prevPosts, ...morePosts]);
+		setStartIndex(prevIndex => prevIndex + 2); // Increment startIndex by 2 to fetch the next set of posts
+		if (morePosts.length < 2) setHasMore(false); // If fewer than 2 posts are returned, assume there are no more posts to fetch
+		setIsLoading(false); // Reset loading state
+	}, [startIndex, hasMore, isLoading]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [handleScroll])
+
+	return (
+		<>
+			<Head>
+				<title>Official Cartberry Blog</title>
+				<meta name="description" content="Your frugal go-to source for all things grocery." />
+			</Head>
+			<div className="flex flex-col min-h-screen justify-between">
+				<Header />
+				<div>
+					<div className="mt-10 flex flex-col items-center justify-center sm:w-[650px] mx-auto">
+						<div className="space-y-4 mx-10">
+							{posts.map((post) => (
+								<BlogCard key={post._id} post={post} /> // Use BlogCard here
+							))}
+						</div>
+					</div>
+				</div>
+				<Footer />
+			</div>
+		</>
+	)
+}
+
+// Use getInitialPosts instead of getStaticProps for initial data fetching
+export const getStaticProps = async () => {
+  const { props } = await getInitialPosts();
   return {
-    props: {
-      posts,
-    },
+    props,
   };
-}
+};
 
-// Post component for individual posts
-const PostComponent: React.FC<{ post: Post }> = ({ post }) => (
-  <div key={post._id} className="mb-4">
-    <h2 className="text-xl font-bold">{post.title}</h2>
-    <span>{post.summary} </span>
-    <Link 
-      href={`/blog/${post.slug.current}`} 
-      className="inline-block mt-2 px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
-      passHref
-    >
-      Read More
-    </Link>
-  </div>
-);
-
-// Blog component for rendering the list of posts
-const Blog: React.FC<BlogProps> = ({ posts }) => (
-	<div>
-		<h1>Cartberry Blog</h1>
-		<div className="space-y-4">
-			{posts.map((post) => (
-				<PostComponent key={post._id} post={post} />
-			))}
-		</div>
-	</div>
-);
-
-export default Blog;
+export default Blog

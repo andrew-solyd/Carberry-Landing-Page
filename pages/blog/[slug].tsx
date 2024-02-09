@@ -2,38 +2,18 @@ import React from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import { createClient } from 'next-sanity'
-import imageUrlBuilder from '@sanity/image-url'
 import { ParsedUrlQuery } from 'querystring'
 import { PortableText, PortableTextReactComponents, PortableTextMarkComponentProps, PortableTextComponentProps, ReactPortableTextList, ReactPortableTextListItem } from '@portabletext/react'
 import { BlogPosting, WithContext } from 'schema-dts'
-import Header from '@/components/universal/header' // Adjust the import path as necessary
-import Footer from '@/components/universal/footer' // Adjust the import path as necessary
+import Header from '@/components/universal/header' 
+import Footer from '@/components/universal/footer' 
 import '@/app/globals.css' // Global styles
-// Sanity client configuration
-const sanityClient = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-  dataset: 'production',
-  apiVersion: '2022-03-25',
-  useCdn: false,
-})
-const builder = imageUrlBuilder(sanityClient)
+import { type Post } from './types'
+import RandomBlogCard  from '@/components/blogs/random-blog'
+import { sanityClient, urlFor } from '@/services/sanity'
 
-function urlFor(source: string) {
-  return builder.image(source)
-}
 
-// TypeScript interfaces for improved type safety
-interface PostType {
-     title: string
-     content: any[]
-     summary: string
-     author?: string // Optional if you have posts without an explicit author
-     image?: string
-     date: string
-   }
-
-export const generateContentStructuredData = (post: PostType): WithContext<BlogPosting> => {
+export const generateContentStructuredData = (post: Post): WithContext<BlogPosting> => {
 	const schema: WithContext<BlogPosting> = {
 		'@context': 'https://schema.org',
 		'@type': 'BlogPosting',
@@ -142,7 +122,7 @@ const myPortableTextComponents: PortableTextReactComponents = {
   unknownListItem: ({children}) => <li>{children}</li>, 
 }
 
-const Post: React.FC<{ post: PostType }> = ({ post }) => {
+const Post: React.FC<{ post: Post }> = ({ post }) => {
   return (
 		<>
 			<Head>
@@ -151,8 +131,8 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
       </Head>
 			<div className="flex flex-col min-h-screen justify-between">
 				<Header />
-				<main className="flex flex-col mt-5 mx-4 sm:w-[600px] md:flex-row md:items-start md:justify-between md:w-full">
-					<article className="prose lg:prose-xl mx-auto px-7 mt-2 w-full md:w-1/2">
+				<main className="flex flex-col mt-5 mx-4 md:flex-row md:items-start md:justify-between md:w-full">
+					<article className="w-full sm:w-[600px] sm:max-w-[600px] prose lg:prose-xl mx-auto px-7 mt-2">
 						<h1 className="text-3xl mb-5 font-bold">
 							{post.title}
 						</h1>
@@ -164,6 +144,8 @@ const Post: React.FC<{ post: PostType }> = ({ post }) => {
 						</div>          
 						<PortableText value={post.content} components={myPortableTextComponents}/>
 						<StructuredData data={generateContentStructuredData(post)} />
+						<div className="mt-5 text-sm font-semibold">Continue reading...</div>
+						<RandomBlogCard currentSlug={post.slug.current}/>
 					</article>
 					{post.image && (
 						<div className="hidden md:block md:pl-4 md:w-96 relative h-96">
