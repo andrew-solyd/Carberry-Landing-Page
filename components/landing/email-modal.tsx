@@ -54,7 +54,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange, variation
   }
 
   return (
-    <Modal isOpen={isOpen} onOpenChange={onOpenChange} onClose={handleClose} placement="center" className="mx-5 mb-20 bg-zinc-900 text-white">
+    <Modal isOpen={isOpen} onOpenChange={onOpenChange} onClose={handleClose} placement="center" className="mx-5 mb-20 bg-slate-950 text-white">
       <ModalContent>
         {() => (
           <div className="flex flex-col px-5 py-10 items-center">
@@ -67,30 +67,30 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange, variation
                 </>
               ) : (
                 <>
-                  <h1 className="sm:w-[300px] text-xl text-center mb-2">
+                  <h1 className="sm:w-[300px] text-xl text-center mb-2 font-semibold">
                     {emailModalHeader}
                   </h1>
-                  <p className="text-sm text-center px-5">
+                  <p className="text-sm text-center px-2 text-slate-300">
                      {emailModalText}
                   </p>
                   <div className="flex flex-col items-center mb-3 mx-1">              
-                    <form onSubmit={handleEmailSubmit} className="sm:w-[300px] flex flex-col items-center justify-center mt-4 text-sm">
+                    <form onSubmit={handleEmailSubmit} className="w-[250px] sm:w-[300px] flex flex-col items-center justify-center mt-4 text-sm">
                       <input
                         type="email"
                         placeholder="Enter your email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="mt-3 w-full bg-zinc-900 border border-[rgb(156,163,175)] rounded-lg px-2 py-2"
+                        className="mt-3 w-full bg-slate-700 rounded-lg px-2 py-2"
                       />
                       {error && <p className="mt-2 text-xs text-red-500">{error}</p>}
                       <button 
                         type="submit" 
                         disabled={isLoading} 
-                        className="w-[200px] mt-5 bg-white text-[rgb(0,0,23)] rounded-lg p-2 hover:bg-[rgb(156,163,175)]"
+                        className="w-[250px] sm:w-[300px] mt-5 rounded-lg p-2 hover:bg-orange-400 bg-orange-600 font-bold sm:font-semibold"
                       >
                         {isLoading ? 'Adding email...' : emailModalButton}
                       </button>
-                      {!error && <p className="w-[200px] mt-2 text-xs text-zinc-600 text-center">Your privacy is paramount. We keep all data personal and confidential.</p>}
+                      {!error && <p className="w-[250px] sm:w-[300px] mt-3 text-xs text-zinc-600 text-center">Your privacy is paramount. We keep all data personal and confidential.</p>}
                     </form>
                   </div>
                 </>

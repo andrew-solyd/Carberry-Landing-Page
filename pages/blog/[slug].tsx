@@ -144,7 +144,7 @@ const Post: React.FC<{ post: Post }> = ({ post }) => {
 						</div>          
 						<PortableText value={post.content} components={myPortableTextComponents}/>
 						<StructuredData data={generateContentStructuredData(post)} />
-						<div className="mt-5 text-sm font-semibold">Continue reading...</div>
+						<div className="my-5 text-sm font-semibold">Continue reading...</div>
 						<RandomBlogCard currentSlug={post.slug.current}/>
 					</article>
 					{post.image && (

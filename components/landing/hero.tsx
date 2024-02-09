@@ -28,16 +28,16 @@ const Hero: React.FC<HeroProps> = ({ variation  }) => {
       <div className="flex flex-col sm:flex-row">
         <div className="w-full flex justify-end sm:min-w-[475px] sm:max-w-[700px]">
           <div className="flex flex-col justify-center pb-5 sm:px-2 sm:py-0 sm:pr-10 sm:w-4/5">          
-            <h1 className="text-balance text-center sm:text-left text-5xl sm:text-4xl font-extrabold sm:font-bold">
+            <h1 className="mx-5 sm:mx-0 text-balance text-center sm:text-left text-5xl sm:text-4xl font-extrabold sm:font-bold">
               {header}
             </h1>
-            <div className="text-lg text-balance mt-5 mb-5 sm:mb-0 text-center sm:text-left">
+            <div className="mx-5 sm:mx-0 text-lg text-balance mt-5 mb-5 sm:mb-0 text-center sm:text-left">
               <p>
                 {subheader[0]}
                 <span className="font-semibold"> {subheader[1]}</span>
               </p>
             </div>
-            <div className="flex justify-center sm:justify-end sm:mt-6 sm:pr-2">
+            <div className="flex justify-center sm:justify-end mb-5 sm:mb-0 sm:mt-6 sm:pr-2">
               <button className="flex flex-row items-center hover:bg-orange-400 bg-orange-600 text-white py-2 px-6 rounded-lg font-bold sm:font-semibold" onClick={handleClick}>
                 {cta} <FaArrowRight className="ml-2"/>
               </button>
