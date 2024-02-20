@@ -23,6 +23,21 @@ export default function Home() {
   )
 }
 
+function usePageLoad(callback: () => void) {
+  useEffect(() => {
+    const checkAndExecute = () => {
+      if (document.readyState === 'complete') {
+        callback();
+      } else {
+        window.addEventListener('load', callback);
+        return () => window.removeEventListener('load', callback);
+      }
+    };
+
+    checkAndExecute();
+  }, [callback]);
+}
+
 function Content() {
 
   const searchParams = useSearchParams() 
@@ -30,33 +45,37 @@ function Content() {
   const utmRef = useRef<number | undefined>()
 
   useEffect(() => {
-		// Function to track the hit
-		const trackHit = async () => {
-			// Capture the full URL, including query parameters (UTMs, etc.)
-			const url = window.location.href
-			const referrer = document.referrer
 
-			// Send the URL to the API route
-			await fetch('/api/hit', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({ url, referrer }), // Send the URL in the request body
-			})
-		}
-
-  	trackHit().catch(console.error);
 		// get variations data
     const fetchVariations = async () => {
       if (!searchParams) return
-      const utmParam = searchParams.get('utm')
+      const utmParam = searchParams.get('utm_campaign')
       utmRef.current = utmParam ? Number(utmParam) : undefined // Use useRef to persist value
       const variations = await getVariations({ utm: utmRef.current })
       setVariation(variations)
     }
     fetchVariations()
   }, [searchParams])
+
+		 // Use the custom hook to track the hit after the page has fully loaded
+  usePageLoad(() => {
+    trackHit().catch(console.error)
+  })
+
+	const trackHit = async () => {
+		// Capture the full URL, including query parameters (UTMs, etc.)
+		const url = window.location.href
+		const referrer = document.referrer
+
+		// Send the URL to the API route
+		await fetch('/api/hit', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ url, referrer }), // Send the URL in the request body
+		})
+	}
 
   if (!variation) {
     return  // Or some other loading state

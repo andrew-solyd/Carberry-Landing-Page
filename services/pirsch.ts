@@ -13,13 +13,16 @@ export const addHit = async (hitData: HitData) => {
 
 		console.log(hitData)
 
-    try {
-        await axios.post('https://api.pirsch.io/api/v1/hit', hitData, {
-            headers: {
-                'Authorization': `Bearer ${process.env.PIRSCH_SECRET}`
-            }
-        });
-    } catch (error) {
-        console.error('Error sending hit:', error);
-    }
+		if (process.env.ENV != 'DEV') {
+			console.log('posting to pirsch')
+			try {
+					await axios.post('https://api.pirsch.io/api/v1/hit', hitData, {
+							headers: {
+									'Authorization': `Bearer ${process.env.PIRSCH_SECRET}`
+							}
+					});
+			} catch (error) {
+					console.error('Error sending hit:', error);
+			}
+		}
 }
