@@ -6,9 +6,13 @@ type HitData = {
     url: string;
     ip: string | string[] | undefined;
     user_agent: string | undefined;
+		referrer: string;
 }
 
 export const addHit = async (hitData: HitData) => {
+
+		console.log(hitData)
+
     try {
         await axios.post('https://api.pirsch.io/api/v1/hit', hitData, {
             headers: {
