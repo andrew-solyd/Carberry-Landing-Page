@@ -1,6 +1,7 @@
 // services/airtable.ts
 
 "use server"
+
 import axios from 'axios'
 
 export const addEmailToAirtable = async (email: string, utm: number) => {

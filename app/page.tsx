@@ -17,7 +17,7 @@ import getVariations, { LandingPage }  from '@/components/landing/variations'
 export default function Home() {  
 
   return (
-    <Suspense fallback={<div>Loading...</div>}> {/* Add Suspense here with a fallback */}
+    <Suspense fallback={<div>Loading...</div>}> {/* Add Suspense here with a fallback */}			
       <Content />
     </Suspense>
   )
@@ -30,18 +30,21 @@ function Content() {
   const utmRef = useRef<number | undefined>()
 
   useEffect(() => {
+		// Function to track the hit
+
+		// get variations data
     const fetchVariations = async () => {
       if (!searchParams) return
       const utmParam = searchParams.get('utm')
       utmRef.current = utmParam ? Number(utmParam) : undefined // Use useRef to persist value
       const variations = await getVariations({ utm: utmRef.current })
       setVariation(variations)
-    };
-    fetchVariations();
-  }, [searchParams]);
+    }
+    fetchVariations()
+  }, [searchParams])
 
   if (!variation) {
-    return <div>Loading...</div>; // Or some other loading state
+    return  // Or some other loading state
   }
   
   return (

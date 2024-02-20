@@ -11,6 +11,8 @@ import '@/app/globals.css' // Global styles
 import { type Post } from '@/types/blog-types'
 import RandomBlogCard  from '@/components/blogs/random-blog'
 import { sanityClient, urlFor } from '@/services/sanity'
+import { Analytics } from '@/components/analytics'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 
 export const generateContentStructuredData = (post: Post): WithContext<BlogPosting> => {
@@ -162,6 +164,8 @@ const Post: React.FC<{ post: Post }> = ({ post }) => {
 				</main>
 				<Footer />
 			</div>
+			<Analytics />
+      <SpeedInsights />
 		</>
   )
 }

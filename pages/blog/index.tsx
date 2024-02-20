@@ -8,6 +8,8 @@ import '@/app/globals.css' // Global styles
 import { getInitialPosts, fetchMorePosts } from '@/services/sanity'
 import Header from '@/components/universal/header' 
 import Footer from '@/components/universal/footer' 
+import { Analytics } from '@/components/analytics'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 interface BlogProps {
   posts: Post[]
@@ -39,7 +41,7 @@ const Blog: React.FC<BlogProps> = ({ posts: initialPosts }) => {
 		<>
 			<Head>
 				<title>Official Cartberry Blog</title>
-				<meta name="description" content="Your frugal go-to source for all things grocery." />
+				<meta name="description" content="Your frugal go-to source for navigating dinner options and grocery deals." />
 			</Head>
 			<div className="flex flex-col min-h-screen justify-between">
 				<Header />
@@ -54,6 +56,8 @@ const Blog: React.FC<BlogProps> = ({ posts: initialPosts }) => {
 				</div>
 				<Footer />
 			</div>
+			<Analytics />
+      <SpeedInsights />
 		</>
 	)
 }
