@@ -7,6 +7,8 @@ import { FaArrowRight } from "react-icons/fa6"
 import { LandingPage }  from '@/components/landing/variations'
 import EmailModal from '@/components/landing/email-modal'
 
+import { trackEvent } from '@/helpers/tracking'
+
 interface HeroProps {
   variation: LandingPage;
 }
@@ -17,11 +19,10 @@ const Hero: React.FC<HeroProps> = ({ variation  }) => {
   const {isOpen, onOpen, onOpenChange} = useDisclosure()
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault()
+    trackEvent('hero-cta-click').catch(console.error)
+		event.preventDefault()
     onOpen()
   }
-
-	console.log()
 
   return (
     <>

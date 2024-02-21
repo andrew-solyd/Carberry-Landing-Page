@@ -6,6 +6,8 @@ import { addEmailToAirtable } from '@/services/airtable'
 import { sendWelcomeEmail } from '@/services/email'
 import { LandingPage }  from '@/components/landing/variations'
 
+import { trackEvent } from '@/helpers/tracking'
+
 interface EmailModalProps {
   isOpen: boolean
   onOpenChange: (open: boolean) => void
@@ -25,6 +27,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange, variation
   }
 
   const handleEmailSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+		trackEvent('signup-click').catch(console.error)
     event.preventDefault()
     setIsLoading(true)
     setError(null)

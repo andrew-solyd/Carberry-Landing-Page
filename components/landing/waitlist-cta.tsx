@@ -4,17 +4,18 @@ import {useDisclosure} from "@nextui-org/modal"
 import EmailModal from './email-modal'
 import { LandingPage }  from '@/components/landing/variations'
 
-
+import { trackEvent } from '@/helpers/tracking'
 interface CTAProps {
   variation: LandingPage
 }
 
 const WaitlistCTA: React.FC<CTAProps> = ({ variation }) => {
 
-  const { utm, bottomHeader, bottomParagraph, bottomCTA } = variation;
+  const { bottomHeader, bottomParagraph, bottomCTA } = variation;
 	const {isOpen, onOpen, onOpenChange} = useDisclosure()
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+		trackEvent('bottom-cta-click').catch(console.error)
     event.preventDefault()
     onOpen()
   }
