@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
@@ -18,6 +19,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+			<Head>
+        {/* Preconnect or DNS-prefetch resource hints */}
+        <link rel="preconnect" href="https://cdn.sanity.io" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://cdn.sanity.io" />
+        {/* Ensure to replace 'https://cdn.sanity.io' with the actual domain you're using */}
+      </Head>
       <body className={inter.className}>
         {children}
         <Analytics />

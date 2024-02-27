@@ -129,6 +129,8 @@ const Post: React.FC<{ post: Post }> = ({ post }) => {
 			<Head>
         <title>{post.title}</title>
         <meta name="description" content={post.summary} />
+				<link rel="preconnect" href="https://cdn.sanity.io" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://cdn.sanity.io" />
       </Head>
 			<div className="flex flex-col min-h-screen justify-between">
 				<Header />
