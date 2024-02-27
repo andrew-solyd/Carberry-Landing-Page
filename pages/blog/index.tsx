@@ -9,7 +9,6 @@ import { getInitialPosts, fetchMorePosts } from '@/services/sanity'
 import Header from '@/components/universal/header' 
 import Footer from '@/components/universal/footer' 
 import { Analytics } from '@/components/analytics'
-import { SpeedInsights } from '@vercel/speed-insights/next'
 
 interface BlogProps {
   posts: Post[]
@@ -57,7 +56,6 @@ const Blog: React.FC<BlogProps> = ({ posts: initialPosts }) => {
 				<Footer />
 			</div>
 			<Analytics />
-      <SpeedInsights />
 		</>
 	)
 }
