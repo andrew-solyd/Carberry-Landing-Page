@@ -51,12 +51,14 @@ const getVariations = async ({ utm }: UTM): Promise<LandingPage> => {
     throw new Error('No matching page found');
   }
 
+	const imageURL = matchedPage.image ? urlFor(matchedPage.image).url() : '/hero_0.png'
+
   // Constructing the variation object directly
   const variation = {
 		utm: utmValue ?? 0,
     header: matchedPage.header ?? '',
     subheader: matchedPage.subheader ?? [],
-    image: urlFor(matchedPage.image).url() ?? '/hero.png',
+    image: imageURL ?? '/hero_0.png',
     cta: matchedPage.cta ?? '',
     propsHeader: matchedPage.propsHeader ?? '',
     propsImages: matchedPage.propsImages ? matchedPage.propsImages.map(img => urlFor(img).url()) : [],

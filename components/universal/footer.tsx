@@ -13,7 +13,7 @@ const Footer = () => {
 				</Link>
         <div className="flex space-x-2 flex-row">
           <PiTiktokLogo size={20} />
-          <Link href="https://www.instagram.com/cartberry_app" className="cursor-pointer">
+          <Link href="https://www.instagram.com/cartberry_app" aria-label="Cartberry on Instagram" className="cursor-pointer">
 						<PiInstagramLogo size={20} />
 					</Link>
         </div>
