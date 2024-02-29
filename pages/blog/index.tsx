@@ -41,8 +41,6 @@ const Blog: React.FC<BlogProps> = ({ posts: initialPosts }) => {
 			<Head>
 				<title>Official Cartberry Blog</title>				
 				<meta name="description" content="Your frugal go-to source for navigating dinner options and grocery deals." />
-				<link rel="preconnect" href="https://cdn.sanity.io" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://cdn.sanity.io" />
 			</Head>
 			<div className="flex flex-col min-h-screen justify-between">
 				<Header />

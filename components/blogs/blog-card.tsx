@@ -14,18 +14,22 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => (
       <div className="sm:flex-shrink-0"> {/* Adjust the max-width as needed */}
 				{post.image && (
 					<div className="rounded-lg overflow-hidden m-4 sm:m-1"> {/* This maintains a 1:1 aspect ratio */}
-						<Image 
-							src={urlFor(post.image).url()}  
-							alt={post.title} 
-							width={80} 
-							height={80} 
-							className="rounded mr-4 object-cover w-full h-full" // Use object-cover to maintain aspect ratio without stretching
-						/>
+						<Link href={`/blog/${post.slug.current}`} passHref>
+							<Image 
+								src={urlFor(post.image).url()}  
+								alt={post.title} 
+								width={80} 
+								height={80} 
+								className="rounded mr-4 object-cover w-full h-full" // Use object-cover to maintain aspect ratio without stretching
+							/>
+						</Link>
 					</div>
 				)}
 			</div>
       <div className="flex flex-col ml-5">
-        <h3 className="text-lg font-bold leading-6 mb-2">{post.title}</h3>
+				<Link href={`/blog/${post.slug.current}`} passHref>
+        	<h3 className="text-lg font-bold leading-6 mb-2">{post.title}</h3>
+				</Link>
         <p className="text-sm">{post.summary.split(" ").length > 25 ? `${post.summary.split(" ").slice(0, 25).join(" ")}...` : post.summary}</p>
         <div className="flex flex-row justify-end mt-4 mr-2">
           <Link href={`/blog/${post.slug.current}`} passHref>
