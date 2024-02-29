@@ -1,5 +1,7 @@
 // components/landing/variations.tsx
 
+"use server"
+
 import { createClient } from "next-sanity"
 import imageUrlBuilder from '@sanity/image-url'
 
