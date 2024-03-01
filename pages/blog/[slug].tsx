@@ -124,6 +124,9 @@ const myPortableTextComponents: PortableTextReactComponents = {
 }
 
 const Post: React.FC<{ post: Post }> = ({ post }) => {
+
+	const authors = ["Rafael Goldberg", "Andrew Yakovlev"]
+
   return (
 		<>
 			<Head>
@@ -137,9 +140,11 @@ const Post: React.FC<{ post: Post }> = ({ post }) => {
 						<h1 className="text-3xl mb-5 font-bold">
 							{post.title}
 						</h1>
-						<div className="bg-orange-200 text-xs px-3 py-1 rounded-full inline-flex">
-							Post contains generative AI writing
-						</div>
+						{!authors.includes(post.author || "") && (
+							<div className="bg-orange-200 text-xs px-3 py-1 rounded-full inline-flex">
+								Post contains generative AI writing
+							</div>
+						)}
 						<div className="text-sm my-5 font-semibold">
 							Publish Date: {post.date}
 						</div>          
