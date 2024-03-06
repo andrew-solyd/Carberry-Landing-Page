@@ -16,10 +16,9 @@ import getVariations, { LandingPage }  from '@/components/landing/variations'
 
 import { trackHit } from '@/helpers/tracking'
 
-export default function Home() {  
-
+export default function Home() {
   return (
-    <Suspense fallback={<div>Loading...</div>}> {/* Add Suspense here with a fallback */}			
+    <Suspense fallback={<div></div>}>
       <Content />
     </Suspense>
   )
@@ -70,7 +69,7 @@ function Content() {
   
   return (
     <main className="flex flex-col items-center">
-      <div className="px-7 mt-2 w-full">
+      <div className="px-7 mt-5 sm:mt-2 w-full">
         <Header  />
       </div>
       <div className="flex flex-col items-center mt-5 mb-5 px-3 w-full">

@@ -29,10 +29,10 @@ const Hero: React.FC<HeroProps> = ({ variation  }) => {
       <div className="flex flex-col sm:flex-row">
         <div className="w-full flex justify-end sm:min-w-[475px] sm:max-w-[700px]">
           <div className="flex flex-col justify-center pb-5 sm:px-2 sm:py-0 sm:pr-10 sm:w-4/5">          
-            <h1 className="mx-5 sm:mx-0 text-balance text-center sm:text-left text-5xl sm:text-4xl font-extrabold sm:font-bold">
+            <h1 className="sm:pr-10 text-balance text-center sm:text-left text-5xl font-extrabold sm:font-bold">
               {header}
             </h1>
-            <div className="mx-5 sm:mx-0 text-lg text-balance mt-5 mb-5 sm:mb-0 text-center sm:text-left">
+            <div className="mx-5 sm:pr-10 sm:mx-0 text-lg text-balance mt-5 mb-10 sm:mb-0 text-center sm:text-left">
               <p>
                 {subheader[0]}
                 <span className="font-semibold"> {subheader[1]}</span>
