@@ -47,6 +47,7 @@ const Hero: React.FC<HeroProps> = ({ variation  }) => {
         </div>        
         <div className="w-full sm:min-w-[300px] flex flex-col items-center sm:items-start sm:pl-5">
           <div className="rounded-lg overflow-hidden m-1" style={container}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={variation.image} alt="Hero image" width="350" height="350"/>
           </div>
         </div>
