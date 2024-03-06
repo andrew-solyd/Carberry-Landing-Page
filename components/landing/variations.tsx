@@ -15,8 +15,8 @@ const client = createClient({
 
 const builder = imageUrlBuilder(client);
 
-function urlFor(source: any) {
-  return builder.image(source);
+function urlFor(source: any, width: number = 700, height: number = 700) {
+  return builder.image(source).width(width).height(height).url();
 }
 
 interface UTM {
@@ -53,7 +53,7 @@ const getVariations = async ({ utm }: UTM): Promise<LandingPage> => {
     throw new Error('No matching page found');
   }
 
-	const imageURL = matchedPage.image ? urlFor(matchedPage.image).url() : '/hero_0.png'
+	const imageURL = matchedPage.image ? urlFor(matchedPage.image) : '/hero_0.png'
 
   // Constructing the variation object directly
   const variation = {
@@ -63,7 +63,7 @@ const getVariations = async ({ utm }: UTM): Promise<LandingPage> => {
     image: imageURL ?? '/hero_0.png',
     cta: matchedPage.cta ?? '',
     propsHeader: matchedPage.propsHeader ?? '',
-    propsImages: matchedPage.propsImages ? matchedPage.propsImages.map(img => urlFor(img).url()) : [],
+    propsImages: matchedPage.propsImages ? matchedPage.propsImages.map(img => urlFor(img, 256, 256)) : [],
     props: matchedPage.props ?? [],
     bottomHeader: matchedPage.bottomHeader ?? '',
     bottomParagraph: matchedPage.bottomParagraph ?? '',
