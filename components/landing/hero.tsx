@@ -5,7 +5,6 @@ import {useDisclosure} from "@nextui-org/modal"
 import { FaArrowRight } from "react-icons/fa6"
 
 import { LandingPage }  from '@/components/landing/variations'
-import EmailModal from '@/components/landing/email-modal'
 
 import { trackEvent } from '@/helpers/tracking'
 
@@ -15,7 +14,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ variation  }) => {
 
-	const { header, subheader, image, cta } = variation;
+	const { header, subheader, cta } = variation;
   const {isOpen, onOpen, onOpenChange} = useDisclosure()
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -38,11 +37,6 @@ const Hero: React.FC<HeroProps> = ({ variation  }) => {
                 <span className="font-semibold"> {subheader[1]}</span>
               </p>
             </div>
-            <div className="flex justify-center sm:justify-end mb-5 sm:mb-0 sm:mt-6 sm:pr-2">
-              <button className="flex flex-row items-center hover:bg-orange-400 bg-orange-600 text-white py-2 px-6 rounded-lg font-bold sm:font-semibold" onClick={handleClick}>
-                {cta} <FaArrowRight className="ml-2"/>
-              </button>
-            </div>
           </div>
         </div>        
         <div className="w-full sm:min-w-[300px] flex flex-col items-center sm:items-start sm:pl-5">
@@ -51,7 +45,6 @@ const Hero: React.FC<HeroProps> = ({ variation  }) => {
           </div>
         </div>
       </div>
-      <EmailModal isOpen={isOpen} onOpenChange={onOpenChange} variation={variation}/>
     </>
 
   )
