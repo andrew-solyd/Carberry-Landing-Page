@@ -73,7 +73,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange, variation
                   <h1 className="sm:w-[300px] text-xl text-center mb-2 font-semibold">
                     {emailModalHeader}
                   </h1>
-                  <p className="text-sm text-center px-2 text-slate-300">
+                  <p className="text-sm text-center px-2 text-slate-300 sm:mx-10">
                      {emailModalText}
                   </p>
                   <div className="flex flex-col items-center mb-3 mx-1">              

@@ -26,7 +26,7 @@ const WaitlistCTA: React.FC<CTAProps> = ({ variation }) => {
 				<h2 className="text-balance text-lg sm:text-2xl text-center font-semibold mb-3">
 					{bottomHeader}
 				</h2>
-					<p className="mx-2 sm:w-[600px] sm:text-lg text-center mb-10">
+					<p className="sm:w-[320px] sm:text-lg text-center mb-10 mx-5">
 						{ bottomParagraph }
 					</p>
 				<button 

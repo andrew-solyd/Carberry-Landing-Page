@@ -72,7 +72,7 @@ function Content() {
       <div className="px-7 mt-5 sm:mt-2 w-full">
         <Header  />
       </div>
-      <div className="flex flex-col items-center mt-5 mb-5 px-3 w-full">
+      <div className="flex flex-col items-center mt-10 sm:mt-5 mb-5 px-3 w-full">
         <Hero variation={variation} />
       </div>
       <div className="sm:mt-10 mb-10 w-full">
