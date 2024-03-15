@@ -7,8 +7,8 @@ import { Analytics } from '@/components/analytics'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Cartberry | Spend less on groceries, make fantastic meals',
-  description: 'Cartberry finds the best deals at your go-to stores and creates delicious recipes to maximize savings. Stop breaking your food budget with our new take on meal planning.'
+  title: 'Cartberry | Cook with what\'s on sale',
+  description: 'Cartberry finds the sales at your go-to stores and creates endless recipes with an organized shopping list.  Save time & money on food for the week.'
 }
 
 export default function RootLayout({
