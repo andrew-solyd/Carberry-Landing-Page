@@ -9,12 +9,12 @@ interface MealTicketProps {
 }
 
 const MealTicket: React.FC<MealTicketProps> = ({ activeIndex, index, isIncoming, isOutgoing }) => {
-	let parallaxY = "-10%";
+	let parallaxY = "10%";
 	if (isIncoming || isOutgoing) {
-		parallaxY = "10%";
+		parallaxY = "-10%";
 	}
   if (index === activeIndex) {
-    parallaxY = "10%";
+    parallaxY = "-10%";
   }
 
   return (
