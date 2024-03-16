@@ -19,8 +19,8 @@ const MealPage: React.FC = () => {
     const updateSpaceBetween = () => {
       const screenWidth = window.innerWidth;
       if (screenWidth < 520) { // Tailwind's 'sm' breakpoint
-        setSpaceBetween(200); 
-        setSlidesOffsetBefore(screenWidth/4.37*-1) 
+        setSpaceBetween(220); 
+        setSlidesOffsetBefore(-90) 
       } else {
         setSpaceBetween(140);
         setSlidesOffsetBefore(-60) 
@@ -46,7 +46,8 @@ const MealPage: React.FC = () => {
         <meta name="description" content="Choose your meal for today." />
       </Head>
       <div className="flex flex-col min-h-screen justify-between">
-        <Header />
+        <div className="mt-2 sm:mt-0"></div>
+        <Header/>
         <div className="flex flex-row items-center justify-center w-full">
           <div className="w-full sm:w-[460px]"> 
             <Swiper
