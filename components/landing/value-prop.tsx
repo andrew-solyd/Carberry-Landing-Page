@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { LandingPage }  from '@/components/landing/variations'
+import InViewEvent from '@/components/landing/inview-event'
 
 interface ValuePropProps {
   variation: LandingPage;
@@ -35,6 +36,7 @@ const ValueProp: React.FC<ValuePropProps> =  ({ variation }) => {
           </div>
         </div>
       </div>
+			<InViewEvent eventName="ValuePropViewed" />
     </div>
   )
 }

@@ -3,6 +3,7 @@
 import {useDisclosure} from "@nextui-org/modal"
 import EmailModal from './email-modal'
 import { LandingPage }  from '@/components/landing/variations'
+import InViewEvent from '@/components/landing/inview-event'
 
 import { trackEvent } from '@/helpers/tracking'
 interface CTAProps {
@@ -35,7 +36,8 @@ const WaitlistCTA: React.FC<CTAProps> = ({ variation }) => {
 				>
 					{bottomCTA}
 				</button>        
-			</div>  
+			</div>
+			<InViewEvent eventName="WaitListViewed" /> 
 			<EmailModal isOpen={isOpen} onOpenChange={onOpenChange} variation={variation} />
     </>
   )

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import Image from 'next/image'
+import InViewEvent from '@/components/landing/inview-event'
 
 const StoreLogos = () => {
   const containerRef = useRef<HTMLDivElement | null>(null)
@@ -8,19 +9,13 @@ const StoreLogos = () => {
     if (containerRef.current) {
     // containerRef.current.scrollLeft = 3400;
       containerRef.current.scrollLeft = window.innerWidth * .7// Set the starting position
-
-      
       const scrollAmount = 1; // Change this to control the speed of the scroll
       const scrollInterval = setInterval(() => {
         if (containerRef.current) {
           containerRef.current.scrollLeft += scrollAmount // Change += to -= to scroll to the left
         }
       }, 50) // Change this to control the frequency of the scroll
-
-      // Clean up function to clear the interval when the component unmounts
       return () => clearInterval(scrollInterval)
-      
-      
     }
   }, [])
 
@@ -46,6 +41,7 @@ const StoreLogos = () => {
         </div>
          <div className="absolute top-0 bottom-0 right-0 z-10 w-5 sm:w-20" style={{background: 'linear-gradient(to left, rgb(var(--background-rgb)), transparent)'}} />
       </div>
+			<InViewEvent eventName="StoreLogosViewed" />
     </>
   );
 };
