@@ -75,10 +75,7 @@ function Content() {
       <div className="flex flex-col items-center mt-10 sm:mt-5 mb-5 px-3 w-full">
         <Hero variation={variation} />
       </div>
-      <div className="sm:mt-10 mb-10 w-full">
-        <div className="sm:mb-10"><StoreLogos/></div>        
-      </div>
-      <div className="mb-10 w-full">
+      <div className="mt-10 mb-10 w-full">
         <div className=""><ValueProp variation={variation} /></div>        
       </div>      
       <div className="mb-10 w-full">
