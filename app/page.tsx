@@ -50,7 +50,7 @@ function Content() {
 		// get variations data
     const fetchVariations = async () => {
       if (!searchParams) return
-      const utmParam = searchParams.get('utm_campaign')
+      const utmParam = searchParams.get('lp')
       utmRef.current = utmParam ? Number(utmParam) : undefined // Use useRef to persist value
       const variations = await getVariations({ utm: utmRef.current })
       setVariation(variations)

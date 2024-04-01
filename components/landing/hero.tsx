@@ -44,7 +44,7 @@ const Hero: React.FC<HeroProps> = ({ variation  }) => {
         </div>        
         <div className="w-full sm:min-w-[300px] flex flex-col items-center sm:items-start sm:pl-5">
           <div className="rounded-lg overflow-hidden m-1">
-            <Image src="/meal_swipe_hero.png" alt="Hero image" width={350} height={350} priority quality={100}/>
+            <Image src="/meal_swipe_hero.png" alt="Hero image" width={350} height={350} priority/>
           </div>
         </div>
       </div>
