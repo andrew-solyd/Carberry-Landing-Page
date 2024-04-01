@@ -14,8 +14,8 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ variation  }) => {
 
-	const { header, subheader, cta } = variation;
-  const {isOpen, onOpen, onOpenChange} = useDisclosure()
+	const { header, subheader, cta, image } = variation;
+  const { onOpen } = useDisclosure()
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     trackEvent('hero-cta-click').catch(console.error)
@@ -44,7 +44,7 @@ const Hero: React.FC<HeroProps> = ({ variation  }) => {
         </div>        
         <div className="w-full sm:min-w-[300px] flex flex-col items-center sm:items-start sm:pl-5">
           <div className="rounded-lg overflow-hidden m-1">
-            <Image src="/meal_swipe_hero.png" alt="Hero image" width={350} height={350} priority/>
+            <Image src={image} alt="Hero image" width={350} height={350} priority/>
           </div>
         </div>
       </div>
