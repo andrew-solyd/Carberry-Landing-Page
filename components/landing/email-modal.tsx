@@ -73,7 +73,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange, variation
                   <h1 className="sm:w-[300px] text-xl text-center mb-2 font-semibold">
                     {emailModalHeader}
                   </h1>
-                  <p className="text-sm text-center px-2 text-slate-300 sm:mx-10">
+                  <p className="text-sm text-center px-2 text-slate-300 sm:mx-5">
                      {emailModalText}
                   </p>
                   <div className="flex flex-col items-center mb-3 mx-1">              
@@ -89,7 +89,7 @@ const EmailModal: React.FC<EmailModalProps> = ({ isOpen, onOpenChange, variation
                       <button 
                         type="submit" 
                         disabled={isLoading} 
-                        className="w-[250px] sm:w-[300px] mt-5 rounded-lg p-2 hover:bg-orange-400 bg-orange-600 font-bold sm:font-semibold"
+                        className="w-[250px] sm:w-[300px] mt-5 rounded-lg p-2 hover:bg-emerald-700 bg-emerald-600 font-bold sm:font-semibold"
                       >
                         {isLoading ? 'Adding email...' : emailModalButton}
                       </button>

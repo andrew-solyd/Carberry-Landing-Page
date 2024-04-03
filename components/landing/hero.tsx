@@ -2,10 +2,9 @@
 
 import Image from 'next/image'
 import {useDisclosure} from "@nextui-org/modal"
-import { TbCircleArrowDownFilled } from "react-icons/tb"
-
+import { FaArrowRight } from 'react-icons/fa'
+import EmailModal from './email-modal'
 import { LandingPage }  from '@/components/landing/variations'
-
 import { trackEvent } from '@/helpers/tracking'
 
 interface HeroProps {
@@ -14,8 +13,8 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ variation  }) => {
 
-	const { header, subheader, cta, image } = variation;
-  const { onOpen } = useDisclosure()
+	const { header, subheader, cta, image } = variation
+	const {isOpen, onOpen, onOpenChange} = useDisclosure()
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     trackEvent('hero-cta-click').catch(console.error)
@@ -26,19 +25,20 @@ const Hero: React.FC<HeroProps> = ({ variation  }) => {
   return (
     <>
       <div className="flex flex-col sm:flex-row">
-        <div className="w-full flex justify-end sm:min-w-[475px] sm:max-w-[700px]">
+        <div className="w-full flex justify-end sm:min-w-[600px] sm:max-w-[700px]">
           <div className="flex flex-col justify-center pb-5 sm:px-2 sm:py-0 sm:pr-5 sm:w-4/5">
-            <h1 className="sm:pr-2 text-balance text-center sm:text-left text-5xl font-extrabold sm:font-bold mb-2 sm:mb-0">
+            <h1 className="sm:pr-5 text-balance text-center sm:text-left text-5xl font-extrabold sm:font-bold mb-2 sm:mb-0">
               {header}
             </h1>
-            <div className="mx-5 sm:pr-5 sm:mx-0 text-lg text-balance mt-5 mb-5 sm:mb-0 text-center sm:text-left">
+            <div className="mx-5 sm:pr-5 sm:mx-0 text-lg text-balance mt-5 mb-6 sm:mb-0 text-center sm:text-left">
               <p>
-                {subheader[0]}
-                <span className="font-semibold"> {subheader[1]}</span>
+                {subheader[0]} <span className="font-semibold"> {subheader[1]}</span>
               </p>
-							<div className="flex justify-center sm:hidden mt-10">
-                <TbCircleArrowDownFilled className="text-orange-600" size={48} />
-              </div>
+							<div className="flex justify-center sm:justify-end mb-3 sm:mb-0 mt-10 sm:mt-8 sm:pr-2">
+								<button className="flex flex-row items-center hover:bg-emerald-700 bg-emerald-600 text-white py-2 px-6 rounded-lg font-semibold" onClick={handleClick}>
+									{cta} <FaArrowRight className="ml-2"/>
+								</button>
+            </div>
             </div>
           </div>
         </div>        
@@ -48,6 +48,7 @@ const Hero: React.FC<HeroProps> = ({ variation  }) => {
           </div>
         </div>
       </div>
+			<EmailModal isOpen={isOpen} onOpenChange={onOpenChange} variation={variation} />
     </>
 
   )

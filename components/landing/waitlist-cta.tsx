@@ -31,7 +31,7 @@ const WaitlistCTA: React.FC<CTAProps> = ({ variation }) => {
 						{ bottomParagraph }
 					</p>
 				<button 
-					className="hover:bg-orange-400 bg-orange-600 text-white px-10 py-2 rounded-lg font-semibold"
+					className="hover:bg-emerald-700 bg-emerald-600 text-white px-10 py-2 rounded-lg font-semibold"
 					onClick={handleClick}
 				>
 					{bottomCTA}
