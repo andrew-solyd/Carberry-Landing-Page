@@ -30,6 +30,7 @@ export interface LandingPage {
   image: string
   cta: string
   propsHeader: string
+	imageLocation: 'belowLogo' | 'belowHeading' | 'belowCTA'
 	propsImages: string[]
   props: string[]
 	bottomHeader: string
@@ -63,6 +64,7 @@ const getVariations = async ({ utm }: UTM): Promise<LandingPage> => {
     image: imageURL ?? '/hero_0.png',
     cta: matchedPage.cta ?? '',
     propsHeader: matchedPage.propsHeader ?? '',
+		imageLocation: matchedPage.imageLocation ?? 'belowCTA',
     propsImages: matchedPage.propsImages ? matchedPage.propsImages.map(img => urlFor(img, 256, 256)) : [],
     props: matchedPage.props ?? [],
     bottomHeader: matchedPage.bottomHeader ?? '',

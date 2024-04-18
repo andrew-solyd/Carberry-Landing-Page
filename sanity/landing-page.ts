@@ -25,6 +25,19 @@ export default {
       title: 'Hero image',
       type: 'image',
     },
+		{
+			name: 'imageLocation',
+			title: 'Hero image mobile location',
+			type: 'string',
+			options: {
+				list: [
+					{title: 'Below logo', value: 'belowLogo'},
+					{title: 'Below heading', value: 'belowHeading'},
+					{title: 'Below CTA', value: 'belowCTA'},
+				],
+				layout: 'radio', // Display as radio buttons
+			},
+		},
     {
       name: 'cta',
       title: 'Hero call-to-action',
