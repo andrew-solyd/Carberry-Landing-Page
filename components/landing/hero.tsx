@@ -37,7 +37,7 @@ const Hero: React.FC<HeroProps> = ({ variation  }) => {
       <div className="flex flex-col sm:flex-row">
         <div className="w-full flex justify-end sm:min-w-[600px] sm:max-w-[700px]">
           <div className="flex flex-col justify-center pb-5 sm:px-2 sm:py-0 sm:pr-5 sm:w-4/5">
-            <h1 className="sm:pr-5 text-balance text-center sm:text-left text-5xl font-extrabold sm:font-bold mb-2 sm:mb-0">
+            <h1 className="sm:pr-5 text-balance leading-tight text-center sm:text-left text-5xl font-extrabold sm:font-bold mb-2 sm:mb-0">
               {header}
             </h1>
 						{imageLocation === 'belowHeading' && renderHeroImage()}

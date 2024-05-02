@@ -16,19 +16,19 @@ const ValueProp: React.FC<ValuePropProps> =  ({ variation }) => {
           { propsHeader }
         </h1>
         <div className="flex flex-col sm:flex-row items-center sm:items-start mt-10">
-          <div className="w-[200px] sm:w-[240px] sm:w-full mb-10 sm:mb-0">
+          <div className="w-[220px] sm:w-[260px] sm:w-full mb-10 sm:mb-0">
             <div className="flex justify-center mb-5">
 							<Image src={propsImages[0]} alt="Value prop image" width={100} height={100}/>
 						</div>
             <div className="text-center text-pretty font-medium text-lg sm:text-base">{props[0]}</div>
           </div>
-          <div className="w-[200px] sm:w-[240px] mx-20 sm:w-full mb-10 sm:mb-0">
+          <div className="w-[220px] sm:w-[260px] mx-10 sm:w-full mb-10 sm:mb-0">
             <div className="flex justify-center mb-5">
 							<Image src={propsImages[1]} alt="Value prop image" width={100} height={100}/>
 						</div>
             <div className="text-center text-pretty font-medium text-lg sm:text-base">{props[1]}</div>
           </div>
-          <div className="w-[200px] sm:w-[240px] sm:w-full mb-6 sm:mb-0">
+          <div className="w-[220px] sm:w-[260px] sm:w-full mb-6 sm:mb-0">
             <div className="flex justify-center mb-5">
 							<Image src={propsImages[2]} alt="Value prop image" width={100} height={100}/>
 						</div>
